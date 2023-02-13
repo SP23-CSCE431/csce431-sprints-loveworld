@@ -1223,3 +1223,385 @@ Processing by UsersController#index as HTML
 Completed 200 OK in 117ms (Views: 105.1ms | ActiveRecord: 6.0ms | Allocations: 44535)
 
 
+Started GET "/group_members" for 172.17.0.1 at 2023-02-13 18:40:45 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GroupMembersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering group_members/index.html.erb within layouts/application
+  [1m[36mGroupMember Load (4.0ms)[0m  [1m[34mSELECT "group_members".* FROM "group_members"[0m
+  ↳ app/views/group_members/index.html.erb:6
+  Rendered group_members/_group_member.html.erb (Duration: 16.6ms | Allocations: 227)
+  Rendered group_members/index.html.erb within layouts/application (Duration: 199.8ms | Allocations: 6033)
+  Rendered layout layouts/application.html.erb (Duration: 8477.6ms | Allocations: 50755)
+Completed 200 OK in 9146ms (Views: 8553.8ms | ActiveRecord: 19.8ms | Allocations: 55828)
+
+
+Started GET "/group_members/1" for 172.17.0.1 at 2023-02-13 18:41:01 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by GroupMembersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGroupMember Load (1.4ms)[0m  [1m[34mSELECT "group_members".* FROM "group_members" WHERE "group_members"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/group_members_controller.rb:62:in `set_group_member'
+  Rendering layout layouts/application.html.erb
+  Rendering group_members/show.html.erb within layouts/application
+  Rendered group_members/_group_member.html.erb (Duration: 0.2ms | Allocations: 23)
+  Rendered group_members/show.html.erb within layouts/application (Duration: 16.4ms | Allocations: 903)
+  Rendered layout layouts/application.html.erb (Duration: 203.7ms | Allocations: 3198)
+Completed 200 OK in 309ms (Views: 206.6ms | ActiveRecord: 2.0ms | Allocations: 6053)
+
+
+Started GET "/group_members" for 172.17.0.1 at 2023-02-13 18:41:05 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by GroupMembersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering group_members/index.html.erb within layouts/application
+  [1m[36mGroupMember Load (0.6ms)[0m  [1m[34mSELECT "group_members".* FROM "group_members"[0m
+  ↳ app/views/group_members/index.html.erb:6
+  Rendered group_members/_group_member.html.erb (Duration: 0.2ms | Allocations: 19)
+  Rendered group_members/index.html.erb within layouts/application (Duration: 7.4ms | Allocations: 913)
+  Rendered layout layouts/application.html.erb (Duration: 115.3ms | Allocations: 3107)
+Completed 200 OK in 143ms (Views: 116.2ms | ActiveRecord: 0.6ms | Allocations: 3390)
+
+
+Started GET "/events" for 172.17.0.1 at 2023-02-13 18:42:27 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (1.7ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:6
+  Rendered events/_event.html.erb (Duration: 10.8ms | Allocations: 370)
+  Rendered events/index.html.erb within layouts/application (Duration: 118.7ms | Allocations: 6982)
+  Rendered layout layouts/application.html.erb (Duration: 1753.5ms | Allocations: 41831)
+Completed 200 OK in 2211ms (Views: 1819.6ms | ActiveRecord: 12.4ms | Allocations: 46702)
+
+
+Started POST "/event_members?event_id=1&user_id=1" for 172.17.0.1 at 2023-02-13 18:42:35 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by EventMembersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "event_id"=>"1", "user_id"=>"1"}
+[31mUnpermitted parameter: :authenticity_token. Context: { controller: EventMembersController, action: create, request: #<ActionDispatch::Request:0x00007f3c735ec5c0>, params: {"authenticity_token"=>"[FILTERED]", "event_id"=>"1", "user_id"=>"1", "controller"=>"event_members", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/event_members_controller.rb:25:in `block in create'
+  [1m[36mEvent Load (0.8ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/event_members_controller.rb:25:in `block in create'
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/event_members_controller.rb:25:in `block in create'
+  [1m[36mEventMember Create (2.3ms)[0m  [1m[32mINSERT INTO "event_members" ("event_id", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["event_id", 1], ["user_id", 1], ["created_at", "2023-02-13 18:42:36.509628"], ["updated_at", "2023-02-13 18:42:36.509628"]]
+  ↳ app/controllers/event_members_controller.rb:25:in `block in create'
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/event_members_controller.rb:25:in `block in create'
+Redirected to http://localhost:3000/event_members/2
+Completed 302 Found in 283ms (ActiveRecord: 17.3ms | Allocations: 18254)
+
+
+Started GET "/event_members/2" for 172.17.0.1 at 2023-02-13 18:42:36 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by EventMembersController#show as TURBO_STREAM
+  Parameters: {"id"=>"2"}
+  [1m[36mEventMember Load (1.6ms)[0m  [1m[34mSELECT "event_members".* FROM "event_members" WHERE "event_members"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/event_members_controller.rb:62:in `set_event_member'
+  Rendering layout layouts/application.html.erb
+  Rendering event_members/show.html.erb within layouts/application
+  Rendered event_members/_event_member.html.erb (Duration: 18.9ms | Allocations: 169)
+  Rendered event_members/show.html.erb within layouts/application (Duration: 86.1ms | Allocations: 1324)
+  Rendered layout layouts/application.html.erb (Duration: 369.3ms | Allocations: 3699)
+Completed 200 OK in 564ms (Views: 395.9ms | ActiveRecord: 1.6ms | Allocations: 5632)
+
+
+Started GET "/event_members" for 172.17.0.1 at 2023-02-13 18:42:40 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by EventMembersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering event_members/index.html.erb within layouts/application
+  [1m[36mEventMember Load (0.5ms)[0m  [1m[34mSELECT "event_members".* FROM "event_members"[0m
+  ↳ app/views/event_members/index.html.erb:6
+  Rendered event_members/_event_member.html.erb (Duration: 0.2ms | Allocations: 19)
+  Rendered event_members/_event_member.html.erb (Duration: 0.2ms | Allocations: 18)
+  Rendered event_members/index.html.erb within layouts/application (Duration: 14.4ms | Allocations: 1330)
+  Rendered layout layouts/application.html.erb (Duration: 121.2ms | Allocations: 3524)
+Completed 200 OK in 160ms (Views: 122.7ms | ActiveRecord: 0.5ms | Allocations: 3908)
+
+
+Started GET "/event_members/2" for 172.17.0.1 at 2023-02-13 18:42:43 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by EventMembersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mEventMember Load (1.2ms)[0m  [1m[34mSELECT "event_members".* FROM "event_members" WHERE "event_members"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/event_members_controller.rb:62:in `set_event_member'
+  Rendering layout layouts/application.html.erb
+  Rendering event_members/show.html.erb within layouts/application
+  Rendered event_members/_event_member.html.erb (Duration: 0.2ms | Allocations: 19)
+  Rendered event_members/show.html.erb within layouts/application (Duration: 4.5ms | Allocations: 553)
+  Rendered layout layouts/application.html.erb (Duration: 124.5ms | Allocations: 2792)
+Completed 200 OK in 247ms (Views: 128.3ms | ActiveRecord: 1.2ms | Allocations: 3605)
+
+
+Started GET "/event_members" for 172.17.0.1 at 2023-02-13 18:42:44 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by EventMembersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering event_members/index.html.erb within layouts/application
+  [1m[36mEventMember Load (1.5ms)[0m  [1m[34mSELECT "event_members".* FROM "event_members"[0m
+  ↳ app/views/event_members/index.html.erb:6
+  Rendered event_members/_event_member.html.erb (Duration: 0.2ms | Allocations: 19)
+  Rendered event_members/_event_member.html.erb (Duration: 0.1ms | Allocations: 18)
+  Rendered event_members/index.html.erb within layouts/application (Duration: 10.1ms | Allocations: 1034)
+  Rendered layout layouts/application.html.erb (Duration: 124.6ms | Allocations: 3227)
+Completed 200 OK in 160ms (Views: 124.7ms | ActiveRecord: 1.5ms | Allocations: 3505)
+
+
+Started GET "/groups" for 172.17.0.1 at 2023-02-13 18:43:33 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by GroupsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (5.0ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  ↳ app/views/groups/index.html.erb:6
+  Rendered groups/_group.html.erb (Duration: 14.0ms | Allocations: 174)
+  Rendered groups/index.html.erb within layouts/application (Duration: 118.5ms | Allocations: 4099)
+  Rendered layout layouts/application.html.erb (Duration: 1139.1ms | Allocations: 17822)
+Completed 200 OK in 1533ms (Views: 1154.4ms | ActiveRecord: 30.1ms | Allocations: 19863)
+
+
+Started GET "/groups/1" for 172.17.0.1 at 2023-02-13 18:43:54 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGroup Load (1.0ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:62:in `set_group'
+  Rendering layout layouts/application.html.erb
+  Rendering groups/show.html.erb within layouts/application
+  Rendered groups/_group.html.erb (Duration: 0.1ms | Allocations: 20)
+  Rendered groups/show.html.erb within layouts/application (Duration: 19.9ms | Allocations: 724)
+  Rendered layout layouts/application.html.erb (Duration: 235.4ms | Allocations: 2909)
+Completed 200 OK in 333ms (Views: 238.7ms | ActiveRecord: 1.0ms | Allocations: 4415)
+
+
+Started GET "/groups" for 172.17.0.1 at 2023-02-13 18:43:57 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by GroupsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (1.5ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  ↳ app/views/groups/index.html.erb:6
+  Rendered groups/_group.html.erb (Duration: 0.4ms | Allocations: 20)
+  Rendered groups/index.html.erb within layouts/application (Duration: 20.7ms | Allocations: 1122)
+  Rendered layout layouts/application.html.erb (Duration: 302.7ms | Allocations: 3379)
+Completed 200 OK in 376ms (Views: 306.8ms | ActiveRecord: 1.5ms | Allocations: 3666)
+
+
+Started POST "/group_members?group_id=1&user_id=1" for 172.17.0.1 at 2023-02-13 18:43:58 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by GroupMembersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "group_id"=>"1", "user_id"=>"1"}
+[31mUnpermitted parameter: :authenticity_token. Context: { controller: GroupMembersController, action: create, request: #<ActionDispatch::Request:0x00007f3cc014d350>, params: {"authenticity_token"=>"[FILTERED]", "group_id"=>"1", "user_id"=>"1", "controller"=>"group_members", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/group_members_controller.rb:25:in `block in create'
+  [1m[36mGroup Load (1.0ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/group_members_controller.rb:25:in `block in create'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/group_members_controller.rb:25:in `block in create'
+  [1m[36mGroupMember Create (2.3ms)[0m  [1m[32mINSERT INTO "group_members" ("group_id", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["group_id", 1], ["user_id", 1], ["created_at", "2023-02-13 18:43:59.715213"], ["updated_at", "2023-02-13 18:43:59.715213"]]
+  ↳ app/controllers/group_members_controller.rb:25:in `block in create'
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/group_members_controller.rb:25:in `block in create'
+Redirected to http://localhost:3000/group_members/2
+Completed 302 Found in 277ms (ActiveRecord: 20.3ms | Allocations: 13242)
+
+
+Started GET "/group_members/2" for 172.17.0.1 at 2023-02-13 18:44:00 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by GroupMembersController#show as TURBO_STREAM
+  Parameters: {"id"=>"2"}
+  [1m[36mGroupMember Load (1.2ms)[0m  [1m[34mSELECT "group_members".* FROM "group_members" WHERE "group_members"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/group_members_controller.rb:62:in `set_group_member'
+  Rendering layout layouts/application.html.erb
+  Rendering group_members/show.html.erb within layouts/application
+  Rendered group_members/_group_member.html.erb (Duration: 7.3ms | Allocations: 168)
+  Rendered group_members/show.html.erb within layouts/application (Duration: 36.6ms | Allocations: 1321)
+  Rendered layout layouts/application.html.erb (Duration: 138.5ms | Allocations: 3701)
+Completed 200 OK in 245ms (Views: 151.9ms | ActiveRecord: 1.2ms | Allocations: 5619)
+
+
+Started GET "/group_members" for 172.17.0.1 at 2023-02-13 18:44:03 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by GroupMembersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering group_members/index.html.erb within layouts/application
+  [1m[36mGroupMember Load (1.3ms)[0m  [1m[34mSELECT "group_members".* FROM "group_members"[0m
+  ↳ app/views/group_members/index.html.erb:6
+  Rendered group_members/_group_member.html.erb (Duration: 0.4ms | Allocations: 19)
+  Rendered group_members/_group_member.html.erb (Duration: 1.2ms | Allocations: 18)
+  Rendered group_members/index.html.erb within layouts/application (Duration: 37.9ms | Allocations: 1310)
+  Rendered layout layouts/application.html.erb (Duration: 310.4ms | Allocations: 3503)
+Completed 200 OK in 428ms (Views: 312.9ms | ActiveRecord: 1.3ms | Allocations: 3878)
+
+
+Started GET "/group_members/1" for 172.17.0.1 at 2023-02-13 18:44:07 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by GroupMembersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGroupMember Load (1.3ms)[0m  [1m[34mSELECT "group_members".* FROM "group_members" WHERE "group_members"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/group_members_controller.rb:62:in `set_group_member'
+  Rendering layout layouts/application.html.erb
+  Rendering group_members/show.html.erb within layouts/application
+  Rendered group_members/_group_member.html.erb (Duration: 0.5ms | Allocations: 19)
+  Rendered group_members/show.html.erb within layouts/application (Duration: 4.6ms | Allocations: 550)
+  Rendered layout layouts/application.html.erb (Duration: 197.3ms | Allocations: 2734)
+Completed 200 OK in 264ms (Views: 201.2ms | ActiveRecord: 1.3ms | Allocations: 3518)
+
+
+Started GET "/group_members" for 172.17.0.1 at 2023-02-13 18:44:10 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by GroupMembersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering group_members/index.html.erb within layouts/application
+  [1m[36mGroupMember Load (1.7ms)[0m  [1m[34mSELECT "group_members".* FROM "group_members"[0m
+  ↳ app/views/group_members/index.html.erb:6
+  Rendered group_members/_group_member.html.erb (Duration: 0.6ms | Allocations: 19)
+  Rendered group_members/_group_member.html.erb (Duration: 0.3ms | Allocations: 18)
+  Rendered group_members/index.html.erb within layouts/application (Duration: 25.8ms | Allocations: 1018)
+  Rendered layout layouts/application.html.erb (Duration: 147.6ms | Allocations: 3210)
+Completed 200 OK in 216ms (Views: 150.8ms | ActiveRecord: 1.7ms | Allocations: 3481)
+
+
+Started GET "/groups" for 172.17.0.1 at 2023-02-13 18:48:39 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GroupsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (1.1ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  ↳ app/views/groups/index.html.erb:6
+  Rendered groups/_group.html.erb (Duration: 5.6ms | Allocations: 230)
+  Rendered groups/index.html.erb within layouts/application (Duration: 87.6ms | Allocations: 11315)
+  Rendered layout layouts/application.html.erb (Duration: 89.1ms | Allocations: 11423)
+Completed 500 Internal Server Error in 342ms (ActiveRecord: 8.2ms | Allocations: 16235)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `event' for #<ActionView::Base:0x0000000000cff8>
+
+      '.freeze;@output_buffer.append=( button_to "Join Event", event_members_path(:event_id => event.id, :user_id => 1));@output_buffer.safe_append='
+                                                                                               ^^^^^
+Did you mean?  event_url):
+     7:     <%= render group %>
+     8:     <p>
+     9:       <%= link_to "Show this group", group %>
+    10:       <%= button_to "Join Event", event_members_path(:event_id => event.id, :user_id => 1)%>
+    11:     </p>
+    12:   <% end %>
+    13: </div>
+  
+app/views/groups/index.html.erb:10
+app/views/groups/index.html.erb:6
+Started GET "/groups" for 172.17.0.1 at 2023-02-13 18:49:38 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by GroupsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (1.6ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  ↳ app/views/groups/index.html.erb:6
+  Rendered groups/_group.html.erb (Duration: 15.0ms | Allocations: 163)
+  Rendered groups/index.html.erb within layouts/application (Duration: 89.2ms | Allocations: 1976)
+  Rendered layout layouts/application.html.erb (Duration: 3058.0ms | Allocations: 36702)
+Completed 200 OK in 3206ms (Views: 3098.7ms | ActiveRecord: 1.6ms | Allocations: 37601)
+
+
+Started POST "/event_members?group_id=1&user_id=1" for 172.17.0.1 at 2023-02-13 18:49:46 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by EventMembersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "group_id"=>"1", "user_id"=>"1"}
+[31mUnpermitted parameters: :authenticity_token, :group_id. Context: { controller: EventMembersController, action: create, request: #<ActionDispatch::Request:0x00007fdb8ea9e9a0>, params: {"authenticity_token"=>"[FILTERED]", "group_id"=>"1", "user_id"=>"1", "controller"=>"event_members", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/event_members_controller.rb:25:in `block in create'
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/event_members_controller.rb:25:in `block in create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/event_members_controller.rb:25:in `block in create'
+  Rendering layout layouts/application.html.erb
+  Rendering event_members/new.html.erb within layouts/application
+  Rendered event_members/_form.html.erb (Duration: 221.7ms | Allocations: 3331)
+  Rendered event_members/new.html.erb within layouts/application (Duration: 246.0ms | Allocations: 3659)
+  Rendered layout layouts/application.html.erb (Duration: 481.1ms | Allocations: 6059)
+Completed 422 Unprocessable Entity in 818ms (Views: 507.4ms | ActiveRecord: 13.6ms | Allocations: 22475)
+
+
+Started GET "/groups/1" for 172.17.0.1 at 2023-02-13 18:49:59 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGroup Load (0.7ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:62:in `set_group'
+  Rendering layout layouts/application.html.erb
+  Rendering groups/show.html.erb within layouts/application
+  Rendered groups/_group.html.erb (Duration: 7.7ms | Allocations: 163)
+  Rendered groups/show.html.erb within layouts/application (Duration: 31.3ms | Allocations: 1168)
+  Rendered layout layouts/application.html.erb (Duration: 185.0ms | Allocations: 3710)
+Completed 200 OK in 268ms (Views: 204.9ms | ActiveRecord: 0.7ms | Allocations: 5825)
+
+
+Started GET "/groups" for 172.17.0.1 at 2023-02-13 18:50:04 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by GroupsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.8ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  ↳ app/views/groups/index.html.erb:6
+  Rendered groups/_group.html.erb (Duration: 0.3ms | Allocations: 20)
+  Rendered groups/index.html.erb within layouts/application (Duration: 22.8ms | Allocations: 1392)
+  Rendered layout layouts/application.html.erb (Duration: 215.1ms | Allocations: 3585)
+Completed 200 OK in 281ms (Views: 216.7ms | ActiveRecord: 0.8ms | Allocations: 3956)
+
+
+Started POST "/group_members?group_id=1&user_id=1" for 172.17.0.1 at 2023-02-13 18:50:06 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by GroupMembersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "group_id"=>"1", "user_id"=>"1"}
+[31mUnpermitted parameter: :authenticity_token. Context: { controller: GroupMembersController, action: create, request: #<ActionDispatch::Request:0x00007fdb9c64ed88>, params: {"authenticity_token"=>"[FILTERED]", "group_id"=>"1", "user_id"=>"1", "controller"=>"group_members", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/group_members_controller.rb:25:in `block in create'
+  [1m[36mGroup Load (1.4ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/group_members_controller.rb:25:in `block in create'
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/group_members_controller.rb:25:in `block in create'
+  [1m[36mGroupMember Create (5.1ms)[0m  [1m[32mINSERT INTO "group_members" ("group_id", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["group_id", 1], ["user_id", 1], ["created_at", "2023-02-13 18:50:07.620850"], ["updated_at", "2023-02-13 18:50:07.620850"]]
+  ↳ app/controllers/group_members_controller.rb:25:in `block in create'
+  [1m[36mTRANSACTION (3.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/group_members_controller.rb:25:in `block in create'
+Redirected to http://localhost:3000/group_members/3
+Completed 302 Found in 221ms (ActiveRecord: 21.0ms | Allocations: 11178)
+
+
+Started GET "/group_members/3" for 172.17.0.1 at 2023-02-13 18:50:08 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by GroupMembersController#show as TURBO_STREAM
+  Parameters: {"id"=>"3"}
+  [1m[36mGroupMember Load (1.2ms)[0m  [1m[34mSELECT "group_members".* FROM "group_members" WHERE "group_members"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/group_members_controller.rb:62:in `set_group_member'
+  Rendering layout layouts/application.html.erb
+  Rendering group_members/show.html.erb within layouts/application
+  Rendered group_members/_group_member.html.erb (Duration: 16.9ms | Allocations: 169)
+  Rendered group_members/show.html.erb within layouts/application (Duration: 81.6ms | Allocations: 1337)
+  Rendered layout layouts/application.html.erb (Duration: 374.9ms | Allocations: 3711)
+Completed 200 OK in 537ms (Views: 397.3ms | ActiveRecord: 1.2ms | Allocations: 5639)
+
+
+Started GET "/group_members" for 172.17.0.1 at 2023-02-13 18:50:11 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by GroupMembersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering group_members/index.html.erb within layouts/application
+  [1m[36mGroupMember Load (0.6ms)[0m  [1m[34mSELECT "group_members".* FROM "group_members"[0m
+  ↳ app/views/group_members/index.html.erb:6
+  Rendered group_members/_group_member.html.erb (Duration: 0.1ms | Allocations: 19)
+  Rendered group_members/_group_member.html.erb (Duration: 0.4ms | Allocations: 18)
+  Rendered group_members/_group_member.html.erb (Duration: 0.2ms | Allocations: 18)
+  Rendered group_members/index.html.erb within layouts/application (Duration: 19.1ms | Allocations: 1445)
+  Rendered layout layouts/application.html.erb (Duration: 129.8ms | Allocations: 3641)
+Completed 200 OK in 180ms (Views: 130.7ms | ActiveRecord: 0.6ms | Allocations: 4013)
+
+
