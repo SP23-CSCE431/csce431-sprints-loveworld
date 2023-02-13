@@ -2229,3 +2229,234 @@ Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.2
   [1m[35m (2.0ms)[0m  [1m[34mSELECT pg_advisory_unlock(6941818436121115260)[0m
   [1m[36mActiveRecord::SchemaMigration Pluck (6.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
 >>>>>>> 672c278 (functionality works)
+  [1m[35m (4.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6941818436121115260)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (12.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (5.9ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT pg_advisory_unlock(6941818436121115260)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (6.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 172.17.0.1 at 2023-02-13 20:13:33 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Pluck (6.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by DashboardsController#show as HTML
+  [1m[36mAdmin Load (17.4ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering dashboards/show.html.erb within layouts/application
+  Rendered dashboards/show.html.erb within layouts/application (Duration: 11.2ms | Allocations: 474)
+  Rendered layout layouts/application.html.erb (Duration: 470.8ms | Allocations: 24153)
+Completed 200 OK in 783ms (Views: 492.2ms | ActiveRecord: 65.4ms | Allocations: 36429)
+
+
+Started GET "/admins/sign_out" for 172.17.0.1 at 2023-02-13 20:13:36 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Admins::SessionsController#destroy as HTML
+  [1m[36mAdmin Load (3.7ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/admins/sign_in
+Completed 302 Found in 108ms (ActiveRecord: 3.7ms | Allocations: 3591)
+
+
+Started GET "/admins/sign_in" for 172.17.0.1 at 2023-02-13 20:13:37 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Admins::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering admins/sessions/new.html.erb within layouts/application
+  Rendered admins/sessions/new.html.erb within layouts/application (Duration: 9.7ms | Allocations: 424)
+  Rendered layout layouts/application.html.erb (Duration: 41.4ms | Allocations: 3060)
+Completed 200 OK in 82ms (Views: 64.9ms | ActiveRecord: 0.0ms | Allocations: 4591)
+
+
+Started POST "/admins/auth/google_oauth2" for 172.17.0.1 at 2023-02-13 20:13:38 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Started GET "/admins/auth/google_oauth2/callback?state=cba194ab553bd5cc00ee03a95bc7193f9a57a2a2af4815e8&code=4%2F0AWtgzh78DIzfKnO2Vv_Xq0Qb17IDO2hfpQBGhs2sdMw1DdXvMwacQrqjpSEe4b6EZBtOQA&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+openid+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email&authuser=0&hd=tamu.edu&prompt=none" for 172.17.0.1 at 2023-02-13 20:13:39 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Admins::OmniauthCallbacksController#google_oauth2 as HTML
+  Parameters: {"state"=>"cba194ab553bd5cc00ee03a95bc7193f9a57a2a2af4815e8", "code"=>"4/0AWtgzh78DIzfKnO2Vv_Xq0Qb17IDO2hfpQBGhs2sdMw1DdXvMwacQrqjpSEe4b6EZBtOQA", "scope"=>"email profile https://www.googleapis.com/auth/userinfo.profile openid https://www.googleapis.com/auth/userinfo.email", "authuser"=>"0", "hd"=>"tamu.edu", "prompt"=>"none"}
+  [1m[36mAdmin Load (3.9ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."email" = $1 LIMIT $2[0m  [["email", "mnr282001@tamu.edu"], ["LIMIT", 1]]
+  ↳ app/models/admin.rb:9:in `from_google'
+Redirected to http://localhost:3000/
+Completed 302 Found in 42ms (ActiveRecord: 3.9ms | Allocations: 1482)
+
+
+Started GET "/" for 172.17.0.1 at 2023-02-13 20:13:41 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by DashboardsController#show as HTML
+  [1m[36mAdmin Load (1.6ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering dashboards/show.html.erb within layouts/application
+  Rendered dashboards/show.html.erb within layouts/application (Duration: 1.3ms | Allocations: 63)
+  Rendered layout layouts/application.html.erb (Duration: 33.0ms | Allocations: 2666)
+Completed 200 OK in 58ms (Views: 37.0ms | ActiveRecord: 1.6ms | Allocations: 4338)
+
+
+Started GET "/users" for 172.17.0.1 at 2023-02-13 20:13:48 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by UsersController#index as HTML
+  [1m[36mAdmin Load (7.2ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (6.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:6
+  Rendered users/index.html.erb within layouts/application (Duration: 25.4ms | Allocations: 1061)
+  Rendered layout layouts/application.html.erb (Duration: 61.3ms | Allocations: 3701)
+Completed 200 OK in 213ms (Views: 67.3ms | ActiveRecord: 13.8ms | Allocations: 7599)
+
+
+Started GET "/users/new" for 172.17.0.1 at 2023-02-13 20:13:50 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by UsersController#new as HTML
+  [1m[36mAdmin Load (2.0ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 78.7ms | Allocations: 2666)
+  Rendered users/new.html.erb within layouts/application (Duration: 88.1ms | Allocations: 2975)
+  Rendered layout layouts/application.html.erb (Duration: 117.4ms | Allocations: 5555)
+Completed 200 OK in 205ms (Views: 123.1ms | ActiveRecord: 28.8ms | Allocations: 9611)
+
+
+Started POST "/users" for 172.17.0.1 at 2023-02-13 20:13:55 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"full_name"=>"n", "email"=>"n", "phone_number"=>"1"}, "commit"=>"Create User"}
+  [1m[36mAdmin Load (3.7ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:25:in `block in create'
+  [1m[36mUser Create (26.9ms)[0m  [1m[32mINSERT INTO "users" ("full_name", "email", "phone_number", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["full_name", "n"], ["email", "n"], ["phone_number", "1"], ["created_at", "2023-02-13 20:13:55.464120"], ["updated_at", "2023-02-13 20:13:55.464120"]]
+  ↳ app/controllers/users_controller.rb:25:in `block in create'
+  [1m[36mTRANSACTION (5.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:25:in `block in create'
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 128ms (ActiveRecord: 37.4ms | Allocations: 5015)
+
+
+Started GET "/users/1" for 172.17.0.1 at 2023-02-13 20:13:55 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAdmin Load (2.0ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:62:in `set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 5.2ms | Allocations: 222)
+  Rendered users/show.html.erb within layouts/application (Duration: 39.6ms | Allocations: 1232)
+  Rendered layout layouts/application.html.erb (Duration: 71.9ms | Allocations: 3791)
+Completed 200 OK in 120ms (Views: 76.3ms | ActiveRecord: 3.8ms | Allocations: 6688)
+
+
+Started GET "/users" for 172.17.0.1 at 2023-02-13 20:14:00 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by UsersController#index as HTML
+  [1m[36mAdmin Load (1.6ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:6
+  Rendered users/_user.html.erb (Duration: 0.5ms | Allocations: 21)
+  Rendered users/index.html.erb within layouts/application (Duration: 16.4ms | Allocations: 762)
+  Rendered layout layouts/application.html.erb (Duration: 47.2ms | Allocations: 3213)
+Completed 200 OK in 75ms (Views: 49.0ms | ActiveRecord: 3.6ms | Allocations: 5018)
+
+
+Started GET "/groups" for 172.17.0.1 at 2023-02-13 20:14:08 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by GroupsController#index as HTML
+  [1m[36mAdmin Load (4.7ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (13.7ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  ↳ app/views/groups/index.html.erb:6
+  Rendered groups/index.html.erb within layouts/application (Duration: 47.2ms | Allocations: 1069)
+  Rendered layout layouts/application.html.erb (Duration: 91.0ms | Allocations: 3720)
+Completed 200 OK in 191ms (Views: 91.1ms | ActiveRecord: 18.4ms | Allocations: 6841)
+
+
+Started GET "/groups/new" for 172.17.0.1 at 2023-02-13 20:14:09 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by GroupsController#new as HTML
+  [1m[36mAdmin Load (1.9ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering groups/new.html.erb within layouts/application
+  Rendered groups/_form.html.erb (Duration: 19.8ms | Allocations: 1354)
+  Rendered groups/new.html.erb within layouts/application (Duration: 27.5ms | Allocations: 1624)
+  Rendered layout layouts/application.html.erb (Duration: 57.6ms | Allocations: 4078)
+Completed 200 OK in 153ms (Views: 62.7ms | ActiveRecord: 30.7ms | Allocations: 8107)
+
+
+Started POST "/groups" for 172.17.0.1 at 2023-02-13 20:14:14 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by GroupsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "group"=>{"name"=>"js", "description"=>"jhdfw"}, "commit"=>"Create Group"}
+  [1m[36mAdmin Load (5.7ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/groups_controller.rb:25:in `block in create'
+  [1m[36mGroup Create (6.4ms)[0m  [1m[32mINSERT INTO "groups" ("name", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "js"], ["description", "jhdfw"], ["created_at", "2023-02-13 20:14:14.144365"], ["updated_at", "2023-02-13 20:14:14.144365"]]
+  ↳ app/controllers/groups_controller.rb:25:in `block in create'
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/groups_controller.rb:25:in `block in create'
+Redirected to http://localhost:3000/groups/1
+Completed 302 Found in 120ms (ActiveRecord: 15.2ms | Allocations: 3771)
+
+
+Started GET "/groups/1" for 172.17.0.1 at 2023-02-13 20:14:14 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAdmin Load (1.1ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGroup Load (1.7ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:62:in `set_group'
+  Rendering layout layouts/application.html.erb
+  Rendering groups/show.html.erb within layouts/application
+  Rendered groups/_group.html.erb (Duration: 7.2ms | Allocations: 160)
+  Rendered groups/show.html.erb within layouts/application (Duration: 48.0ms | Allocations: 866)
+  Rendered layout layouts/application.html.erb (Duration: 168.0ms | Allocations: 3308)
+Completed 200 OK in 337ms (Views: 173.1ms | ActiveRecord: 2.9ms | Allocations: 6098)
+
+
+Started GET "/groups" for 172.17.0.1 at 2023-02-13 20:14:16 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by GroupsController#index as HTML
+  [1m[36mAdmin Load (1.5ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (2.5ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  ↳ app/views/groups/index.html.erb:6
+  Rendered groups/_group.html.erb (Duration: 0.5ms | Allocations: 19)
+  Rendered groups/index.html.erb within layouts/application (Duration: 18.2ms | Allocations: 973)
+  Rendered layout layouts/application.html.erb (Duration: 51.3ms | Allocations: 3441)
+Completed 200 OK in 270ms (Views: 52.7ms | ActiveRecord: 4.1ms | Allocations: 5007)
+
+
+Started POST "/group_members?group_id=1&user_id=1" for 172.17.0.1 at 2023-02-13 20:14:19 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by GroupMembersController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "group_id"=>"1", "user_id"=>"1"}
+  [1m[36mAdmin Load (2.7ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[31mUnpermitted parameter: :authenticity_token. Context: { controller: GroupMembersController, action: create, request: #<ActionDispatch::Request:0x000000401333d0a8>, params: {"authenticity_token"=>"[FILTERED]", "group_id"=>"1", "user_id"=>"1", "controller"=>"group_members", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/group_members_controller.rb:25:in `block in create'
+  [1m[36mGroup Load (2.0ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/group_members_controller.rb:25:in `block in create'
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/group_members_controller.rb:25:in `block in create'
+  [1m[36mGroupMember Create (21.0ms)[0m  [1m[32mINSERT INTO "group_members" ("group_id", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["group_id", 1], ["user_id", 1], ["created_at", "2023-02-13 20:14:20.128222"], ["updated_at", "2023-02-13 20:14:20.128222"]]
+  ↳ app/controllers/group_members_controller.rb:25:in `block in create'
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/group_members_controller.rb:25:in `block in create'
+Redirected to http://localhost:3000/group_members/1
+Completed 302 Found in 384ms (ActiveRecord: 59.7ms | Allocations: 14846)
+
+
+Started GET "/group_members/1" for 172.17.0.1 at 2023-02-13 20:14:20 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by GroupMembersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAdmin Load (1.1ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGroupMember Load (1.7ms)[0m  [1m[34mSELECT "group_members".* FROM "group_members" WHERE "group_members"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/group_members_controller.rb:62:in `set_group_member'
+  Rendering layout layouts/application.html.erb
+  Rendering group_members/show.html.erb within layouts/application
+  Rendered group_members/_group_member.html.erb (Duration: 4.3ms | Allocations: 169)
+  Rendered group_members/show.html.erb within layouts/application (Duration: 17.5ms | Allocations: 1049)
+  Rendered layout layouts/application.html.erb (Duration: 50.4ms | Allocations: 3682)
+Completed 200 OK in 96ms (Views: 61.3ms | ActiveRecord: 2.8ms | Allocations: 7004)
+
+
