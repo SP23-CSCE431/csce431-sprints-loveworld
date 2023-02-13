@@ -33,3 +33,5 @@
 .DS_Store
 
 db/seeds.rb
+/spec/*
+.github/workflows/workflows.yml
