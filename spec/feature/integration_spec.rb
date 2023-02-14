@@ -10,3 +10,13 @@ RSpec.describe 'Creating a user', type: :feature do
     expect(page).to have_content('harry potter')
   end
 end
+
+RSpec.describe 'Creating a event', type: :feature do
+  scenario 'valid inputs' do
+    visit new_event_path
+    fill_in "event[name]", with: 'Wizarding Magic'
+    click_on 'Create Event'
+    visit events_path
+    expect(page).to have_content('Wizarding Magic')
+  end
+end
