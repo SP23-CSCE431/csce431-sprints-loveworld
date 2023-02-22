@@ -6,7 +6,9 @@ env:
   DATABASE_PASSWORD: password
 
 name: Rails tests
-on: [push, pull_request]
+on:
+  pull:
+    branches: [ test ]
 jobs:
   rspec-test:
     name: RSpec
@@ -42,7 +44,7 @@ jobs:
       - name: Run brakeman
         run: brakeman -o brakeman.txt
       - name: Run rubocop
-        run: bundler exec rubocop --force-exclusion --out rubocop.txt
+        run: bundle exec rubocop --force-exclusion --out rubocop.txt
       - name: Upload coverage results
         uses: actions/upload-artifact@master
         if: always()
