@@ -43,6 +43,8 @@ gem 'yaml_db'
 
 gem 'rexml'
 
+gem 'brakeman'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', require: false
 
