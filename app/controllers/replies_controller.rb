@@ -47,7 +47,7 @@ class RepliesController < ApplicationController
 
   # DELETE /replies/1 or /replies/1.json
   def destroy
-    @reply.destroy
+    @reply.destroy!
 
     respond_to do |format|
       format.html { redirect_to(replies_url, notice: 'Reply was successfully destroyed.') }
