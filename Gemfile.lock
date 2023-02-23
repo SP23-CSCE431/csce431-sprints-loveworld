@@ -72,6 +72,7 @@ GEM
     bindex (0.8.1)
     bootsnap (1.16.0)
       msgpack (~> 1.2)
+    brakeman (5.4.1)
     builder (3.2.4)
     capybara (3.38.0)
       addressable
@@ -89,6 +90,7 @@ GEM
       irb (>= 1.5.0)
       reline (>= 0.3.1)
     diff-lcs (1.5.0)
+    docile (1.4.0)
     erubi (1.12.0)
     globalid (1.1.0)
       activesupport (>= 5.0)
@@ -218,13 +220,16 @@ GEM
       rubocop-capybara (~> 2.17)
     ruby-progressbar (1.11.0)
     rubyzip (2.3.2)
-    seed_dump (3.3.1)
-      activerecord (>= 4)
-      activesupport (>= 4)
     selenium-webdriver (4.8.0)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    simplecov (0.22.0)
+      docile (~> 1.1)
+      simplecov-html (~> 0.11)
+      simplecov_json_formatter (~> 0.1)
+    simplecov-html (0.12.3)
+    simplecov_json_formatter (0.1.4)
     sprockets (4.2.0)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -269,6 +274,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap
+  brakeman
   capybara
   debug
   importmap-rails
@@ -282,8 +288,8 @@ DEPENDENCIES
   rubocop-performance
   rubocop-rails
   rubocop-rspec
-  seed_dump
   selenium-webdriver
+  simplecov
   sprockets-rails
   stimulus-rails
   turbo-rails
