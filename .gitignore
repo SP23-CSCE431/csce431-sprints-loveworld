@@ -31,6 +31,12 @@
 /config/master.key
 .DS_Store
 db/seeds.rb
+coverage
+.vscode
+
+db/seeds.rb
+coverage
+
 spec/*
 coverage
 .vscode

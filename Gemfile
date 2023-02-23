@@ -43,6 +43,8 @@ gem 'yaml_db'
 
 gem 'rexml'
 
+
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', require: false
 
@@ -71,6 +73,9 @@ group :development, :test do
   gem 'rubocop-rspec'
 
   gem 'rspec-rails'
+
+  gem 'brakeman'
+  gem 'simplecov', :require => false
 end
 
 group :development do
@@ -89,4 +94,6 @@ group :test do
   gem 'capybara'
   gem 'selenium-webdriver'
   gem 'webdrivers'
+
+  
 end
