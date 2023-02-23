@@ -33,10 +33,3 @@
 db/seeds.rb
 coverage
 .vscode
-
-db/seeds.rb
-coverage
-
-spec/*
-coverage
-.vscode
