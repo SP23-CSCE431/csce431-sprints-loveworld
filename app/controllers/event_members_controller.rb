@@ -47,7 +47,7 @@ class EventMembersController < ApplicationController
 
   # DELETE /event_members/1 or /event_members/1.json
   def destroy
-    @event_member.destroy
+    @event_member.destroy!
 
     respond_to do |format|
       format.html { redirect_to(event_members_url, notice: 'Event member was successfully destroyed.') }
