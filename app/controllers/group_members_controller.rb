@@ -47,7 +47,7 @@ class GroupMembersController < ApplicationController
 
   # DELETE /group_members/1 or /group_members/1.json
   def destroy
-    @group_member.destroy
+    @group_member.destroy!
 
     respond_to do |format|
       format.html { redirect_to(group_members_url, notice: 'Group member was successfully destroyed.') }
@@ -64,6 +64,6 @@ class GroupMembersController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def group_member_params
-    params.require(:group_member).permit(:group_id, :user_id)
+    params.permit(:group_id, :user_id)
   end
 end

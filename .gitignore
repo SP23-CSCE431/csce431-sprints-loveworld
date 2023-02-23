@@ -29,8 +29,8 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
-
 .DS_Store
-
 db/seeds.rb
 coverage
+.vscode
+spec/**

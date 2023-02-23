@@ -92,6 +92,9 @@ Layout/ClassStructure:
         - private_delegate
         - private_methods
 
+Rails/I18nLocaleTexts:
+    Enabled: false
+    
 Layout/IndentationWidth:
     Width: 2
 

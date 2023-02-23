@@ -47,7 +47,7 @@ class EventMembersController < ApplicationController
 
   # DELETE /event_members/1 or /event_members/1.json
   def destroy
-    @event_member.destroy
+    @event_member.destroy!
 
     respond_to do |format|
       format.html { redirect_to(event_members_url, notice: 'Event member was successfully destroyed.') }
@@ -64,6 +64,6 @@ class EventMembersController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def event_member_params
-    params.require(:event_member).permit(:event_id, :user_id)
+    params.permit(:event_id, :user_id)
   end
 end

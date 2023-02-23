@@ -6,10 +6,16 @@ env:
   DATABASE_PASSWORD: password
 
 name: Rails tests
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - test
+  pull_request: 
+    branches:
+      - test
 jobs:
   rspec-test:
-    name: RSpec
+    name: Testing/Linting/Coverage
     runs-on: ubuntu-latest
     services:
       postgres:
@@ -61,4 +67,3 @@ jobs:
         with:
           name: brakeman-report.txt
           path: brakeman.txt
-
