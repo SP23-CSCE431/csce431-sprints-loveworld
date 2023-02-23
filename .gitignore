@@ -31,7 +31,6 @@
 /config/master.key
 .DS_Store
 db/seeds.rb
-/spec/*
-.github/workflows/workflows.yml
+spec/*
 coverage
 .vscode
