@@ -90,4 +90,8 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  
+  # google oauth info
+  ENV['GOOGLE_OAUTH_CLIENT_ID'] = '783903801837-g1frhcu03uflbrgv70tl2ej6t0dtlj9i.apps.googleusercontent.com'
+  ENV['GOOGLE_OAUTH_CLIENT_SECRET'] = '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'
 end
