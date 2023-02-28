@@ -23,7 +23,8 @@ class EventMembersController < ApplicationController
 
     respond_to do |format|
       if @event_member.save
-        format.html { redirect_to(event_member_url(@event_member), notice: 'Event member was successfully created.') }
+        #dont redirect, just flash a notice
+        format.html { redirect_to(events_url, notice: 'Event member was successfully added.') }
         format.json { render(:show, status: :created, location: @event_member) }
       else
         format.html { render(:new, status: :unprocessable_entity) }

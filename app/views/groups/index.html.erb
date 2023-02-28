@@ -7,7 +7,8 @@
     <%= render group %>
     <p>
       <%= link_to "Show this group", group %>
-      <%= button_to "Join Group", group_members_path(:group_id => group.id, :user_id => 1)%>
+      <%# change the user id below %>
+      <%= button_to "Join Group", group_members_path(:group_id => group.id, :user_id => 1), method: 'post' %>
     </p>
   <% end %>
 </div>

@@ -23,7 +23,8 @@ class GroupMembersController < ApplicationController
 
     respond_to do |format|
       if @group_member.save
-        format.html { redirect_to(group_member_url(@group_member), notice: 'Group member was successfully created.') }
+        #dont redirect, just flash a notice
+        format.html { redirect_to(groups_url, notice: 'Group member was successfully added.') }
         format.json { render(:show, status: :created, location: @group_member) }
       else
         format.html { render(:new, status: :unprocessable_entity) }
