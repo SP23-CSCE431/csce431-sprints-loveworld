@@ -7,7 +7,9 @@ class EventsController < ApplicationController
   end
 
   # GET /events/1 or /events/1.json
-  def show; end
+  def show; 
+    @users = User.joins(:event).where(users: {"email" : "raulescobar_g@tamu.edu"})
+  end
 
   # GET /events/new
   def new
