@@ -2,6 +2,15 @@
 
 <%= render @group %>
 
+<br><br>
+<h2>Members:</h2>
+<div id="users">
+  <% @users.each do |user| %>
+    <p><%= user.full_name %></p>
+  <% end %>
+  <br>
+</div>
+
 <div>
   <%= link_to "Edit this group", edit_group_path(@group) %> |
   <%= link_to "Back to groups", groups_path %>

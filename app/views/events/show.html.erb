@@ -1,14 +1,13 @@
 <p style="color: green"><%= notice %></p>
 
 <%= render @event %>
-
+<br><br>
+<h2>Members:</h2>
 <div id="users">
   <% @users.each do |user| %>
-    <%= render user %>
-    <p>
-      <%= link_to "Show this user", user %>
-    </p>
+    <p><%= user.full_name %></p>
   <% end %>
+  <br>
 </div>
 
 <div>
