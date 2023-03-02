@@ -7,7 +7,7 @@ class EventsController < ApplicationController
   end
 
   # GET /events/1 or /events/1.json
-  def show; 
+  def show
     @users = User.select('full_name').joins(:event_members).where('event_members.event_id' => params[:id])
   end
 

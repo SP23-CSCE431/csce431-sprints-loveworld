@@ -7,7 +7,7 @@ class GroupsController < ApplicationController
   end
 
   # GET /groups/1 or /groups/1.json
-  def show; 
+  def show
     @users = User.select('full_name').joins(:group_members).where('group_members.group_id' => params[:id])
   end
 
