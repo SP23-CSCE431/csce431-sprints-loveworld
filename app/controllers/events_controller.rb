@@ -8,6 +8,7 @@ class EventsController < ApplicationController
 
   # GET /events/1 or /events/1.json
   def show
+    # on showing event, get user names that belong to that event, and make global variable to be used in html
     @users = User.select('full_name').joins(:event_members).where('event_members.event_id' => params[:id])
   end
 

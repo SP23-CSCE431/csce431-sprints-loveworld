@@ -8,6 +8,7 @@ class GroupsController < ApplicationController
 
   # GET /groups/1 or /groups/1.json
   def show
+    # on showing group, get user names that belong to that group, and make global variable to be used in html
     @users = User.select('full_name').joins(:group_members).where('group_members.group_id' => params[:id])
   end
 
