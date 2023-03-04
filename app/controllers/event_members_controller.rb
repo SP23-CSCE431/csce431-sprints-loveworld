@@ -50,8 +50,9 @@ class EventMembersController < ApplicationController
   def destroy
     @event_member.destroy!
 
+    # dont redirect just rerender events page
     respond_to do |format|
-      format.html { redirect_to(event_members_url, notice: 'Event member was successfully destroyed.') }
+      format.html { redirect_to(events_url, notice: 'Event member was successfully destroyed.') }
       format.json { head(:no_content) }
     end
   end

@@ -7,8 +7,12 @@
     <%= render group %>
     <p>
       <%= link_to "Show this group", group %>
-      <%# change the user id below %>
-      <%= button_to "Join Group", group_members_path(:group_id => group.id, :user_id => 1), method: 'post' %>
+
+      <% if @user_group_array.include? group.id %>
+        <%= button_to "Leave Group", { :controller => :group_members, :id => group.group_members.ids.first, :action => 'destroy' }, :method => :delete %>
+      <% else %>
+       <%= button_to "Join Group", group_members_path(:group_id => group.id, :user_id => @current_id.id), method: 'post' %>
+      <% end %>
     </p>
   <% end %>
 </div>

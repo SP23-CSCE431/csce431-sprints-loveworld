@@ -1,5 +1,4 @@
 <p style="color: green"><%= notice %></p>
-
 <h1>Events</h1>
 
 <div id="events">
@@ -7,8 +6,11 @@
     <%= render event %>
     <p>
       <%= link_to "Show this event", event %>
-      <%# dont hardcode user_id here %>
-      <%= button_to "Join Event", event_members_path(:event_id => event.id, :user_id => 1), method: 'post' %>
+      <% if @user_event_array.include? event.id %>
+        <%= button_to "Leave Event", { :controller => :event_members, :id => event.event_members.ids.first, :action => 'destroy' }, :method => :delete %>
+      <% else %>
+       <%= button_to "Join Event", event_members_path(:event_id => event.id, :user_id => @current_id.id), method: 'post' %>
+      <% end %>
     </p>
   <% end %>
 </div>

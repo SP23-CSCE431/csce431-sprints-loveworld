@@ -51,7 +51,7 @@ class GroupMembersController < ApplicationController
     @group_member.destroy!
 
     respond_to do |format|
-      format.html { redirect_to(group_members_url, notice: 'Group member was successfully destroyed.') }
+      format.html { redirect_to(groups_url, notice: 'Group member was successfully destroyed.') }
       format.json { head(:no_content) }
     end
   end
