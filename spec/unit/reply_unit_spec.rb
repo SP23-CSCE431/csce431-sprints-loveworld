@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe(Group, type: :model) do
-  reply do
+  subject(:reply) do
     described_class.new( body: 'This is an example reply'
                        )
   end

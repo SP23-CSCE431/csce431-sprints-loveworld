@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe(Group, type: :model) do
-  group do
+  subject(:group) do
     described_class.new(name: 'LoveWorld Staff',
                         description: 'This if for the LoveWorld Staff'
                        )

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe(Group, type: :model) do
-  post do
+  subject(:post) do
     described_class.new(title: 'Example Post',
                         body: 'This is an example post'
                        )
