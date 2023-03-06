@@ -1,0 +1,73 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ */
+
+ @import 'bootstrap';
+ @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+.body{
+    display: flex;
+    flex-flow: column nowrap;
+    min-height: 94vh;
+}
+
+.section1 {
+    background-image: image-url('organization-panorma.webp');
+    background-size: 100%;
+    height: 40vh;
+  }
+.section2{
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff0db;
+    flex-grow: 1;
+}
+
+.box{
+    background-color: white;
+    border-radius: 5px;
+    padding: 20px;
+    width: 25%;
+    margin-top: 1%;
+    margin-bottom: 5%;
+}
+
+.box-left {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+  
+.box-right {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+p{
+    font-family: 'Bebas Neue', cursive;
+    font-size: 1.5rem;
+}
+
+.outsideLinks{
+    position: absolute;
+    bottom: 1%;
+    right: 1%;
+}
+
+.version{
+    position: absolute;
+    bottom: 1px;
+}
+
+.version-font{
+    font-size: .5rem;
+}
