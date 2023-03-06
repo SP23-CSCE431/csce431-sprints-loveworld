@@ -38,8 +38,8 @@ RSpec.describe('User', type: :controller) do
       fill_in 'user[email]', with: 'harrypotter@mybusiness.com'
       fill_in 'user[phone_number]', with: '0123456789'
       click_on 'Create User'
-      
-      expect(page).to(have_content('All data fields must be filled out.'))
+
+      expect(page).to(have_content('Full name can\'t be blank'))
     end
   end
 
@@ -49,8 +49,8 @@ RSpec.describe('User', type: :controller) do
       fill_in 'user[full_name]', with: 'harry potter'
       fill_in 'user[phone_number]', with: '0123456789'
       click_on 'Create User'
-      
-      expect(page).to(have_content('All data fields must be filled out.'))
+
+      expect(page).to(have_content('Email can\'t be blank'))
     end
   end
 
@@ -60,8 +60,8 @@ RSpec.describe('User', type: :controller) do
       fill_in 'user[full_name]', with: 'harry potter'
       fill_in 'user[email]', with: 'harrypotter@mybusiness.com'
       click_on 'Create User'
-      
-      expect(page).to(have_content('All data fields must be filled out.'))
+
+      expect(page).to(have_content('Phone number can\'t be blank'))
     end
   end
 end

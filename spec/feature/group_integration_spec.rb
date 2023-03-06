@@ -37,7 +37,7 @@ RSpec.describe('Group') do
       fill_in 'group[description]', with: 'Hufflepuff students in their seventh year at Hogwarts'
 
       click_on 'Create Group'
-      expect(page).to(have_content('All data fields must be filled out.'))
+      expect(page).to(have_content('Name can\'t be blank'))
     end
   end
 
@@ -47,7 +47,7 @@ RSpec.describe('Group') do
       fill_in 'group[name]', with: 'Year 7 Hufflepuff'
 
       click_on 'Create Group'
-      expect(page).to(have_content('All data fields must be filled out.'))
+      expect(page).to(have_content('Description can\'t be blank'))
     end
   end
 end

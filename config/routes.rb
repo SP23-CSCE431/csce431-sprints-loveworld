@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   resources :events
   resources :groups
   resources :users
+  resources :posts
+  resources :replies
 
   root to: 'dashboards#show'
   devise_for :admins, controllers: { omniauth_callbacks: 'admins/omniauth_callbacks' }

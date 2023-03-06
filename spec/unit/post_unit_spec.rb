@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe(Group, type: :model) do
+RSpec.describe(Post, type: :model) do
   subject(:post) do
     described_class.new(title: 'Example Post',
                         body: 'This is an example post'
@@ -8,8 +8,8 @@ RSpec.describe(Group, type: :model) do
   end
 
   it 'is valid with valid attributes' do
-    post.title = 'Anything'
-    post.body = 'Anything'
+    user = User.create!(full_name: 'Brandon Longuet', email: 'brandon.longuet@yahoo.com', phone_number: '1234567890')
+    post.user_id = user.id
     expect(post).to(be_valid)
   end
 
