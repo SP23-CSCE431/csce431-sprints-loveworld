@@ -23,7 +23,8 @@ class EventMembersController < ApplicationController
 
     respond_to do |format|
       if @event_member.save
-        format.html { redirect_to(event_member_url(@event_member), notice: 'Event member was successfully created.') }
+        # dont redirect, just flash a notice
+        format.html { redirect_to(events_url, notice: 'Event member was successfully added.') }
         format.json { render(:show, status: :created, location: @event_member) }
       else
         format.html { render(:new, status: :unprocessable_entity) }
@@ -47,10 +48,11 @@ class EventMembersController < ApplicationController
 
   # DELETE /event_members/1 or /event_members/1.json
   def destroy
-    @event_member.destroy
+    @event_member.destroy!
 
+    # dont redirect just rerender events page
     respond_to do |format|
-      format.html { redirect_to(event_members_url, notice: 'Event member was successfully destroyed.') }
+      format.html { redirect_to(events_url, notice: 'Event member was successfully destroyed.') }
       format.json { head(:no_content) }
     end
   end
