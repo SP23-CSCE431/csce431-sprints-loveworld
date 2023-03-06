@@ -1,2 +1,28 @@
-<h2>You're Logged out! Log in to the Admin Dashboard</h2>
-<%= button_to "Sign in with Google", admin_google_oauth2_omniauth_authorize_path, method: :post %>
+<%= stylesheet_link_tag 'homepage' %>
+
+<div class="body">
+    <div class="section1">
+        <h2>You're Logged out! Log in to the Admin Dashboard</h2>
+        <%= button_to "Sign in with Google", admin_google_oauth2_omniauth_authorize_path, method: :post %>
+    </div>
+
+    <div class="section2">
+        <div class="box box-left">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+        <div class="box box-right">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+    </div>
+    <div class="outsideLinks">
+        <%= link_to "https://www.twitter.com" do %>
+            <%= image_tag "twitterLogo.png", alt: "Image Description", size: "50x50" %>
+        <% end %>
+        <%= link_to "https://www.instagram.com/loveworldtamu/" do %>
+            <%= image_tag "instgramLogo.png", alt: "Image Description", size: "50x50" %>
+        <% end %>
+    </div>
+    <div class="version">
+        <p class="version-font">Made using Ruby on Rails</p>
+    </div>
+</div>
