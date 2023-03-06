@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe(User) do
-  user do
+  subject(:user) do
     described_class.new(full_name: 'Brandon Longuet',
                         email: 'brandon.longuet@yahoo.com',
                         phone_number: '1234567890'

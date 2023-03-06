@@ -3,11 +3,16 @@ class EventsController < ApplicationController
 
   # GET /events or /events.json
   def index
+    @current_id = User.where('email' => current_admin.email).first
     @events = Event.all
+    @user_event_array = Event.select('id').joins(:event_members).where('event_members.user_id' => @current_id.id).to_a.map(&:id)
   end
 
   # GET /events/1 or /events/1.json
-  def show; end
+  def show
+    # on showing event, get user names that belong to that event, and make global variable to be used in html
+    @users = User.select('full_name').joins(:event_members).where('event_members.event_id' => params[:id])
+  end
 
   # GET /events/new
   def new

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe(Event, type: :model) do
-  event do
+  subject(:event) do
     described_class.new(name: 'Brandon Longuet',
                         start: Time.now.utc,
                         end: Time.now.utc + 3.days
