@@ -14,7 +14,10 @@
   </head>
 
   <body>
+    <!-- This is where the navbar is created -->
     <nav class="navbar navbar-expand-md navbar-dark " style="background-color: #500000;">
+      
+      <!-- This is for the logo to direct to the homepage -->
       <%= link_to root_path do %>
         <%= image_tag "logo.png", alt: "Image Description", size: "60x40" %>
       <% end %>
@@ -24,15 +27,23 @@
 
       <div class="collapse navbar-collapse" id="navbarColor01">
         <ul class="navbar-nav mr-auto">
+          
+          <!-- This is the button to direct to the events page -->
           <li class="nav-item px-2 <%= active_class(events_path) %>" style="background-color: #FFF0DB;">
             <%= link_to 'Events', events_path, class: 'nav-link' %>
           </li>
+          
+          <!-- This is the button to direct to the groups page -->
           <li class="nav-item <%= active_class(groups_path) %>" style="background-color: #FFF0DB;">
             <%= link_to 'Groups', groups_path, class: 'nav-link' %>
           </li>
+          
+          <!-- This is the button to direct to the posts page -->
           <li class="nav-item <%= active_class(posts_path) %>" style="background-color: #FFF0DB;">
             <%= link_to 'Forum', posts_path, class: 'nav-link' %>
           </li>
+          
+          <!-- This is the button to direct to the users page -->
           <li class="nav-item <%= active_class(users_path) %>" style="background-color: #FFF0DB;">
             <%= link_to 'People', users_path, class: 'nav-link' %>
           </li>

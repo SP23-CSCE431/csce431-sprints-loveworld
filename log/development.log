@@ -2091,3 +2091,195 @@ DEPRECATION WARNING: TimeWithZone#to_s(:db) is deprecated. Please use TimeWithZo
   Rendered layout layouts/application.html.erb (Duration: 50.4ms | Allocations: 3682)
 Completed 200 OK in 96ms (Views: 61.3ms | ActiveRecord: 2.8ms | Allocations: 7004)
 
+Started GET "/admins/sign_in" for 172.17.0.1 at 2023-03-06 22:50:35 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Admins::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering admins/sessions/new.html.erb within layouts/application
+  Rendered admins/sessions/new.html.erb within layouts/application (Duration: 4446.2ms | Allocations: 43949)
+  Rendered layout layouts/application.html.erb (Duration: 4514.4ms | Allocations: 47062)
+Completed 200 OK in 4623ms (Views: 4559.6ms | ActiveRecord: 3.3ms | Allocations: 56491)
+
+
+Started GET "/" for 172.17.0.1 at 2023-03-06 22:50:42 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by DashboardsController#show as HTML
+Completed 401 Unauthorized in 19ms (ActiveRecord: 0.0ms | Allocations: 411)
+
+
+Started GET "/admins/sign_in" for 172.17.0.1 at 2023-03-06 22:50:42 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Admins::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering admins/sessions/new.html.erb within layouts/application
+  Rendered admins/sessions/new.html.erb within layouts/application (Duration: 95.4ms | Allocations: 5667)
+  Rendered layout layouts/application.html.erb (Duration: 144.1ms | Allocations: 8139)
+Completed 200 OK in 166ms (Views: 145.3ms | ActiveRecord: 0.0ms | Allocations: 8891)
+
+
+Started GET "/admins/sign_in" for 172.17.0.1 at 2023-03-06 22:52:24 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Admins::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering admins/sessions/new.html.erb within layouts/application
+  Rendered admins/sessions/new.html.erb within layouts/application (Duration: 98.4ms | Allocations: 6068)
+  Rendered layout layouts/application.html.erb (Duration: 175.6ms | Allocations: 9070)
+Completed 200 OK in 225ms (Views: 198.9ms | ActiveRecord: 0.0ms | Allocations: 10382)
+
+
+Started GET "/" for 172.17.0.1 at 2023-03-06 22:52:28 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by DashboardsController#show as HTML
+Completed 401 Unauthorized in 21ms (ActiveRecord: 0.0ms | Allocations: 290)
+
+
+Started GET "/admins/sign_in" for 172.17.0.1 at 2023-03-06 22:52:28 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Admins::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering admins/sessions/new.html.erb within layouts/application
+  Rendered admins/sessions/new.html.erb within layouts/application (Duration: 98.4ms | Allocations: 5520)
+  Rendered layout layouts/application.html.erb (Duration: 150.5ms | Allocations: 7981)
+Completed 200 OK in 171ms (Views: 151.6ms | ActiveRecord: 0.0ms | Allocations: 8648)
+
+
+Started GET "/admins/sign_in" for 172.17.0.1 at 2023-03-06 22:53:38 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Admins::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering admins/sessions/new.html.erb within layouts/application
+  Rendered admins/sessions/new.html.erb within layouts/application (Duration: 110.2ms | Allocations: 6069)
+  Rendered layout layouts/application.html.erb (Duration: 163.9ms | Allocations: 9070)
+Completed 200 OK in 202ms (Views: 184.5ms | ActiveRecord: 0.0ms | Allocations: 10397)
+
+
+Started GET "/events" for 172.17.0.1 at 2023-03-06 22:55:12 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by EventsController#index as HTML
+Completed 401 Unauthorized in 21ms (ActiveRecord: 0.0ms | Allocations: 421)
+
+
+Started GET "/admins/sign_in" for 172.17.0.1 at 2023-03-06 22:55:12 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Admins::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering admins/sessions/new.html.erb within layouts/application
+  Rendered admins/sessions/new.html.erb within layouts/application (Duration: 140.7ms | Allocations: 6073)
+  Rendered layout layouts/application.html.erb (Duration: 215.9ms | Allocations: 9081)
+Completed 200 OK in 270ms (Views: 246.2ms | ActiveRecord: 0.0ms | Allocations: 10449)
+
+
+Started GET "/admins/sign_in" for 172.17.0.1 at 2023-03-06 22:55:35 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Admins::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering admins/sessions/new.html.erb within layouts/application
+  Rendered admins/sessions/new.html.erb within layouts/application (Duration: 96.2ms | Allocations: 6075)
+  Rendered layout layouts/application.html.erb (Duration: 150.9ms | Allocations: 9075)
+Completed 200 OK in 189ms (Views: 170.3ms | ActiveRecord: 0.0ms | Allocations: 10475)
+
+
+Started GET "/admins/sign_in" for 172.17.0.1 at 2023-03-06 22:58:44 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Admins::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering admins/sessions/new.html.erb within layouts/application
+  Rendered admins/sessions/new.html.erb within layouts/application (Duration: 93.5ms | Allocations: 6074)
+  Rendered layout layouts/application.html.erb (Duration: 139.8ms | Allocations: 9090)
+Completed 200 OK in 189ms (Views: 157.3ms | Allocations: 10464)
+
+
+Started GET "/events" for 172.17.0.1 at 2023-03-06 22:58:47 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by EventsController#index as HTML
+Completed 401 Unauthorized in 17ms (Allocations: 286)
+
+
+Started GET "/admins/sign_in" for 172.17.0.1 at 2023-03-06 22:58:48 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Admins::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering admins/sessions/new.html.erb within layouts/application
+  Rendered admins/sessions/new.html.erb within layouts/application (Duration: 110.3ms | Allocations: 5518)
+  Rendered layout layouts/application.html.erb (Duration: 157.6ms | Allocations: 7981)
+Completed 200 OK in 182ms (Views: 158.7ms | Allocations: 8671)
+
+
+Started POST "/admins/auth/google_oauth2" for 172.17.0.1 at 2023-03-06 22:58:49 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Started GET "/admins/auth/google_oauth2/callback?state=c3eb42432be736a057e74eff787be6f21a45f7d0fb8db57c&code=4%2F0AWtgzh47JCuUGQrJjTYSbwprjlG6ZgEnORc41CDOUbA9x-5ZjaHr2ebjNIgoK61lQkx7qQ&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+openid&authuser=0&prompt=consent" for 172.17.0.1 at 2023-03-06 22:58:51 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Admins::OmniauthCallbacksController#google_oauth2 as HTML
+  Parameters: {"state"=>"c3eb42432be736a057e74eff787be6f21a45f7d0fb8db57c", "code"=>"4/0AWtgzh47JCuUGQrJjTYSbwprjlG6ZgEnORc41CDOUbA9x-5ZjaHr2ebjNIgoK61lQkx7qQ", "scope"=>"email profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile openid", "authuser"=>"0", "prompt"=>"consent"}
+before 
+brandon.longuet@yahoo.com
+Brandon Longuet
+115434321975202148454
+https://lh3.googleusercontent.com/a/AGNmyxZ5nYuAyG2Y2xLxnX-bmQ2APPur22zmMkuk_6Fo=s96-c
+after
+  [1m[36mAdmin Load (0.6ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."email" = $1 LIMIT $2[0m  [["email", "brandon.longuet@yahoo.com"], ["LIMIT", 1]]
+  ↳ app/models/admin.rb:12:in `from_google'
+Redirected to http://localhost:3000/
+Completed 302 Found in 60ms (ActiveRecord: 8.5ms | Allocations: 6177)
+
+
+Started GET "/" for 172.17.0.1 at 2023-03-06 22:58:52 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by DashboardsController#show as HTML
+  [1m[36mAdmin Load (0.4ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering dashboards/show.html.erb within layouts/application
+  Rendered dashboards/show.html.erb within layouts/application (Duration: 118.4ms | Allocations: 5929)
+  Rendered layout layouts/application.html.erb (Duration: 178.7ms | Allocations: 8473)
+Completed 200 OK in 226ms (Views: 185.7ms | ActiveRecord: 0.4ms | Allocations: 10755)
+
+
+Started GET "/events" for 172.17.0.1 at 2023-03-06 22:58:54 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by EventsController#index as HTML
+  [1m[36mAdmin Load (0.5ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "brandon.longuet@yahoo.com"], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:6:in `index'
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events"."id" FROM "events" INNER JOIN "event_members" ON "event_members"."event_id" = "events"."id" WHERE "event_members"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/events_controller.rb:8:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.6ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:5
+  Rendered events/_event.html.erb (Duration: 5.7ms | Allocations: 352)
+  Rendered events/_event.html.erb (Duration: 0.3ms | Allocations: 36)
+  Rendered events/index.html.erb within layouts/application (Duration: 41.0ms | Allocations: 4846)
+  Rendered layout layouts/application.html.erb (Duration: 112.7ms | Allocations: 10106)
+Completed 200 OK in 293ms (Views: 119.9ms | ActiveRecord: 11.6ms | Allocations: 22529)
+
+
+Started GET "/groups" for 172.17.0.1 at 2023-03-06 22:58:55 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by GroupsController#index as HTML
+  [1m[36mAdmin Load (0.5ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "brandon.longuet@yahoo.com"], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:6:in `index'
+  [1m[36mGroup Load (0.8ms)[0m  [1m[34mSELECT "groups"."id" FROM "groups" INNER JOIN "group_members" ON "group_members"."group_id" = "groups"."id" WHERE "group_members"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/groups_controller.rb:8:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.8ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  ↳ app/views/groups/index.html.erb:6
+  Rendered groups/_group.html.erb (Duration: 4.8ms | Allocations: 174)
+  Rendered groups/index.html.erb within layouts/application (Duration: 29.8ms | Allocations: 3457)
+  Rendered layout layouts/application.html.erb (Duration: 95.4ms | Allocations: 8711)
+Completed 200 OK in 214ms (Views: 101.4ms | ActiveRecord: 7.7ms | Allocations: 15833)
+
+
+Started GET "/" for 172.17.0.1 at 2023-03-06 22:58:56 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by DashboardsController#show as HTML
+  [1m[36mAdmin Load (0.3ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering dashboards/show.html.erb within layouts/application
+  Rendered dashboards/show.html.erb within layouts/application (Duration: 102.9ms | Allocations: 5384)
+  Rendered layout layouts/application.html.erb (Duration: 160.4ms | Allocations: 7837)
+Completed 200 OK in 183ms (Views: 161.5ms | ActiveRecord: 0.3ms | Allocations: 9543)
+
+
