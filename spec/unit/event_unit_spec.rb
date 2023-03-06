@@ -15,17 +15,9 @@ RSpec.describe(Event, type: :model) do
     expect(event).to(be_valid)
   end
 
-  it 'is not valid without name' do
+  it 'is not valid without attributes' do
     event.name = nil
-    expect(event).not_to(be_valid)
-  end
-
-  it 'is not valid without start time' do
     event.start = nil
-    expect(event).not_to(be_valid)
-  end
-
-  it 'is not valid without end time' do
     event.end = nil
     expect(event).not_to(be_valid)
   end

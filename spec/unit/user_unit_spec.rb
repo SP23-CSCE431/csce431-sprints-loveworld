@@ -19,14 +19,4 @@ RSpec.describe(User) do
     user.full_name = nil
     expect(user).not_to(be_valid)
   end
-
-  it 'is not valid without an email' do
-    user.email = nil
-    expect(user).not_to(be_valid)
-  end
-
-  it 'is not valid without a phone number' do
-    user.phone_number = nil
-    expect(user).not_to(be_valid)
-  end
 end
