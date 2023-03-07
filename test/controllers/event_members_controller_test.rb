@@ -23,6 +23,14 @@ class EventMembersControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to event_member_url(EventMember.last)
   end
 
+  test 'should not create event_member' do
+    assert_no_difference('EventMember.count') do
+      post event_members_url, params: { event_member: { event_id: @event_member.event_id, user_id: nil } }
+    end
+
+    assert_response :unprocessable_entity
+  end
+
   test 'should show event_member' do
     get event_member_url(@event_member)
     assert_response :success
@@ -36,6 +44,11 @@ class EventMembersControllerTest < ActionDispatch::IntegrationTest
   test 'should update event_member' do
     patch event_member_url(@event_member), params: { event_member: { event_id: @event_member.event_id, user_id: @event_member.user_id } }
     assert_redirected_to event_member_url(@event_member)
+  end
+
+  test 'should not update event' do
+    patch event_member_url(@event_member), params: { event_member: { event_id: nil, user_id: nil } }
+    assert_response :unprocessable_entity 
   end
 
   test 'should destroy event_member' do
