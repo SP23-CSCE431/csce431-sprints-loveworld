@@ -23,6 +23,14 @@ class EventsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to event_url(Event.last)
   end
 
+  test 'should not create event' do
+    assert_no_difference('Event.count') do
+      post events_url, params: { event: { end: nil, name: @event.name, start: @event.start } }
+    end
+
+    assert_response :unprocessable_entity
+  end
+
   test 'should show event' do
     get event_url(@event)
     assert_response :success
@@ -36,6 +44,11 @@ class EventsControllerTest < ActionDispatch::IntegrationTest
   test 'should update event' do
     patch event_url(@event), params: { event: { end: @event.end, name: @event.name, start: @event.start } }
     assert_redirected_to event_url(@event)
+  end
+
+  test 'should not update event' do
+    patch event_url(@event), params: { event: { end: nil, name: nil, start: nil } }
+    assert_response :unprocessable_entity 
   end
 
   test 'should destroy event' do
