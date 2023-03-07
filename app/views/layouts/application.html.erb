@@ -6,7 +6,6 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_path 'application', 'data-turbolinks-track': 'reload' %>
     <style>
         .flash__alert   { color: red; }
         .flash__notice  { color: blue; }
@@ -15,11 +14,43 @@
   </head>
 
   <body>
-    <% if flash.any? %>
-      <% flash.each do |key, value| -%>
-        <section class="flash flash__<%= key %>"><%= value.html_safe %></section>
-      <% end -%>
-    <% end %>
+    <!-- This is where the navbar is created -->
+    <nav class="navbar navbar-expand-md navbar-dark " style="background-color: #500000;">
+      
+      <!-- This is for the logo to direct to the homepage -->
+      <%= link_to root_path do %>
+        <%= image_tag "logo.png", alt: "Image Description", size: "60x40" %>
+      <% end %>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav mr-auto">
+          
+          <!-- This is the button to direct to the events page -->
+          <li class="nav-item px-2 <%= active_class(events_path) %>" style="background-color: #FFF0DB;">
+            <%= link_to 'Events', events_path, class: 'nav-link' %>
+          </li>
+          
+          <!-- This is the button to direct to the groups page -->
+          <li class="nav-item <%= active_class(groups_path) %>" style="background-color: #FFF0DB;">
+            <%= link_to 'Groups', groups_path, class: 'nav-link' %>
+          </li>
+          
+          <!-- This is the button to direct to the posts page -->
+          <li class="nav-item <%= active_class(posts_path) %>" style="background-color: #FFF0DB;">
+            <%= link_to 'Forum', posts_path, class: 'nav-link' %>
+          </li>
+          
+          <!-- This is the button to direct to the users page -->
+          <li class="nav-item <%= active_class(users_path) %>" style="background-color: #FFF0DB;">
+            <%= link_to 'People', users_path, class: 'nav-link' %>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    
     <%= yield %>
   </body>
 </html>

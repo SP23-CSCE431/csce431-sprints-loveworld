@@ -13,8 +13,12 @@ RSpec.describe(Group, type: :model) do
     expect(group).to(be_valid)
   end
 
-  it 'is not valid without a name and description' do
+  it 'is not valid without a name' do
     group.name = nil
+    expect(group).not_to(be_valid)
+  end
+
+  it 'is not valid without a description' do
     group.description = nil
     expect(group).not_to(be_valid)
   end
