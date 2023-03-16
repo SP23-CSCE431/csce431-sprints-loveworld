@@ -1,18 +1,27 @@
-<p style="color: green"><%= notice %></p>
-<h1>Events</h1>
+<%= stylesheet_link_tag 'events' %>
 
-<div id="events">
-  <% @events.each do |event| %>
-    <%= render event %>
-    <p>
-      <%= link_to "Show this event", event %>
-      <% if @user_event_array.include? event.id %>
-        <%= button_to "Leave Event", { :controller => :event_members, :id => event.event_members.ids.first, :action => 'destroy' }, :method => :delete %>
-      <% else %>
-       <%= button_to "Join Event", event_members_path(:event_id => event.id, :user_id => @current_id.id), method: 'post' %>
-      <% end %>
-    </p>
-  <% end %>
+<p style="color: green"><%= notice %></p>
+<h1 class="main" >Events</h1>
+
+<div class="row main">
+  <div class="col">
+    <% @events.each do |event| %>
+      <%= render event %>
+      <p>
+        <%= link_to "Show this event", event %>
+        <% if @user_event_array.include? event.id %>
+          <%= button_to "Leave Event", { :controller => :event_members, :id => event.event_members.ids.first, :action => 'destroy' }, :method => :delete %>
+        <% else %>
+        <%= button_to "Join Event", event_members_path(:event_id => event.id, :user_id => @current_id.id), method: 'post' %>
+        <% end %>
+      </p>
+    <% end %>
+  </div>
+  <div class="col">
+    <iframe src=<%= @calendar_url %> style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe> 
+  </div>
 </div>
 
-<%= link_to "New event", new_event_path %>
+<div class="main pad-up">
+  <%= button_to "New event", new_event_path, method: 'get' %>
+</div>

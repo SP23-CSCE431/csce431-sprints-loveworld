@@ -6,12 +6,12 @@
 
   <p>
     <strong>Start:</strong>
-    <%= event.start %>
+    <%= event.start.in_time_zone('Central Time (US & Canada)').strftime("%m/%d/%Y %H:%M CST")  %>
   </p>
 
   <p>
     <strong>End:</strong>
-    <%= event.end %>
+    <%= event.end.in_time_zone('Central Time (US & Canada)').strftime("%m/%d/%Y %H:%M CST")  %>
   </p>
 
 </div>
