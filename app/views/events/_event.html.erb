@@ -1,17 +1,34 @@
-<div id="<%= dom_id event %>">
-  <p>
-    <strong>Name:</strong>
+
+<div class="table-row row squish">
+  <div class="col squish">
     <%= event.name %>
-  </p>
+  </div>
 
-  <p>
-    <strong>Start:</strong>
-    <%= event.start.in_time_zone('Central Time (US & Canada)').strftime("%m/%d/%Y %H:%M CST")  %>
-  </p>
+  <div class="col squish">
+    <div class="time-col col squish">
+      <div class="row">
+        <%= event.start.in_time_zone('Central Time (US & Canada)').strftime("%m/%d/%Y %H:%M CST")  %>
+      </div>
+      <div class="row">
+        <%= event.end.in_time_zone('Central Time (US & Canada)').strftime("%m/%d/%Y %H:%M CST")  %>
+      </div>
+    </div>
+  </div>
 
-  <p>
-    <strong>End:</strong>
-    <%= event.end.in_time_zone('Central Time (US & Canada)').strftime("%m/%d/%Y %H:%M CST")  %>
-  </p>
+  <div class="col squish">
+    <%= "event.description" %>
+  </div>
 
+  <div class="col squish">
+    <div class="row pb-3">
+      <%= button_to "Show", events_path, method: 'get' %>
+    </div>
+    <div class="row">
+      <% if @user_event_array.include? event.id %>
+        <%= button_to "Leave", { :controller => :event_members, :id => event.event_members.ids.first, :action => 'destroy' }, :method => :delete %>
+      <% else %>
+      <%= button_to "Join", event_members_path(:event_id => event.id, :user_id => @current_id.id), method: 'post' %>
+      <% end %>
+    </div>
+  </div>
 </div>

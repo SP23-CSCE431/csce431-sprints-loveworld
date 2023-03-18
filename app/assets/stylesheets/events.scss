@@ -12,21 +12,65 @@
  *
  */
 
- @import 'bootstrap';
- @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
-
+$table-border: 7px solid white;
+$maroon: #500000;
+$cream-light:#fff0db;
+$cream-dark: #edd8ba;
 
 .main {
-    padding-inline: 2rem;
-}
-.row {
+    background-color: $cream-light;
     display: flex;
+    flex-flow: column nowrap;
+    min-height: 94vh;
+    width: 100vw;
+}
+
+
+.content {
+    display:flex;
     flex-direction: row;
+    width: 100vw;
+    padding: 0.5rem;
+    align-content:center;
 }
-.col {
+
+.event-table {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    flex-grow:1;
+    color: white;
+    width: 100%;
 }
-.pad-up {
-    padding-top: 2rem;
+
+.calendar {
+    display: flex;
+    align-self: center;
+    justify-self: center;
+    width: 600px;
+}
+
+.table-header {
+    min-height: 7rem;
+    border: $table-border;
+    background-color: $maroon;
+}
+.table-row {
+    min-height: 6rem;
+    border-bottom: $table-border;
+    border-right: $table-border;
+    border-left: $table-border;
+}
+.table-row:nth-child(even) {
+    background-color: $maroon;
+}
+.table-row:nth-child(odd) {
+    background-color: $cream-dark;
+}
+
+.time-col {
+    width: 10rem;
+}
+
+.new-event {
+    padding: 1rem;
 }
