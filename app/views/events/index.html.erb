@@ -1,15 +1,31 @@
-<p style="color: green"><%= notice %></p>
+<%= stylesheet_link_tag 'events' %>
 
-<h1>Events</h1>
+<div class="main">
+  <p style="color: green"><%= notice %></p>
 
-<div id="events">
-  <% @events.each do |event| %>
-    <%= render event %>
-    <p>
-      <%= link_to "Show this event", event %>
-      <%= button_to "Join Event", event_members_path(:event_id => event.id, :user_id => 1)%>
-    </p>
-  <% end %>
+  <div class="content">
+    <div class="event-table">
+      <div class="events">
+        <div class="table-header row squish">
+          <div class="col squish">Name</div>
+          <div class="time-col col squish">Start/End</div>
+          <div class="col squish">Description</div>
+          <div class="col squish"></div>
+        </div>
+        <% @events.each do |event| %>
+            <%= render event %>
+        <% end %>
+      </div>
+    </div>
+
+
+    <div class="calendar">
+      <iframe src=<%= @calendar_url %> style="border: 0" width="600" height="425" frameborder="0" scrolling="no"></iframe> 
+    </div>
+  </div>
+
+
+  <div class="new-event">
+    <%= button_to "New event", new_event_path, method: 'get' %>
+  </div>
 </div>
-
-<%= link_to "New event", new_event_path %>

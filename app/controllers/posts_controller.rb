@@ -19,7 +19,8 @@ class PostsController < ApplicationController
 
   # POST /posts or /posts.json
   def create
-    @post = Post.new(post_params)
+    current_user = User.where('email' => current_admin.email).first
+    @post = Post.new({ 'title' => post_params[:title], 'body' => post_params[:body], 'user' => current_user })
 
     respond_to do |format|
       if @post.save

@@ -43,6 +43,10 @@ gem 'yaml_db'
 
 gem 'rexml'
 
+gem 'bootstrap'
+gem 'jquery-rails'
+gem 'turbolinks'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', require: false
 

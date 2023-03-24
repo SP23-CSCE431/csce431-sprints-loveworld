@@ -21,7 +21,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_13_190543) do
     t.string "avatar_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_admins_on_email", unique: true
   end
 
   create_table "event_members", force: :cascade do |t|
