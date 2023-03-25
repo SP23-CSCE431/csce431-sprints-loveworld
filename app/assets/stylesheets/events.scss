@@ -12,10 +12,12 @@
  *
  */
 
-$table-border: 7px solid white;
+$table-border: 7px solid rgb(0, 0, 0);
 $maroon: #500000;
 $cream-light:#fff0db;
-$cream-dark: #edd8ba;
+$cream-dark: #e7d1b2;
+$content-height: 80vh;
+$table-row-height: 5rem;
 
 .main {
     background-color: $cream-light;
@@ -39,27 +41,40 @@ $cream-dark: #edd8ba;
     justify-content: center;
     flex-grow:1;
     color: white;
+    width: 50vw;
+    padding-inline: 1rem;
+}
+
+.events{
     width: 100%;
 }
 
-.calendar {
-    display: flex;
-    align-self: center;
-    justify-self: center;
-    width: 600px;
-}
 
 .table-header {
-    min-height: 7rem;
+    width: 100%;
+    margin: 0;
+    justify-items: center;
+    align-items: center;
+    font-size: x-large;
+    font-weight: 700;
+    height: $table-row-height;
     border: $table-border;
     background-color: $maroon;
 }
+
 .table-row {
-    min-height: 6rem;
+    font-size: large;
+    font-weight: 600;
+    width: 100%;
+    height: $table-row-height;
+    margin: 0;
     border-bottom: $table-border;
     border-right: $table-border;
     border-left: $table-border;
+    justify-items: center;
+    align-items: center;
 }
+
 .table-row:nth-child(even) {
     background-color: $maroon;
 }
@@ -68,9 +83,42 @@ $cream-dark: #edd8ba;
 }
 
 .time-col {
-    width: 10rem;
+    width: 11rem;
+}
+.fill {
+    width: auto;
+}
+.action-col {
+    display: flex;
+    flex-direction: column;
+    width: 6rem;
+    justify-self: center;
+    align-self: center;
 }
 
+.scroll {
+    margin: 0;
+    padding: 0;
+    height: calc(#{$content-height} - #{$table-row-height});
+    overflow-y: scroll;
+}
+
+.calendar {
+    display: flex;
+    align-self: center;
+    justify-self: center;
+    width: 50vw;
+    height: $content-height;
+}
+
+.iframe {
+    border: 0;
+    width: 48vw;
+    height: $content-height;
+}
+
+
+
 .new-event {
-    padding: 1rem;
+    padding: 2rem;
 }

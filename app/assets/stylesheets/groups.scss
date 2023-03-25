@@ -1,0 +1,124 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ */
+
+ $table-border: 7px solid rgb(0, 0, 0);
+ $maroon: #500000;
+ $cream-light:#fff0db;
+ $cream-dark: #e7d1b2;
+ $content-height: 80vh;
+ $table-row-height: 5rem;
+ 
+ .main {
+     background-color: $cream-light;
+     display: flex;
+     flex-flow: column nowrap;
+     min-height: 94vh;
+     width: 100vw;
+ }
+ 
+ 
+ .content {
+     display:flex;
+     flex-direction: row;
+     width: 100vw;
+     padding: 3rem;
+     align-content:center;
+ }
+ 
+ .group-table {
+     display: flex;
+     justify-content: center;
+     flex-grow:1;
+     color: white;
+     width: 50vw;
+     padding-inline: 1rem;
+ }
+ 
+ .groups{
+     width: 100%;
+ }
+ 
+ 
+ .table-header {
+     width: 100%;
+     margin: 0;
+     justify-items: center;
+     align-items: center;
+     font-size: x-large;
+     font-weight: 700;
+     height: $table-row-height;
+     border: $table-border;
+     background-color: $maroon;
+ }
+ 
+ .table-row {
+     font-size: large;
+     font-weight: 600;
+     width: 100%;
+     height: $table-row-height;
+     margin: 0;
+     border-bottom: $table-border;
+     border-right: $table-border;
+     border-left: $table-border;
+     justify-items: center;
+     align-items: center;
+ }
+ 
+ .table-row:nth-child(even) {
+     background-color: $maroon;
+ }
+ .table-row:nth-child(odd) {
+     background-color: $cream-dark;
+ }
+ 
+ .time-col {
+     width: 11rem;
+ }
+ .fill {
+     width: auto;
+ }
+ .action-col {
+     display: flex;
+     flex-direction: column;
+     width: 6rem;
+     justify-self: center;
+     align-self: center;
+ }
+ 
+ .scroll {
+     margin: 0;
+     padding: 0;
+     height: calc(#{$content-height} - #{$table-row-height});
+     overflow-y: scroll;
+ }
+ 
+ .calendar {
+     display: flex;
+     align-self: center;
+     justify-self: center;
+     width: 50vw;
+     height: $content-height;
+ }
+ 
+ .iframe {
+     border: 0;
+     width: 48vw;
+     height: $content-height;
+ }
+ 
+ 
+ 
+ .new-group {
+     padding-left: 4rem;
+ }
