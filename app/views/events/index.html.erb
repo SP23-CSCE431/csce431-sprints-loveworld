@@ -6,21 +6,23 @@
   <div class="content">
     <div class="event-table">
       <div class="events">
-        <div class="table-header row squish">
-          <div class="col squish">Name</div>
-          <div class="time-col col squish">Start/End</div>
-          <div class="col squish">Description</div>
-          <div class="col squish"></div>
+        <div class="table-header row">
+          <div class="col fill">Name</div>
+          <div class="time-col col">Start / End</div>
+          <div class="action-col"> Show </div>
+          <div class="action-col"> Action</div>
         </div>
-        <% @events.each do |event| %>
-            <%= render event %>
-        <% end %>
+        <div class="scroll">
+          <% @events.each do |event| %>
+              <%= render event %>
+          <% end %>
+        </div>
       </div>
     </div>
 
 
     <div class="calendar">
-      <iframe src=<%= @calendar_url %> style="border: 0" width="600" height="425" frameborder="0" scrolling="no"></iframe> 
+      <iframe src=<%= @calendar_url %> class="iframe" frameborder="0" scrolling="no"></iframe> 
     </div>
   </div>
 
