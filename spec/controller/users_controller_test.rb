@@ -2,7 +2,7 @@ require 'rails_helper'
 require 'capybara/rspec'
 
 class UsersControllerTest < ActionDispatch::IntegrationTest
-  setup do
+  before do
     @user = users(:one)
   end
 

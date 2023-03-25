@@ -2,7 +2,7 @@ require 'rails_helper'
 require 'capybara/rspec'
 
 class RepliesControllerTest < ActionDispatch::IntegrationTest
-  setup do
+  before do
     @reply = replies(:one)
   end
 

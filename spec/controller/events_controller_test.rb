@@ -2,7 +2,7 @@ require 'rails_helper'
 require 'capybara/rspec'
 
 class EventsControllerTest < ActionDispatch::IntegrationTest
-  setup do
+  before do
     @event = events(:one)
   end
 
@@ -49,7 +49,7 @@ class EventsControllerTest < ActionDispatch::IntegrationTest
 
   test 'should not update event' do
     patch event_url(@event), params: { event: { end: nil, name: nil, start: nil } }
-    assert_response :unprocessable_entity 
+    assert_response :unprocessable_entity
   end
 
   test 'should destroy event' do
