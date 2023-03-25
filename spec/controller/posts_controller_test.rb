@@ -2,7 +2,7 @@ require 'rails_helper'
 require 'capybara/rspec'
 
 class PostsControllerTest < ActionDispatch::IntegrationTest
-  setup do
+  before do
     @post = posts(:one)
   end
 

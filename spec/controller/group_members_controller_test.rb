@@ -2,7 +2,7 @@ require 'rails_helper'
 require 'capybara/rspec'
 
 class GroupMembersControllerTest < ActionDispatch::IntegrationTest
-  setup do
+  before do
     @group_member = group_members(:one)
   end
 

@@ -2,7 +2,7 @@ require 'rails_helper'
 require 'capybara/rspec'
 
 class EventMembersControllerTest < ActionDispatch::IntegrationTest
-  setup do
+  before do
     @event_member = event_members(:one)
   end
 
@@ -49,7 +49,7 @@ class EventMembersControllerTest < ActionDispatch::IntegrationTest
 
   test 'should not update event' do
     patch event_member_url(@event_member), params: { event_member: { event_id: nil, user_id: nil } }
-    assert_response :unprocessable_entity 
+    assert_response :unprocessable_entity
   end
 
   test 'should destroy event_member' do
@@ -66,56 +66,56 @@ class EventMembersControllerTest < ActionDispatch::IntegrationTest
     assert_no_difference('EventMember.count') do
       post event_members_url, params: { event_member: { event_id: @event_member.event_id, user_id: nil } }
     end
-  
+
     assert_response :unprocessable_entity
   end
-  
+
   test 'should not create event_member with invalid event_id' do
     assert_no_difference('EventMember.count') do
       post event_members_url, params: { event_member: { event_id: nil, user_id: @event_member.user_id } }
     end
-  
+
     assert_response :unprocessable_entity
   end
-  
+
   test 'should return all event members in index action' do
     get event_members_url
-    assert_equal EventMember.all.count, assigns(:event_members).count
+    expect(EventMember.all.count).to(eq(assigns(:event_members).count))
   end
-  
+
   test 'should not update event_member with invalid user_id' do
     patch event_member_url(@event_member), params: { event_member: { event_id: @event_member.event_id, user_id: nil } }
-    assert_response :unprocessable_entity 
+    assert_response :unprocessable_entity
   end
-  
+
   test 'should not update event_member with invalid event_id' do
     patch event_member_url(@event_member), params: { event_member: { event_id: nil, user_id: @event_member.user_id } }
     assert_response :unprocessable_entity
   end
-  
+
   test 'should view event_member details' do
     get event_member_url(@event_member)
-    assert_equal @event_member, assigns(:event_member)
+    expect(@event_member).to(eq(assigns(:event_member)))
   end
-  
+
   test 'should edit event_member' do
     get edit_event_member_url(@event_member)
     assert_response :success
   end
-  
+
   test 'should not destroy event_member with invalid user_id' do
     assert_no_difference('EventMember.count') do
       delete event_member_url(@event_member), params: { event_member: { event_id: nil, user_id: @event_member.user_id } }
     end
-  
+
     assert_response :unprocessable_entity
   end
-  
+
   test 'should not destroy event_member with invalid event_id' do
     assert_no_difference('EventMember.count') do
       delete event_member_url(@event_member), params: { event_member: { event_id: @event_member.event_id, user_id: nil } }
     end
-  
+
     assert_response :unprocessable_entity
   end
 end
