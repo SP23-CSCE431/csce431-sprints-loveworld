@@ -4,7 +4,8 @@ require "google/api_client/client_secrets.rb"
 class EventsController < ApplicationController
   before_action :set_event, only: %i[show edit update destroy]
 
-  CALENDAR_ID = 'primary'
+  # add to env later
+  CALENDAR_ID = 'c_6fa3a48d19f0d7d599da305fe3e3b26ca3ed3102a85a870552b0f4dbf80c0c07@group.calendar.google.com'
 
   # GET /events or /events.json
   def index
@@ -13,6 +14,8 @@ class EventsController < ApplicationController
     @user_event_array = Event.select('id').joins(:event_members).where('event_members.user_id' => @current_id.id).to_a.map(&:id)
 
     user_email = ERB::Util.url_encode(current_admin.email)
+
+    # add to env later
     @calendar_url = "https://calendar.google.com/calendar/embed?src=c_6fa3a48d19f0d7d599da305fe3e3b26ca3ed3102a85a870552b0f4dbf80c0c07%40group.calendar.google.com&ctz=America%2FChicago"
   end
 
@@ -110,18 +113,16 @@ class EventsController < ApplicationController
   def get_google_calendar_client current_user
     client = Google::Apis::CalendarV3::CalendarService.new
 
-    puts current_admin.methods
-    puts "howdy ----"
-    access_token = "here"
-    refresh_token = "here"
+    access_token = current_admin.access_token
+    refresh_token = current_admin.refresh_token
 
     return unless (current_user.present? && access_token.present? && refresh_token.present?)
     secrets = Google::APIClient::ClientSecrets.new({
       "web" => {
         "access_token" => access_token,
         "refresh_token" => refresh_token,
-        "client_id" => "AIzaSyBXzTYpS3QHGVI5cYrMx4vOy39Nh0Gqz6E", # TODO: replace
-        "client_secret" => "477074288964-jq2ouosnb87921jtofeuh23so0d0eej5.apps.googleusercontent.com" # TODO: replace
+        "client_id" => ENV['GOOGLE_OAUTH_CLIENT_ID'], # TODO: replace
+        "client_secret" => ENV['GOOGLE_OAUTH_CLIENT_SECRET'] # TODO: replace
       }
     })
     begin

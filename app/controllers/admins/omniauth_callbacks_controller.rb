@@ -5,7 +5,13 @@ class Admins::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     if admin.present?
       sign_out_all_scopes
       flash[:success] = t('devise.omniauth_callbacks.success', kind: 'Google')
-      
+
+      auth = request.env["omniauth.auth"]
+      admin.access_token = auth.credentials.token
+      admin.expires_at = auth.credentials.expires_at
+      admin.refresh_token = auth.credentials.refresh_token
+      admin.save!
+
       sign_in_and_redirect(admin, event: :authentication)
     else
       flash[:alert] = t('devise.omniauth_callbacks.failure', kind: 'Google', reason: "#{auth.info.email} is not authorized.")
