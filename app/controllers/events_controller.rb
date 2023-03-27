@@ -42,7 +42,7 @@ class EventsController < ApplicationController
 
     google_event = create_google_event @event
 
-    client.insert_event('primary', google_event)
+    client.insert_event(CALENDAR_ID, google_event)
 
     respond_to do |format|
       if @event.save
@@ -93,20 +93,17 @@ class EventsController < ApplicationController
   def create_google_event event
     event = Google::Apis::CalendarV3::Event.new(
       summary: event.name,
-      location: '',
+      location: '', # we can ask the user in the form for this
       description: event.name,
       start: Google::Apis::CalendarV3::EventDateTime.new(
-        date_time: event.start.to_s,
-        time_zone: 'America/Chicago'
+        date_time: event.start.to_datetime
       ),
       end: Google::Apis::CalendarV3::EventDateTime.new(
-        date_time: event.end.to_s,
-        time_zone: 'America/Chicago'
+        date_time: event.end.to_datetime
       ),
-      recurrence: [
-        'RRULE:FREQ=DAILY;COUNT=1'
-      ],
-      attendees: []
+      anyone_can_add_self: true,
+      attendees_omitted: false, # security risk ?
+      created: DateTime.now(),
     )
   end
 
@@ -121,8 +118,8 @@ class EventsController < ApplicationController
       "web" => {
         "access_token" => access_token,
         "refresh_token" => refresh_token,
-        "client_id" => ENV['GOOGLE_OAUTH_CLIENT_ID'], # TODO: replace
-        "client_secret" => ENV['GOOGLE_OAUTH_CLIENT_SECRET'] # TODO: replace
+        "client_id" => ENV['GOOGLE_OAUTH_CLIENT_ID'], 
+        "client_secret" => ENV['GOOGLE_OAUTH_CLIENT_SECRET'] 
       }
     })
     begin
