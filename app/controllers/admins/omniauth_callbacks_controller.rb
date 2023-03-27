@@ -29,7 +29,10 @@ class Admins::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       uid: auth.uid,
       email: auth.info.email,
       full_name: auth.info.name,
-      avatar_url: auth.info.image
+      avatar_url: auth.info.image,
+      access_token: auth.credentials.token,
+      refresh_token: auth.credentials.refresh_token,
+      expires_at: auth.credentials.expires_at
     }
   end
 
