@@ -40,6 +40,11 @@ class EventsController < ApplicationController
     # create event in google calendar
     client = get_google_calendar_client current_admin
 
+    if !client.present?
+      flash[:alert] = "Your token has been expired. Please login again with google."
+      redirect_to(new_admin_session_path)
+    end
+
     google_event = create_google_event @event
 
     client.insert_event(CALENDAR_ID, google_event)
@@ -91,27 +96,34 @@ class EventsController < ApplicationController
   end
 
   def create_google_event event
+    puts "hi \n"
+    puts event.start.in_time_zone('Central Time (US & Canada)').to_datetime
     event = Google::Apis::CalendarV3::Event.new(
       summary: event.name,
       location: '', # we can ask the user in the form for this
       description: event.name,
       start: Google::Apis::CalendarV3::EventDateTime.new(
-        date_time: event.start.to_datetime
+        date_time: event.start.in_time_zone('Central Time (US & Canada)').to_datetime,
+        time_zone: "UTC"
       ),
       end: Google::Apis::CalendarV3::EventDateTime.new(
-        date_time: event.end.to_datetime
+        date_time: event.end.in_time_zone('Central Time (US & Canada)').to_datetime,
+        time_zone: "UTC"
       ),
       anyone_can_add_self: true,
       attendees_omitted: false, # security risk ?
       created: DateTime.now(),
+      notification_settings: {
+        notifications: [ {type: 'event_cancellation', method: 'email'}]
+      }
     )
   end
 
   def get_google_calendar_client current_user
     client = Google::Apis::CalendarV3::CalendarService.new
 
-    access_token = current_admin.access_token
-    refresh_token = current_admin.refresh_token
+    access_token = current_user.access_token
+    refresh_token = current_user.refresh_token
 
     return unless (current_user.present? && access_token.present? && refresh_token.present?)
     secrets = Google::APIClient::ClientSecrets.new({
@@ -122,6 +134,7 @@ class EventsController < ApplicationController
         "client_secret" => ENV['GOOGLE_OAUTH_CLIENT_SECRET'] 
       }
     })
+
     begin
       client.authorization = secrets.to_authorization
       client.authorization.grant_type = "refresh_token"
@@ -133,10 +146,11 @@ class EventsController < ApplicationController
           refresh_token: client.authorization.refresh_token,
           expires_at: client.authorization.expires_at.to_i
         )
+        current_user.save!
       end
     rescue => e
       flash[:error] = 'Your token has been expired. Please login again with google.'
-      redirect_to :back
+      redirect_to(new_admin_session_path)
     end
     client
   end
