@@ -25,7 +25,6 @@ RSpec.describe('Event') do
       fill_in 'event[start]', with: Time.now.utc
       fill_in 'event[end]', with: Time.now.utc + 1.day
       click_on 'Create Event'
-      visit events_path
       expect(page).to(have_content('Wizarding Magic'))
     end
   end

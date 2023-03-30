@@ -11,22 +11,24 @@
     </div>
   <% end %>
 
-  <div>
+  <div class="py-3">
     <%= form.label :name, style: "display: block" %>
     <%= form.text_field :name %>
   </div>
 
-  <div>
-    <%= form.label :start, style: "display: block" %>
-    <%= form.datetime_field :start %>
+  <div class="py-3">
+    <div class="col">      
+      <%= form.label :start, style: "display: block" %>
+      <%= form.datetime_field :start %> CST
+    </div>
+    <div class="col">
+      <%= form.label :end, style: "display: block" %>
+      <%= form.datetime_field :end %> CST
+    </div>
   </div>
 
-  <div>
-    <%= form.label :end, style: "display: block" %>
-    <%= form.datetime_field :end %>
-  </div>
 
-  <div>
+  <div class="py-3">
     <%= form.submit %>
   </div>
 <% end %>
