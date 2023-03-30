@@ -66,7 +66,8 @@ Rails.application.configure do
     },
     :credentials => {
       :token => "token",
-      :refresh_token => "refresh token"
+      :refresh_token => "refresh token",
+      :expires_at => -1
     }
   })
 

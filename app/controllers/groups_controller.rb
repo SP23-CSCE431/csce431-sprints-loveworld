@@ -14,7 +14,6 @@ class GroupsController < ApplicationController
     @users = User.select('full_name').joins(:group_members).where('group_members.group_id' => params[:id])
     @current_id = User.where('email' => current_admin.email).first
     @user_group_array = Group.select('id').joins(:group_members).where('group_members.user_id' => @current_id.id).to_a.map(&:id)
-
   end
 
   # GET /groups/new
