@@ -75,10 +75,10 @@
      align-items: center;
  }
  
- .table-row:nth-child(even) {
+ .table-row:nth-child(odd) {
      background-color: $maroon;
  }
- .table-row:nth-child(odd) {
+ .table-row:nth-child(even) {
      background-color: $cream-dark;
  }
  
@@ -121,4 +121,8 @@
  
  .new-group {
      padding-left: 4rem;
+ }
+
+ .extra-spacer {
+    padding-left: 4rem;
  }
