@@ -57,13 +57,12 @@ class UsersController < ApplicationController
 
   # DELETE /users/1 or /users/1.json
   def destroy
-
     # logout if you destroy yourself
-    if current_admin.email == @user.email
-      path = "/admins/sign_out"
-    else
-      path = users_url
-    end
+    path = if current_admin.email == @user.email
+             '/admins/sign_out'
+           else
+             users_url
+           end
 
     @user.destroy!
 
