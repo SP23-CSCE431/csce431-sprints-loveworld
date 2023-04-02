@@ -1,17 +1,33 @@
 <%= stylesheet_link_tag 'events' %>
-<div class="main p-5">
-    <h1>Event Details</h1>
-    <div class="row py-2">
-      <h3> <%= @event.name %> </h3>
+<div class="main">
+  <h1 class="px-4">Event Details</h1>
+  <div class="content">
+    <div class="event-table">
+      <div class="events">
+        <div class="table-header row">
+          <div class="col fill">Name</div>
+          <div class="time-col col">Start</div>
+          <div class="time-col col">End</div>
+        </div>
+        <div class="table-row table-cream row">
+          <div class="col fill">
+            <%= @event.name %>
+          </div>
+
+          <div class="time-col col">
+              <%= @event.start.in_time_zone('Central Time (US & Canada)').strftime("%m/%d/%Y %H:%M CST")  %>
+          </div>
+          <div class="time-col col">
+            <%= @event.end.in_time_zone('Central Time (US & Canada)').strftime("%m/%d/%Y %H:%M CST")  %>
+          </div>
+        </div>
+      </div>
+
     </div>
 
-    <div class="row py-2">
-      <h5>
-        <%= @event.start.in_time_zone('Central Time (US & Canada)').strftime("%m/%d/%Y %H:%M CST")  %> - <%= @event.end.in_time_zone('Central Time (US & Canada)').strftime("%m/%d/%Y %H:%M CST")  %>
-      </h5>
-    </div>
+  </div>
 
-    <div class="row py-2">
+  <div class="row py-2 px-4">
       <% if @users.empty? %>
         <h3> No members in event </h3>
       <% else %>
@@ -24,15 +40,10 @@
       <% end %>
     </div>
 
-  <div class="row py-2">
-    <div class="col-1">
-      <%= button_to "Edit this event", edit_event_path(@event), method: :get %> 
-    </div>
-    <div class="col-1">
-      <%= button_to "Back to events", events_path, method: :get %>
-    </div>
-    <div class="col-1">    
-      <%= button_to "Delete Event", @event, method: :delete %>
-    </div>
+  <div class="px-4">
+    <%= link_to "Edit this event", edit_event_path(@event) %> |
+    <%= link_to "Back to events", events_path %>
+    <%= button_to "Destroy this event", @event, method: :delete %>
   </div>
+
 </div>

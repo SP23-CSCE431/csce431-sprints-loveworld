@@ -61,6 +61,10 @@ $table-row-height: 5rem;
     align-items: center;
 }
 
+.table-cream {
+    background-color: $cream-dark !important;
+}
+
 .table-row:nth-child(even) {
     background-color: $maroon;
 }

@@ -1,18 +1,16 @@
 <%= stylesheet_link_tag 'events' %>
 
-<div class="main p-5">
-  <h1>Editing event</h1>
+<div class="main">
+  <div style="padding-left: 30px; padding-top: 10px;">
+    <h1>Editing event</h1>
 
-  <%= render "form", event: @event %>
+    <%= render "form", event: @event %>
 
-  <br>
-
-  <div class="row">
-    <div class="col-1">    
-      <%= button_to "Show this event", @event, method: :get %> 
-    </div>
-    <div class="col-1">
-      <%= button_to "Back to events", events_path, method: :get %>
+    <br>
+    <div>
+      <%= link_to "Show this event", @event %> |
+      <%= link_to "Back to events", events_path %>
     </div>
   </div>
+  
 </div>
