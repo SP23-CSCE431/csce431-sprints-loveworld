@@ -94,4 +94,7 @@ Rails.application.configure do
   # google oauth info
   ENV['GOOGLE_OAUTH_CLIENT_ID'] = '783903801837-jkpimg3cddph2kikc6ip4uuhcue56e2l.apps.googleusercontent.com'
   ENV['GOOGLE_OAUTH_CLIENT_SECRET'] = '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'
-end
+  ENV['GOOGLE_CALENDAR_ID'] = 'c_6fa3a48d19f0d7d599da305fe3e3b26ca3ed3102a85a870552b0f4dbf80c0c07@group.calendar.google.com'
+  ENV['GOOGLE_CALENDAR_URL'] = 'https://calendar.google.com/calendar/embed?src=c_6fa3a48d19f0d7d599da305fe3e3b26ca3ed3102a85a870552b0f4dbf80c0c07%40group.calendar.google.com&ctz=America%2FChicago'
+  # TODO: add service account here
+end 

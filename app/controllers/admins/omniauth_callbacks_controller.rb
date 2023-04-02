@@ -1,10 +1,6 @@
 class Admins::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def google_oauth2
     admin = Admin.from_google(**from_google_params)
-    admin.access_token = auth.credentials.token
-    admin.refresh_token = auth.credentials.refresh_token
-    admin.expires_at = auth.credentials.expires_at
-    admin.save!
 
     if admin.present?
       sign_out_all_scopes
