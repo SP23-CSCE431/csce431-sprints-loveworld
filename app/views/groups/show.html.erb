@@ -1,25 +1,30 @@
-<p style="color: green"><%= notice %></p>
+<%= stylesheet_link_tag 'groups' %>
 
-  <div class="col">
-    <%= @group.name %>
+<div class="main p-5">
+  <h2 class="pt-3">Group details</h2>
+  <div class="pt-3">
+    <h6> <%= @group.name %> </h6>
   </div>
 
-  <div class="col">
+  <div>
     <%= @group.description %>
   </div>
 
-<br><br>
-<h2>Members:</h2>
-<div id="users">
-  <% @users.each do |user| %>
-    <p><%= user.full_name %></p>
+  <% if @users.empty? %>
+    <h6 class="pt-3"> No members in group yet.</h6>
+  <% else %>
+    <h2 class="pt-3">Members:</h2>
+    <div id="users">
+      <% @users.each do |user| %>
+        <p><%= user.full_name %></p>
+      <% end %>
+    </div>
   <% end %>
-  <br>
-</div>
 
-<div>
-  <%= link_to "Edit this group", edit_group_path(@group) %> |
-  <%= link_to "Back to groups", groups_path %>
+  <div>
+    <%= link_to "Edit this group", edit_group_path(@group) %> |
+    <%= link_to "Back to groups", groups_path %>
 
-  <%= button_to "Destroy this group", @group, method: :delete %>
+    <%= button_to "Destroy this group", @group, method: :delete %>
+  </div>
 </div>

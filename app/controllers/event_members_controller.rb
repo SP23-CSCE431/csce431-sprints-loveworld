@@ -24,7 +24,7 @@ class EventMembersController < ApplicationController
     respond_to do |format|
       if @event_member.save
         # dont redirect, just flash a notice
-        format.html { redirect_to(events_url, notice: 'Event member was successfully added.') }
+        format.html { redirect_to(events_url, info: 'Event member was successfully added.') }
         format.json { render(:show, status: :created, location: @event_member) }
       else
         format.html { render(:new, status: :unprocessable_entity) }
@@ -37,7 +37,7 @@ class EventMembersController < ApplicationController
   def update
     respond_to do |format|
       if @event_member.update(event_member_params)
-        format.html { redirect_to(event_member_url(@event_member), notice: 'Event member was successfully updated.') }
+        format.html { redirect_to(event_member_url(@event_member), info: 'Event member was successfully updated.') }
         format.json { render(:show, status: :ok, location: @event_member) }
       else
         format.html { render(:edit, status: :unprocessable_entity) }
@@ -52,7 +52,7 @@ class EventMembersController < ApplicationController
 
     # dont redirect just rerender events page
     respond_to do |format|
-      format.html { redirect_to(events_url, notice: 'Event member was successfully destroyed.') }
+      format.html { redirect_to(events_url, info: 'Event member was successfully destroyed.') }
       format.json { head(:no_content) }
     end
   end

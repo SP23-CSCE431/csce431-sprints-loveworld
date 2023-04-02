@@ -5,7 +5,7 @@ class EventsController < ApplicationController
   before_action :set_event, only: %i[show edit update destroy]
 
   # add to env later
-  CALENDAR_ID = 'c_6fa3a48d19f0d7d599da305fe3e3b26ca3ed3102a85a870552b0f4dbf80c0c07@group.calendar.google.com'
+  CALENDAR_ID = 'c_6fa3a48d19f0d7d599da305fe3e3b26ca3ed3102a85a870552b0f4dbf80c0c07@group.calendar.google.com'.freeze
 
   # GET /events or /events.json
   def index
@@ -47,16 +47,16 @@ class EventsController < ApplicationController
       # create event in google calendar
       client = get_google_calendar_client(current_admin)
 
-      unless client.present?
-        flash[:notice] = 'Failed to create the client. Your token has been expired. Please login again with google.'
-        redirect_to(new_admin_session_path)
+      if client.blank?
+        flash[:error] = 'Failed to create the client. Your token has been expired. Please login again with google.'
+        redirect_to("/admins/sign_out")
         return
       end
 
       google_event = create_google_event(@event)
 
-      unless google_event.present?
-        flash[:notice] = 'Failed to create google event.'
+      if google_event.blank?
+        flash[:error] = 'Failed to create google event.'
         redirect_to(new_event_url)
         return
       end
@@ -64,21 +64,28 @@ class EventsController < ApplicationController
       result, err = client.insert_event(CALENDAR_ID, google_event)
 
       if err.present?
-        flash[:notice] = 'Failed to insert google event into calendar.'
+        flash[:error] = 'Failed to insert google event into calendar.'
         redirect_to(new_event_url)
         return
       end
 
       @event.google_event_id = result.id
     rescue StandardError => e
-      flash[:notice] = 'Error occurred. Contact admin for details.'
-      redirect_to(new_event_url)
+      puts "\n hi \n"
+      puts e.message
+      flash[:error] = 'Error occurred. Contact admin for details.'
+      if e.message == "Unauthorized"
+        puts "\n hi \n"
+        redirect_to("/admins/sign_out")
+      else
+        redirect_to(new_event_url)
+      end
       return
     end
 
     respond_to do |format|
       if @event.save
-        format.html { redirect_to(events_url) }
+        format.html { redirect_to(events_url, info: "Successfully created a new event.") }
         format.json { render(:show, status: :created, location: @event) }
       else
         format.html { render(:new, status: :unprocessable_entity) }
@@ -95,16 +102,16 @@ class EventsController < ApplicationController
       # create event in google calendar
       client = get_google_calendar_client(current_admin)
 
-      unless client.present?
-        flash[:notice] = 'Your token has been expired. Please login again with google.'
-        redirect_to(new_admin_session_path)
+      if client.blank?
+        flash[:error] = 'Your token has been expired. Please login again with google.'
+        redirect_to("/admins/sign_out")
         return
       end
 
       google_event = create_google_event(updated_event)
 
-      unless google_event.present?
-        flash[:notice] = 'Failed to update google event.'
+      if google_event.blank?
+        flash[:error] = 'Failed to update google event.'
         redirect_to(new_event_url)
         return
       end
@@ -112,19 +119,19 @@ class EventsController < ApplicationController
       result, err = client.update_event(CALENDAR_ID, @event.google_event_id, google_event)
 
       if err.present?
-        flash[:notice] = 'Failed to update google event in calendar.'
+        flash[:error] = 'Failed to update google event in calendar.'
         redirect_to(event_url)
         return
       end
     rescue StandardError => e
-      flash[:notice] = 'Error occurred. Contact admin for details.'
+      flash[:error] = 'Error occurred. Contact admin for details.'
       redirect_to(event_url)
       return
     end
 
     respond_to do |format|
       if @event.update(event_params)
-        format.html { redirect_to(events_url) }
+        format.html { redirect_to(events_url, info: "Successfully updated event.") }
         format.json { render(:show, status: :ok, location: @event) }
       else
         format.html { render(:edit, status: :unprocessable_entity) }
@@ -139,21 +146,21 @@ class EventsController < ApplicationController
       # create event in google calendar
       client = get_google_calendar_client(current_admin)
 
-      unless client.present?
-        flash[:notice] = 'Your token has been expired. Please login again with google.'
-        redirect_to(new_admin_session_path)
+      if client.blank?
+        flash[:error] = 'Your token has been expired. Please login again with google.'
+        redirect_to("/admins/sign_out")
         return
       end
 
       result, err = client.delete_event(CALENDAR_ID, @event.google_event_id)
 
-      if err.present? or result.present?
-        flash[:notice] = 'Failed to delete google event into calendar.'
+      if err.present? || result.present?
+        flash[:error] = 'Failed to delete google event into calendar.'
         redirect_to(event_url)
         return
       end
     rescue StandardError => e
-      flash[:notice] = 'Error occurred. Contact admin for details.'
+      flash[:error] = 'Error occurred. Contact admin for details.'
       redirect_to(event_url)
       return
     end
@@ -161,7 +168,7 @@ class EventsController < ApplicationController
     @event.destroy!
 
     respond_to do |format|
-      format.html { redirect_to(events_url) }
+      format.html { redirect_to(events_url, info: "Successfully deleted event.") }
       format.json { head(:no_content) }
     end
   end
@@ -179,7 +186,7 @@ class EventsController < ApplicationController
   end
 
   def create_google_event(event)
-    event = Google::Apis::CalendarV3::Event.new(
+    Google::Apis::CalendarV3::Event.new(
       summary: event.name,
       location: '', # we can ask the user in the form for this
       description: event.name,
@@ -207,7 +214,7 @@ class EventsController < ApplicationController
     refresh_token = current_user.refresh_token
 
     begin
-      return unless current_user.present? && access_token.present? && refresh_token.present?
+      return if !current_user.present? || !access_token.present? || !refresh_token.present?
 
       secrets = Google::APIClient::ClientSecrets.new({
         'web' => {
@@ -222,18 +229,18 @@ class EventsController < ApplicationController
       client.authorization = secrets.to_authorization
       client.authorization.grant_type = 'refresh_token'
 
-      unless current_user.present?
+      if current_user.blank?
         client.authorization.refresh!
-        current_user.update_attributes(
+        current_user.update!(
           access_token: client.authorization.access_token,
           refresh_token: client.authorization.refresh_token,
-          expires_at: client.authorization.expires_at.to_i
+          expires_at: Integer(client.authorization.expires_at, 10)
         )
         current_user.save!
       end
     rescue StandardError => e
       flash[:error] = 'Your token has been expired. Please login again with google.'
-      redirect_to(new_admin_session_path)
+      redirect_to("/admins/sign_out")
     end
     client
   end

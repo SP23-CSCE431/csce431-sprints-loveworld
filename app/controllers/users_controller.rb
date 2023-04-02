@@ -21,13 +21,23 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
 
-    respond_to do |format|
-      if @user.save
-        format.html { redirect_to(user_url(@user), notice: 'User was successfully created.') }
+    other_user = User.where('email' => @user.email).first
+
+    # dont duplicate users
+    if other_user.present?
+      respond_to do |format|
+        format.html { redirect_to(user_url(other_user), info: 'User already exists') }
         format.json { render(:show, status: :created, location: @user) }
-      else
-        format.html { render(:new, status: :unprocessable_entity) }
-        format.json { render(json: @user.errors, status: :unprocessable_entity) }
+      end
+    else
+      respond_to do |format|
+        if @user.save
+          format.html { redirect_to(user_url(@user), info: 'User was successfully created.') }
+          format.json { render(:show, status: :created, location: @user) }
+        else
+          format.html { render(:new, status: :unprocessable_entity) }
+          format.json { render(json: @user.errors, status: :unprocessable_entity) }
+        end
       end
     end
   end
@@ -36,7 +46,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to(user_url(@user), notice: 'User was successfully updated.') }
+        format.html { redirect_to(user_url(@user), info: 'User was successfully updated.') }
         format.json { render(:show, status: :ok, location: @user) }
       else
         format.html { render(:edit, status: :unprocessable_entity) }
@@ -47,10 +57,18 @@ class UsersController < ApplicationController
 
   # DELETE /users/1 or /users/1.json
   def destroy
+
+    # logout if you destroy yourself
+    if current_admin.email == @user.email
+      path = "/admins/sign_out"
+    else
+      path = users_url
+    end
+
     @user.destroy!
 
     respond_to do |format|
-      format.html { redirect_to(users_url, notice: 'User was successfully destroyed.') }
+      format.html { redirect_to(path, info: 'User was successfully destroyed.') }
       format.json { head(:no_content) }
     end
   end
