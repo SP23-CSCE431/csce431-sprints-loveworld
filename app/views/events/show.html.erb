@@ -1,31 +1,49 @@
-<p style="color: green"><%= notice %></p>
+<%= stylesheet_link_tag 'events' %>
+<div class="main">
+  <h1 class="px-4">Event Details</h1>
+  <div class="content">
+    <div class="event-table">
+      <div class="events">
+        <div class="table-header row">
+          <div class="col fill">Name</div>
+          <div class="time-col col">Start</div>
+          <div class="time-col col">End</div>
+        </div>
+        <div class="table-row table-cream row">
+          <div class="col fill">
+            <%= @event.name %>
+          </div>
 
-<div class="col fill">
-    <%= @event.name %>
-  </div>
+          <div class="time-col col">
+              <%= @event.start.in_time_zone('Central Time (US & Canada)').strftime("%m/%d/%Y %H:%M CST")  %>
+          </div>
+          <div class="time-col col">
+            <%= @event.end.in_time_zone('Central Time (US & Canada)').strftime("%m/%d/%Y %H:%M CST")  %>
+          </div>
+        </div>
+      </div>
 
-  <div class="col">
-    <div class="time-col col">
-      <div class="row">
-        <%= @event.start.in_time_zone('Central Time (US & Canada)').strftime("%m/%d/%Y %H:%M CST")  %>
-      </div>
-      <div class="row">
-        <%= @event.end.in_time_zone('Central Time (US & Canada)').strftime("%m/%d/%Y %H:%M CST")  %>
-      </div>
     </div>
+
   </div>
-<br><br>
-<h2>Members:</h2>
-<div id="users">
-  <% @users.each do |user| %>
-    <p><%= user.full_name %></p>
-  <% end %>
-  <br>
-</div>
 
-<div>
-  <%= link_to "Edit this event", edit_event_path(@event) %> |
-  <%= link_to "Back to events", events_path %>
+  <div class="row py-2 px-4">
+      <% if @users.empty? %>
+        <h3> No members in event </h3>
+      <% else %>
+        <h3>Members:</h3>
+        <div id="users">
+          <% @users.each do |user| %>
+            <h6><%= user.full_name %></h6>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
 
-  <%= button_to "Destroy this event", @event, method: :delete %>
+  <div class="px-4">
+    <%= link_to "Edit this event", edit_event_path(@event) %> |
+    <%= link_to "Back to events", events_path %>
+    <%= button_to "Destroy this event", @event, method: :delete %>
+  </div>
+
 </div>

@@ -11,10 +11,10 @@
 Devise.setup do |config|
   config.omniauth :google_oauth2, ENV['GOOGLE_OAUTH_CLIENT_ID'], ENV['GOOGLE_OAUTH_CLIENT_SECRET'],
     {
-    access_type: "offline",
-    prompt: "consent",
-    select_account: true,
-    scope: 'userinfo.email, calendar'
+      access_type: "offline",
+      prompt: "consent",
+      select_account: true,
+      scope: 'userinfo.email, calendar'
     }
 
   # The secret key used by Devise. Devise uses this key to generate

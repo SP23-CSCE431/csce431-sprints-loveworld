@@ -14,8 +14,25 @@
 
  @import 'bootstrap';
  
+ $beige: #FFF0DB;
+ $light-beige: #fdf7ee;
+
  .nav-link {
     color: black !important;
  }
+
+ .nav-wrapper {
+   background-color: $beige;
+ }
+ .nav-wrapper:hover {
+   background-color: $light-beige;
+ }
+
+ .over {
+   position:absolute !important;
+   top: 7vh;
+   right: 1vh;
+   z-index: 9999;
+}
 
 
