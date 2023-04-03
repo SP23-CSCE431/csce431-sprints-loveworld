@@ -5,19 +5,27 @@
     <div class="event-table">
       <div class="events">
         <div class="table-header row">
-          <div class="col fill">Name</div>
-          <div class="time-col col">Start</div>
-          <div class="time-col col">End</div>
+          <div class="col-2">Name</div>
+          <div class="col">Description</div>
+          <div class="col-2">Location</div>
+          <div class="col-2">Start</div>
+          <div class="col-2">End</div>
         </div>
         <div class="table-row table-cream row">
-          <div class="col fill">
+          <div class="col-2">
             <%= @event.name %>
           </div>
+          <div class="col">
+            <%= @event.description %>
+          </div>
+          <div class="col-2">
+            <%= @event.location %>
+          </div>
 
-          <div class="time-col col">
+          <div class="col-2">
               <%= @event.start.in_time_zone('Central Time (US & Canada)').strftime("%m/%d/%Y %H:%M CST")  %>
           </div>
-          <div class="time-col col">
+          <div class="col-2">
             <%= @event.end.in_time_zone('Central Time (US & Canada)').strftime("%m/%d/%Y %H:%M CST")  %>
           </div>
         </div>
