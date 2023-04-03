@@ -7,6 +7,7 @@ class DashboardsController < ApplicationController
 
       if user.blank?
         flash[:info] = 'New LoveWorld user account created. Click on the \'People\' tab to edit your profile.'
+
         new_user = User.new
 
         new_user.email = email
