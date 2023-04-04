@@ -1,22 +1,23 @@
 require 'rails_helper'
 require 'capybara/rspec'
 
-class GroupsControllerTest < ActionDispatch::IntegrationTest
-  before do
-    @group = groups(:one)
+RSpec.describe 'GroupController', type: :controller do
+  before(:each) do 
+    Rails.application.env_config['devise.mapping'] = Devise.mappings[:user]
+    Rails.application.env_config['omniauth.auth'] = OmniAuth.config.mock_auth[:google_oauth2]
   end
 
-  test 'should get index' do
+  it 'should get index' do
     get groups_url
     assert_response :success
   end
 
-  test 'should get new' do
+  it 'should get new' do
     get new_group_url
     assert_response :success
   end
 
-  test 'should create group' do
+  it 'should create group' do
     assert_difference('Group.count') do
       post groups_url, params: { group: { description: @group.description, name: @group.name } }
     end
@@ -24,22 +25,22 @@ class GroupsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to group_url(Group.last)
   end
 
-  test 'should show group' do
+  it 'should show group' do
     get group_url(@group)
     assert_response :success
   end
 
-  test 'should get edit' do
+  it 'should get edit' do
     get edit_group_url(@group)
     assert_response :success
   end
 
-  test 'should update group' do
-    patch group_url(@group), params: { group: { description: @group.description, name: @group.name } }
+  it 'should update group' do
+    patch group_url(@group), params: { group: { description: @group.description , name: @group.name } }
     assert_redirected_to group_url(@group)
   end
 
-  test 'should destroy group' do
+  it 'should destroy group' do
     assert_difference('Group.count', -1) do
       delete group_url(@group)
     end

@@ -8,14 +8,6 @@ RSpec.describe('User', type: :controller) do
 
     visit '/'
     click_on 'Sign in with Google'
-
-    fake_user = Rails.application.env_config['omniauth.auth']
-
-    visit new_user_path
-    fill_in 'user[full_name]', with: fake_user.info.name
-    fill_in 'user[email]', with: fake_user.info.email
-    fill_in 'user[phone_number]', with: '0123456789'
-    click_on 'Create User'
   end
 
   context 'when using valid input' do

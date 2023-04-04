@@ -1,22 +1,25 @@
 require 'rails_helper'
 require 'capybara/rspec'
 
-class EventsControllerTest < ActionDispatch::IntegrationTest
-  before do
-    @event = events(:one)
+RSpec.describe 'EventController', type: :controller do
+  let(:event) { create(:event) }
+
+  before(:each) do 
+    Rails.application.env_config['devise.mapping'] = Devise.mappings[:user]
+    Rails.application.env_config['omniauth.auth'] = OmniAuth.config.mock_auth[:google_oauth2]
   end
 
-  test 'should get index' do
+  it 'should get index' do
     get events_url
     assert_response :success
   end
 
-  test 'should get new' do
+  it 'should get new' do
     get new_event_url
     assert_response :success
   end
 
-  test 'should create event' do
+  it 'should create event' do
     assert_difference('Event.count') do
       post events_url, params: { event: { end: @event.end, name: @event.name, start: @event.start } }
     end
@@ -24,7 +27,7 @@ class EventsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to event_url(Event.last)
   end
 
-  test 'should not create event' do
+  it 'should not create event' do
     assert_no_difference('Event.count') do
       post events_url, params: { event: { end: nil, name: @event.name, start: @event.start } }
     end
@@ -32,27 +35,27 @@ class EventsControllerTest < ActionDispatch::IntegrationTest
     assert_response :unprocessable_entity
   end
 
-  test 'should show event' do
+  it 'should show event' do
     get event_url(@event)
     assert_response :success
   end
 
-  test 'should get edit' do
+  it 'should get edit' do
     get edit_event_url(@event)
     assert_response :success
   end
 
-  test 'should update event' do
+  it 'should update event' do
     patch event_url(@event), params: { event: { end: @event.end, name: @event.name, start: @event.start } }
     assert_redirected_to event_url(@event)
   end
 
-  test 'should not update event' do
+  it 'should not update event' do
     patch event_url(@event), params: { event: { end: nil, name: nil, start: nil } }
     assert_response :unprocessable_entity
   end
 
-  test 'should destroy event' do
+  it 'should destroy event' do
     assert_difference('Event.count', -1) do
       delete event_url(@event)
     end

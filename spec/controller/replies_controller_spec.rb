@@ -1,22 +1,23 @@
 require 'rails_helper'
 require 'capybara/rspec'
 
-class RepliesControllerTest < ActionDispatch::IntegrationTest
-  before do
-    @reply = replies(:one)
+RSpec.describe 'ReplyController', type: :controller do
+  before(:each) do 
+    Rails.application.env_config['devise.mapping'] = Devise.mappings[:user]
+    Rails.application.env_config['omniauth.auth'] = OmniAuth.config.mock_auth[:google_oauth2]
   end
 
-  test 'should get index' do
+  it 'should get index' do
     get replies_url
     assert_response :success
   end
 
-  test 'should get new' do
+  it 'should get new' do
     get new_reply_url
     assert_response :success
   end
 
-  test 'should create reply' do
+  it 'should create reply' do
     assert_difference('Reply.count') do
       post replies_url, params: { reply: { body: @reply.body, post_id: @reply.post_id, user_id: @reply.user_id } }
     end
@@ -24,22 +25,22 @@ class RepliesControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to reply_url(Reply.last)
   end
 
-  test 'should show reply' do
+  it 'should show reply' do
     get reply_url(@reply)
     assert_response :success
   end
 
-  test 'should get edit' do
+  it 'should get edit' do
     get edit_reply_url(@reply)
     assert_response :success
   end
 
-  test 'should update reply' do
+  it 'should update reply' do
     patch reply_url(@reply), params: { reply: { body: @reply.body, post_id: @reply.post_id, user_id: @reply.user_id } }
     assert_redirected_to reply_url(@reply)
   end
 
-  test 'should destroy reply' do
+  it 'should destroy reply' do
     assert_difference('Reply.count', -1) do
       delete reply_url(@reply)
     end

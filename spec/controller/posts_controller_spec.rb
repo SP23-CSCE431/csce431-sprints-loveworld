@@ -1,22 +1,23 @@
 require 'rails_helper'
 require 'capybara/rspec'
 
-class PostsControllerTest < ActionDispatch::IntegrationTest
-  before do
-    @post = posts(:one)
+RSpec.describe 'PostController', type: :controller do
+  before(:each) do 
+    Rails.application.env_config['devise.mapping'] = Devise.mappings[:user]
+    Rails.application.env_config['omniauth.auth'] = OmniAuth.config.mock_auth[:google_oauth2]
   end
 
-  test 'should get index' do
+  it 'should get index' do
     get posts_url
     assert_response :success
   end
 
-  test 'should get new' do
+  it 'should get new' do
     get new_post_url
     assert_response :success
   end
 
-  test 'should create post' do
+  it 'should create post' do
     assert_difference('Post.count') do
       post posts_url, params: { post: { body: @post.body, title: @post.title, user_id: @post.user_id } }
     end
@@ -24,22 +25,22 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to post_url(Post.last)
   end
 
-  test 'should show post' do
+  it 'should show post' do
     get post_url(@post)
     assert_response :success
   end
 
-  test 'should get edit' do
+  it 'should get edit' do
     get edit_post_url(@post)
     assert_response :success
   end
 
-  test 'should update post' do
+  it 'should update post' do
     patch post_url(@post), params: { post: { body: @post.body, title: @post.title, user_id: @post.user_id } }
     assert_redirected_to post_url(@post)
   end
 
-  test 'should destroy post' do
+  it 'should destroy post' do
     assert_difference('Post.count', -1) do
       delete post_url(@post)
     end
