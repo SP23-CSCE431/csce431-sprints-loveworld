@@ -1,8 +1,44 @@
-<%= render @user %>
+<%= stylesheet_link_tag 'user' %>
 
-<div>
-  <%= link_to "Edit this user", edit_user_path(@user) %> |
-  <%= link_to "Back to users", users_path %>
+<div class="main" >
+  <div class="content">
+    <div class="user-table">
+      <div class="users">
+        <div class="table-header row">
+          <div class="col">Name</div>
+          <div class="col">Phone Number</div>
+          <div class="col">Email</div>
+        </div>
+        <div class="table-row row">
+          <div class="col"><%= @user.full_name %></div>
+          <div class="col"><%= @user.phone_number %></div>
+          <div class="col"><%= @user.email %></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="padding-left: 65px;">
+    <h5>Attended Events</h5>
+    <ul>
+      <% @user.events.each do |event| %>
+        <li><%= link_to event.name, event_path(event) %></li>
+      <% end %>
+    </ul>
+  </div>
 
-  <%= button_to "Destroy this user", @user, method: :delete %>
+  <div style="padding-left: 65px; padding-top: 25px;">
+    <h5>Joined Groups</h5>
+    <ul>
+      <% @user.groups.each do |group| %>
+        <li><%= link_to group.name, group_path(group) %></li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div style="padding-left: 65px; padding-top: 25px;">
+    <%= link_to "Edit this user", edit_user_path(@user) %> |
+    <%= link_to "Back to users", users_path %>
+
+    <%= button_to "Destroy this user", @user, method: :delete %>
+  </div>
 </div>
