@@ -15,17 +15,22 @@
     <%= form.label :name, style: "display: block" %>
     <%= form.text_field :name %>
   </div>
-
   <div>
-    <%= form.label :start, style: "display: block" %>
-    <%= form.datetime_field :start %>
+    <%= form.label "Description (optional)", style: "display: block" %>
+    <%= form.text_field :description %>
   </div>
-
+  <div>
+    <%= form.label "Location (optional)", style: "display: block" %>
+    <%= form.text_field :location %>
+  </div>
+  <div>      
+    <%= form.label :start, style: "display: block" %>
+    <%= form.datetime_field :start %> CST
+  </div>
   <div>
     <%= form.label :end, style: "display: block" %>
-    <%= form.datetime_field :end %>
+    <%= form.datetime_field :end %> CST
   </div>
-
   <div>
     <%= form.submit %>
   </div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_27_030031) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_02_183742) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -21,9 +21,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_27_030031) do
     t.string "avatar_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "access_token"
-    t.datetime "expires_at"
-    t.string "refresh_token"
   end
 
   create_table "event_members", force: :cascade do |t|
@@ -41,6 +38,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_27_030031) do
     t.datetime "end"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "google_event_id"
+    t.string "location"
+    t.string "description"
   end
 
   create_table "group_members", force: :cascade do |t|
