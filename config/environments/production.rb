@@ -108,4 +108,7 @@ Rails.application.configure do
     "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
     "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/calendar-bot%40blissful-star-380717.iam.gserviceaccount.com"
   }'
-end 
+
+  # admin info
+  ENV['ADMIN_EMAILS']="rmccauley01@tamu.edu"
+end
