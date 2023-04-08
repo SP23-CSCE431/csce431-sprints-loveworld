@@ -6707,3 +6707,1019 @@ Migrating to AddAdminNameToReplies (20230408151447)
   [1m[36mActiveRecord::InternalMetadata Load (2.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
   [1m[35m (1.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(6941818436121115260)[0m
   [1m[36mActiveRecord::SchemaMigration Pluck (5.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6941818436121115260)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (3.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateComments (20230408152150)
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (55.9ms)[0m  [1m[35mCREATE TABLE "comments" ("id" bigserial primary key, "body" text, "post_id" integer, "parent_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (6.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230408152150"]]
+  [1m[36mTRANSACTION (3.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (2.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(6941818436121115260)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (4.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/posts" for 172.17.0.1 at 2023-04-08 15:26:11 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Pluck (3.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#index as HTML
+  [1m[36mAdmin Load (5.9ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.haml within layouts/application
+  [1m[36mPost Load (2.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.haml:3
+  Rendered posts/index.html.haml within layouts/application (Duration: 108.2ms | Allocations: 9797)
+  Rendered layout layouts/application.html.erb (Duration: 720.9ms | Allocations: 46465)
+Completed 200 OK in 926ms (Views: 712.9ms | ActiveRecord: 54.5ms | Allocations: 60090)
+
+
+Started GET "/posts/7" for 172.17.0.1 at 2023-04-08 15:26:14 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mAdmin Load (1.3ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (1.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:63:in `set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/_post.html.erb (Duration: 2.6ms | Allocations: 232)
+  Rendered posts/show.html.erb within layouts/application (Duration: 111.7ms | Allocations: 8848)
+  Rendered layout layouts/application.html.erb (Duration: 153.0ms | Allocations: 14235)
+Completed 200 OK in 185ms (Views: 140.1ms | ActiveRecord: 18.7ms | Allocations: 17315)
+
+
+Started GET "/posts/7" for 172.17.0.1 at 2023-04-08 15:27:31 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mAdmin Load (2.2ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:63:in `set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/_post.html.erb (Duration: 0.4ms | Allocations: 46)
+  Rendered posts/show.html.erb within layouts/application (Duration: 52.9ms | Allocations: 5189)
+  Rendered layout layouts/application.html.erb (Duration: 100.2ms | Allocations: 10677)
+Completed 200 OK in 289ms (Views: 94.0ms | ActiveRecord: 107.3ms | Allocations: 20541)
+
+
+Started POST "/posts/7/comments" for 172.17.0.1 at 2023-04-08 15:27:35 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  
+SyntaxError (/csce431/app/controllers/comments_controller.rb:66: syntax error, unexpected end-of-input, expecting `end'):
+  
+app/controllers/comments_controller.rb:66: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/comments_controller.rb:66: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/comments_controller.rb:66: syntax error, unexpected end-of-input, expecting `end'
+Started POST "/posts/7/comments" for 172.17.0.1 at 2023-04-08 15:27:50 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by CommentsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "comment"=>{"body"=>"kjn"}, "commit"=>"Submit", "post_id"=>"7"}
+  [1m[36mAdmin Load (1.6ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (2.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:24:in `create'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/comments_controller.rb:28:in `block in create'
+  [1m[36mComment Create (17.0ms)[0m  [1m[32mINSERT INTO "comments" ("body", "post_id", "parent_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "kjn"], ["post_id", 7], ["parent_id", nil], ["created_at", "2023-04-08 15:27:51.104167"], ["updated_at", "2023-04-08 15:27:51.104167"]]
+  ↳ app/controllers/comments_controller.rb:28:in `block in create'
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/comments_controller.rb:28:in `block in create'
+Redirected to http://localhost:3000/posts/7
+Completed 302 Found in 253ms (ActiveRecord: 91.4ms | Allocations: 16811)
+
+
+Started GET "/posts/7" for 172.17.0.1 at 2023-04-08 15:27:51 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mAdmin Load (2.1ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (1.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:63:in `set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/_post.html.erb (Duration: 0.8ms | Allocations: 42)
+  Rendered posts/show.html.erb within layouts/application (Duration: 16.7ms | Allocations: 1497)
+  Rendered layout layouts/application.html.erb (Duration: 66.2ms | Allocations: 6975)
+Completed 200 OK in 135ms (Views: 86.3ms | ActiveRecord: 3.7ms | Allocations: 9743)
+
+
+Started GET "/posts/7" for 172.17.0.1 at 2023-04-08 15:28:25 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mAdmin Load (4.0ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (1.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:63:in `set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/_post.html.erb (Duration: 5.4ms | Allocations: 184)
+  [1m[36mComment Load (1.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 7]]
+  ↳ app/views/posts/show.html.erb:23
+  Rendered collection of comments/_comment.html.erb [2 times] (Duration: 6.9ms | Allocations: 296)
+  Rendered posts/show.html.erb within layouts/application (Duration: 87.1ms | Allocations: 4113)
+  Rendered layout layouts/application.html.erb (Duration: 157.6ms | Allocations: 10147)
+Completed 200 OK in 262ms (Views: 194.1ms | ActiveRecord: 7.2ms | Allocations: 13006)
+
+
+Started GET "/posts/7" for 172.17.0.1 at 2023-04-08 15:29:31 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mAdmin Load (2.4ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (2.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:63:in `set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/_post.html.erb (Duration: 8.9ms | Allocations: 184)
+  [1m[36mComment Load (1.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 7]]
+  ↳ app/views/posts/show.html.erb:23
+  Rendered collection of comments/_comment.html.erb [2 times] (Duration: 5.2ms | Allocations: 185)
+  Rendered posts/show.html.erb within layouts/application (Duration: 71.4ms | Allocations: 2989)
+  Rendered layout layouts/application.html.erb (Duration: 136.0ms | Allocations: 9026)
+Completed 200 OK in 236ms (Views: 182.1ms | ActiveRecord: 6.1ms | Allocations: 11781)
+
+
+Started POST "/posts/7/comments" for 172.17.0.1 at 2023-04-08 15:29:46 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by CommentsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "comment"=>{"body"=>"This is a comment"}, "commit"=>"Submit", "post_id"=>"7"}
+  [1m[36mAdmin Load (1.2ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (2.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:24:in `create'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/comments_controller.rb:28:in `block in create'
+  [1m[36mComment Create (12.1ms)[0m  [1m[32mINSERT INTO "comments" ("body", "post_id", "parent_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "This is a comment"], ["post_id", 7], ["parent_id", nil], ["created_at", "2023-04-08 15:29:46.446574"], ["updated_at", "2023-04-08 15:29:46.446574"]]
+  ↳ app/controllers/comments_controller.rb:28:in `block in create'
+  [1m[36mTRANSACTION (4.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/comments_controller.rb:28:in `block in create'
+Redirected to http://localhost:3000/posts/7
+Completed 302 Found in 84ms (ActiveRecord: 20.9ms | Allocations: 4316)
+
+
+Started GET "/posts/7" for 172.17.0.1 at 2023-04-08 15:29:46 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mAdmin Load (0.8ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (1.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:63:in `set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/_post.html.erb (Duration: 0.3ms | Allocations: 21)
+  [1m[36mComment Load (1.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 7]]
+  ↳ app/views/posts/show.html.erb:23
+  Rendered collection of comments/_comment.html.erb [3 times] (Duration: 0.7ms | Allocations: 89)
+  Rendered posts/show.html.erb within layouts/application (Duration: 22.4ms | Allocations: 1912)
+  Rendered layout layouts/application.html.erb (Duration: 63.9ms | Allocations: 7086)
+Completed 200 OK in 90ms (Views: 65.6ms | ActiveRecord: 3.4ms | Allocations: 9219)
+
+
+Started GET "/posts/7" for 172.17.0.1 at 2023-04-08 15:30:20 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mAdmin Load (5.1ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (1.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:63:in `set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/_post.html.erb (Duration: 3.2ms | Allocations: 184)
+  [1m[36mComment Load (11.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 7]]
+  ↳ app/views/posts/show.html.erb:23
+  Rendered collection of comments/_comment.html.erb [3 times] (Duration: 4.8ms | Allocations: 206)
+  Rendered posts/show.html.erb within layouts/application (Duration: 98.0ms | Allocations: 3027)
+  Rendered layout layouts/application.html.erb (Duration: 172.3ms | Allocations: 9065)
+Completed 200 OK in 237ms (Views: 171.5ms | ActiveRecord: 17.9ms | Allocations: 11752)
+
+
+Started GET "/posts/7" for 172.17.0.1 at 2023-04-08 15:33:00 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mAdmin Load (0.9ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:63:in `set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/_post.html.erb (Duration: 3.5ms | Allocations: 196)
+  [1m[36mComment Load (1.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 7]]
+  ↳ app/views/posts/show.html.erb:23
+  [1m[36mComment Exists? (1.8ms)[0m  [1m[34mSELECT 1 AS one FROM "comments" WHERE "comments"."parent_id" = $1 LIMIT $2[0m  [["parent_id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_comment.html.erb:8
+  [1m[36mComment Exists? (5.8ms)[0m  [1m[34mSELECT 1 AS one FROM "comments" WHERE "comments"."parent_id" = $1 LIMIT $2[0m  [["parent_id", 2], ["LIMIT", 1]]
+  ↳ app/views/comments/_comment.html.erb:8
+  Rendered collection of comments/_comment.html.erb [3 times] (Duration: 50.5ms | Allocations: 2670)
+  Rendered posts/show.html.erb within layouts/application (Duration: 142.7ms | Allocations: 10626)
+  Rendered layout layouts/application.html.erb (Duration: 204.8ms | Allocations: 16776)
+Completed 200 OK in 347ms (Views: 186.4ms | ActiveRecord: 79.3ms | Allocations: 27036)
+
+
+Started GET "/posts/" for 172.17.0.1 at 2023-04-08 15:33:11 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#index as HTML
+  [1m[36mAdmin Load (1.0ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.haml within layouts/application
+  [1m[36mPost Load (1.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.haml:3
+  Rendered posts/index.html.haml within layouts/application (Duration: 24.7ms | Allocations: 2863)
+  Rendered layout layouts/application.html.erb (Duration: 68.7ms | Allocations: 8262)
+Completed 200 OK in 93ms (Views: 71.6ms | ActiveRecord: 2.6ms | Allocations: 10058)
+
+
+Started GET "/posts/7" for 172.17.0.1 at 2023-04-08 15:33:13 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mAdmin Load (5.5ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (5.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:63:in `set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/_post.html.erb (Duration: 0.5ms | Allocations: 23)
+  [1m[36mComment Load (2.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 7]]
+  ↳ app/views/posts/show.html.erb:23
+  [1m[36mComment Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "comments" WHERE "comments"."parent_id" = $1 LIMIT $2[0m  [["parent_id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_comment.html.erb:8
+  [1m[36mComment Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "comments" WHERE "comments"."parent_id" = $1 LIMIT $2[0m  [["parent_id", 2], ["LIMIT", 1]]
+  ↳ app/views/comments/_comment.html.erb:8
+  Rendered collection of comments/_comment.html.erb [3 times] (Duration: 19.6ms | Allocations: 1705)
+  Rendered posts/show.html.erb within layouts/application (Duration: 47.5ms | Allocations: 3623)
+  Rendered layout layouts/application.html.erb (Duration: 93.8ms | Allocations: 8793)
+Completed 200 OK in 153ms (Views: 93.7ms | ActiveRecord: 16.4ms | Allocations: 11023)
+
+
+Started GET "/posts/7" for 172.17.0.1 at 2023-04-08 15:34:03 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mAdmin Load (2.4ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (1.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:63:in `set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/_post.html.erb (Duration: 8.8ms | Allocations: 184)
+  [1m[36mComment Load (1.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 7]]
+  ↳ app/views/posts/show.html.erb:23
+  [1m[36mComment Exists? (2.0ms)[0m  [1m[34mSELECT 1 AS one FROM "comments" WHERE "comments"."parent_id" = $1 LIMIT $2[0m  [["parent_id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_comment.html.erb:8
+  [1m[36mComment Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "comments" WHERE "comments"."parent_id" = $1 LIMIT $2[0m  [["parent_id", 2], ["LIMIT", 1]]
+  ↳ app/views/comments/_comment.html.erb:8
+  Rendered collection of comments/_comment.html.erb [3 times] (Duration: 24.9ms | Allocations: 1942)
+  Rendered posts/show.html.erb within layouts/application (Duration: 79.8ms | Allocations: 4761)
+  Rendered layout layouts/application.html.erb (Duration: 134.7ms | Allocations: 10798)
+Completed 200 OK in 228ms (Views: 167.9ms | ActiveRecord: 8.0ms | Allocations: 13492)
+
+
+Started GET "/posts/7/comments/new?parent_id=1" for 172.17.0.1 at 2023-04-08 15:34:06 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by CommentsController#new as HTML
+  Parameters: {"parent_id"=>"1", "post_id"=>"7"}
+  [1m[36mAdmin Load (0.9ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering comments/new.html.erb within layouts/application
+  Rendered comments/_form.html.erb (Duration: 79.0ms | Allocations: 5805)
+  Rendered comments/new.html.erb within layouts/application (Duration: 84.5ms | Allocations: 6104)
+  Rendered layout layouts/application.html.erb (Duration: 86.3ms | Allocations: 6189)
+Completed 500 Internal Server Error in 112ms (ActiveRecord: 0.9ms | Allocations: 8568)
+
+
+  
+ActionView::Template::Error (undefined method `comments_path' for #<ActionView::Base:0x0000000002b8e0>
+
+              recipient.public_send(method, *args, options)
+                       ^^^^^^^^^^^^
+Did you mean?  events_path):
+    1: <%= form_with(model: comment) do |form| %>
+    2:   <% if comment.errors.any? %>
+    3:     <div style="color: red">
+    4:       <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+  
+app/views/comments/_form.html.erb:1
+app/views/comments/new.html.erb:3
+Started GET "/posts/7" for 172.17.0.1 at 2023-04-08 15:34:40 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mAdmin Load (2.7ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (5.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:63:in `set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/_post.html.erb (Duration: 4.2ms | Allocations: 184)
+  [1m[36mComment Load (1.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 7]]
+  ↳ app/views/posts/show.html.erb:23
+  [1m[36mComment Exists? (2.1ms)[0m  [1m[34mSELECT 1 AS one FROM "comments" WHERE "comments"."parent_id" = $1 LIMIT $2[0m  [["parent_id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_comment.html.erb:8
+  [1m[36mComment Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "comments" WHERE "comments"."parent_id" = $1 LIMIT $2[0m  [["parent_id", 2], ["LIMIT", 1]]
+  ↳ app/views/comments/_comment.html.erb:8
+  Rendered collection of comments/_comment.html.erb [3 times] (Duration: 27.8ms | Allocations: 1942)
+  Rendered posts/show.html.erb within layouts/application (Duration: 74.5ms | Allocations: 4765)
+  Rendered layout layouts/application.html.erb (Duration: 143.8ms | Allocations: 10896)
+Completed 200 OK in 238ms (Views: 159.9ms | ActiveRecord: 13.0ms | Allocations: 13788)
+
+
+Started GET "/posts/7/comments/new?parent_id=1" for 172.17.0.1 at 2023-04-08 15:34:42 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by CommentsController#new as HTML
+  Parameters: {"parent_id"=>"1", "post_id"=>"7"}
+  [1m[36mAdmin Load (1.6ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering comments/new.html.erb within layouts/application
+  Rendered comments/_form.html.erb (Duration: 80.2ms | Allocations: 5776)
+  Rendered comments/new.html.erb within layouts/application (Duration: 85.4ms | Allocations: 6066)
+  Rendered layout layouts/application.html.erb (Duration: 88.5ms | Allocations: 6151)
+Completed 500 Internal Server Error in 115ms (ActiveRecord: 1.6ms | Allocations: 8174)
+
+
+  
+ActionView::Template::Error (undefined method `comments_path' for #<ActionView::Base:0x0000000002bbd8>
+
+              recipient.public_send(method, *args, options)
+                       ^^^^^^^^^^^^
+Did you mean?  events_path):
+    1: <%= form_with(model: comment) do |form| %>
+    2:   <% if comment.errors.any? %>
+    3:     <div style="color: red">
+    4:       <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+  
+app/views/comments/_form.html.erb:1
+app/views/comments/new.html.erb:3
+Started GET "/posts/7" for 172.17.0.1 at 2023-04-08 15:35:51 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mAdmin Load (0.9ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:63:in `set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/_post.html.erb (Duration: 0.6ms | Allocations: 46)
+  [1m[36mComment Load (1.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 7]]
+  ↳ app/views/posts/show.html.erb:23
+  [1m[36mComment Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "comments" WHERE "comments"."parent_id" = $1 LIMIT $2[0m  [["parent_id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_comment.html.erb:8
+  [1m[36mComment Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "comments" WHERE "comments"."parent_id" = $1 LIMIT $2[0m  [["parent_id", 2], ["LIMIT", 1]]
+  ↳ app/views/comments/_comment.html.erb:8
+  Rendered collection of comments/_comment.html.erb [3 times] (Duration: 24.0ms | Allocations: 2399)
+  Rendered posts/show.html.erb within layouts/application (Duration: 115.5ms | Allocations: 9691)
+  Rendered layout layouts/application.html.erb (Duration: 163.4ms | Allocations: 15166)
+Completed 200 OK in 299ms (Views: 147.3ms | ActiveRecord: 60.7ms | Allocations: 25075)
+
+
+Started GET "/posts" for 172.17.0.1 at 2023-04-08 15:35:53 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#index as HTML
+  [1m[36mAdmin Load (1.8ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.haml within layouts/application
+  [1m[36mPost Load (1.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.haml:3
+  Rendered posts/index.html.haml within layouts/application (Duration: 26.7ms | Allocations: 2873)
+  Rendered layout layouts/application.html.erb (Duration: 75.0ms | Allocations: 8272)
+Completed 200 OK in 97ms (Views: 76.5ms | ActiveRecord: 3.4ms | Allocations: 10064)
+
+
+Started GET "/posts/7" for 172.17.0.1 at 2023-04-08 15:35:55 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mAdmin Load (1.1ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (1.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:63:in `set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/_post.html.erb (Duration: 0.3ms | Allocations: 23)
+  [1m[36mComment Load (1.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 7]]
+  ↳ app/views/posts/show.html.erb:23
+  [1m[36mComment Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "comments" WHERE "comments"."parent_id" = $1 LIMIT $2[0m  [["parent_id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_comment.html.erb:8
+  [1m[36mComment Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "comments" WHERE "comments"."parent_id" = $1 LIMIT $2[0m  [["parent_id", 2], ["LIMIT", 1]]
+  ↳ app/views/comments/_comment.html.erb:8
+  Rendered collection of comments/_comment.html.erb [3 times] (Duration: 19.5ms | Allocations: 1704)
+  Rendered posts/show.html.erb within layouts/application (Duration: 39.9ms | Allocations: 3622)
+  Rendered layout layouts/application.html.erb (Duration: 81.3ms | Allocations: 8792)
+Completed 200 OK in 112ms (Views: 81.5ms | ActiveRecord: 6.1ms | Allocations: 11028)
+
+
+Started GET "/posts/7" for 172.17.0.1 at 2023-04-08 15:37:30 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mAdmin Load (2.6ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (1.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:63:in `set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/_post.html.erb (Duration: 10.0ms | Allocations: 184)
+  [1m[36mComment Load (1.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 7]]
+  ↳ app/views/posts/show.html.erb:23
+  [1m[36mComment Exists? (2.2ms)[0m  [1m[34mSELECT 1 AS one FROM "comments" WHERE "comments"."parent_id" = $1 LIMIT $2[0m  [["parent_id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_comment.html.erb:8
+  [1m[36mComment Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "comments" WHERE "comments"."parent_id" = $1 LIMIT $2[0m  [["parent_id", 2], ["LIMIT", 1]]
+  ↳ app/views/comments/_comment.html.erb:8
+  Rendered collection of comments/_comment.html.erb [3 times] (Duration: 28.0ms | Allocations: 1962)
+  Rendered posts/show.html.erb within layouts/application (Duration: 87.0ms | Allocations: 4781)
+  Rendered layout layouts/application.html.erb (Duration: 150.3ms | Allocations: 10818)
+Completed 200 OK in 237ms (Views: 169.3ms | ActiveRecord: 8.7ms | Allocations: 13496)
+
+
+Started GET "/posts/7/comments/new?parent_id=1" for 172.17.0.1 at 2023-04-08 15:37:33 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by CommentsController#new as HTML
+  Parameters: {"parent_id"=>"1", "post_id"=>"7"}
+  [1m[36mAdmin Load (1.6ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (0.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:15:in `new'
+  Rendering layout layouts/application.html.erb
+  Rendering comments/new.html.erb within layouts/application
+  Rendered comments/_form.html.erb (Duration: 73.9ms | Allocations: 5718)
+  Rendered comments/new.html.erb within layouts/application (Duration: 78.3ms | Allocations: 6008)
+  Rendered layout layouts/application.html.erb (Duration: 80.1ms | Allocations: 6093)
+Completed 500 Internal Server Error in 115ms (ActiveRecord: 2.5ms | Allocations: 9178)
+
+
+  
+ActionView::Template::Error (undefined method `comments_path' for #<ActionView::Base:0x00000000034300>
+
+              recipient.public_send(method, *args, options)
+                       ^^^^^^^^^^^^
+Did you mean?  events_path):
+    1: <%= form_with(model: comment) do |form| %>
+    2:   <% if comment.errors.any? %>
+    3:     <div style="color: red">
+    4:       <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+  
+app/views/comments/_form.html.erb:1
+app/views/comments/new.html.erb:3
+Started GET "/posts/7/comments/new?parent_id=1" for 172.17.0.1 at 2023-04-08 15:43:18 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by CommentsController#new as HTML
+  Parameters: {"parent_id"=>"1", "post_id"=>"7"}
+  [1m[36mAdmin Load (4.3ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (1.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:15:in `new'
+  Rendering layout layouts/application.html.erb
+  Rendering comments/new.html.erb within layouts/application
+  Rendered comments/_form.html.erb (Duration: 81.1ms | Allocations: 5758)
+  Rendered comments/new.html.erb within layouts/application (Duration: 87.1ms | Allocations: 6033)
+  Rendered layout layouts/application.html.erb (Duration: 89.2ms | Allocations: 6118)
+Completed 500 Internal Server Error in 345ms (ActiveRecord: 66.5ms | Allocations: 12271)
+
+
+  
+ActionView::Template::Error (undefined method `comments_path' for #<ActionView::Base:0x00000000034530>
+
+              recipient.public_send(method, *args, options)
+                       ^^^^^^^^^^^^
+Did you mean?  events_path):
+    1: <%= form_with(model: comment) do |form| %>
+    2:   <% if comment.errors.any? %>
+    3:     <div style="color: red">
+    4:       <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+  
+app/views/comments/_form.html.erb:1
+app/views/comments/new.html.erb:3
+Started GET "/posts/7" for 172.17.0.1 at 2023-04-08 15:43:23 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mAdmin Load (1.5ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (1.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:63:in `set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/_post.html.erb (Duration: 4.1ms | Allocations: 184)
+  [1m[36mComment Load (2.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 7]]
+  ↳ app/views/posts/show.html.erb:23
+  Rendered collection of comments/_comment.html.erb [3 times] (Duration: 3.5ms | Allocations: 207)
+  Rendered posts/show.html.erb within layouts/application (Duration: 41.4ms | Allocations: 3072)
+  Rendered layout layouts/application.html.erb (Duration: 98.8ms | Allocations: 9203)
+Completed 200 OK in 135ms (Views: 104.8ms | ActiveRecord: 5.9ms | Allocations: 11868)
+
+
+Started GET "/posts/7" for 172.17.0.1 at 2023-04-08 15:43:52 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mAdmin Load (7.3ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (4.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:63:in `set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/_post.html.erb (Duration: 3.5ms | Allocations: 184)
+  [1m[36mComment Load (1.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 7]]
+  ↳ app/views/posts/show.html.erb:23
+  [1m[36mComment Exists? (2.5ms)[0m  [1m[34mSELECT 1 AS one FROM "comments" WHERE "comments"."parent_id" = $1 LIMIT $2[0m  [["parent_id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_comment.html.erb:12
+  [1m[36mComment Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "comments" WHERE "comments"."parent_id" = $1 LIMIT $2[0m  [["parent_id", 2], ["LIMIT", 1]]
+  ↳ app/views/comments/_comment.html.erb:12
+  Rendered collection of comments/_comment.html.erb [3 times] (Duration: 88.2ms | Allocations: 6260)
+  Rendered posts/show.html.erb within layouts/application (Duration: 136.5ms | Allocations: 9093)
+  Rendered layout layouts/application.html.erb (Duration: 195.5ms | Allocations: 15212)
+Completed 200 OK in 305ms (Views: 216.1ms | ActiveRecord: 17.4ms | Allocations: 18003)
+
+
+Started GET "/posts/7" for 172.17.0.1 at 2023-04-08 15:44:23 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mAdmin Load (5.0ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (2.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:63:in `set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/_post.html.erb (Duration: 0.5ms | Allocations: 25)
+  [1m[36mComment Load (2.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 7]]
+  ↳ app/views/posts/show.html.erb:23
+  [1m[36mComment Exists? (2.4ms)[0m  [1m[34mSELECT 1 AS one FROM "comments" WHERE "comments"."parent_id" = $1 LIMIT $2[0m  [["parent_id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_comment.html.erb:12
+  [1m[36mComment Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "comments" WHERE "comments"."parent_id" = $1 LIMIT $2[0m  [["parent_id", 2], ["LIMIT", 1]]
+  ↳ app/views/comments/_comment.html.erb:12
+  Rendered collection of comments/_comment.html.erb [3 times] (Duration: 34.8ms | Allocations: 1926)
+  Rendered posts/show.html.erb within layouts/application (Duration: 112.0ms | Allocations: 3878)
+  Rendered layout layouts/application.html.erb (Duration: 179.5ms | Allocations: 9048)
+Completed 200 OK in 248ms (Views: 177.0ms | ActiveRecord: 13.8ms | Allocations: 11363)
+
+
+Started GET "/posts/7" for 172.17.0.1 at 2023-04-08 15:44:34 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mAdmin Load (1.3ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (1.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:63:in `set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/_post.html.erb (Duration: 4.7ms | Allocations: 184)
+  [1m[36mComment Load (2.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 7]]
+  ↳ app/views/posts/show.html.erb:23
+  [1m[36mComment Exists? (2.4ms)[0m  [1m[34mSELECT 1 AS one FROM "comments" WHERE "comments"."parent_id" = $1 LIMIT $2[0m  [["parent_id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_comment.html.erb:8
+  [1m[36mComment Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "comments" WHERE "comments"."parent_id" = $1 LIMIT $2[0m  [["parent_id", 2], ["LIMIT", 1]]
+  ↳ app/views/comments/_comment.html.erb:8
+  Rendered collection of comments/_comment.html.erb [3 times] (Duration: 28.3ms | Allocations: 1951)
+  Rendered posts/show.html.erb within layouts/application (Duration: 65.2ms | Allocations: 4770)
+  Rendered layout layouts/application.html.erb (Duration: 137.1ms | Allocations: 10807)
+Completed 200 OK in 198ms (Views: 154.9ms | ActiveRecord: 9.4ms | Allocations: 13489)
+
+
+Started GET "/posts/7" for 172.17.0.1 at 2023-04-08 15:45:30 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mAdmin Load (5.3ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (1.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:63:in `set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/_post.html.erb (Duration: 6.5ms | Allocations: 184)
+  [1m[36mComment Load (1.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 7]]
+  ↳ app/views/posts/show.html.erb:23
+  [1m[36mComment Exists? (2.1ms)[0m  [1m[34mSELECT 1 AS one FROM "comments" WHERE "comments"."parent_id" = $1 LIMIT $2[0m  [["parent_id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_comment.html.erb:8
+  [1m[36mComment Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "comments" WHERE "comments"."parent_id" = $1 LIMIT $2[0m  [["parent_id", 2], ["LIMIT", 1]]
+  ↳ app/views/comments/_comment.html.erb:8
+  Rendered collection of comments/_comment.html.erb [3 times] (Duration: 29.7ms | Allocations: 1966)
+  Rendered posts/show.html.erb within layouts/application (Duration: 90.6ms | Allocations: 4785)
+  Rendered layout layouts/application.html.erb (Duration: 158.2ms | Allocations: 10822)
+Completed 200 OK in 266ms (Views: 195.0ms | ActiveRecord: 11.9ms | Allocations: 13591)
+
+
+Started GET "/posts/7/comments/new?parent_id=1" for 172.17.0.1 at 2023-04-08 15:45:44 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by CommentsController#new as HTML
+  Parameters: {"parent_id"=>"1", "post_id"=>"7"}
+  [1m[36mAdmin Load (1.2ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (1.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:15:in `new'
+  Rendering layout layouts/application.html.erb
+  Rendering comments/new.html.erb within layouts/application
+  Rendered comments/_form.html.erb (Duration: 74.9ms | Allocations: 5774)
+  Rendered comments/new.html.erb within layouts/application (Duration: 80.3ms | Allocations: 6064)
+  Rendered layout layouts/application.html.erb (Duration: 82.3ms | Allocations: 6149)
+Completed 500 Internal Server Error in 122ms (ActiveRecord: 2.4ms | Allocations: 8858)
+
+
+  
+ActionView::Template::Error (undefined method `comments_path' for #<ActionView::Base:0x00000000034c38>
+
+              recipient.public_send(method, *args, options)
+                       ^^^^^^^^^^^^
+Did you mean?  events_path):
+    1: <%= form_with(model: comment) do |form| %>
+    2:   <% if comment.errors.any? %>
+    3:     <div style="color: red">
+    4:       <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+  
+app/views/comments/_form.html.erb:1
+app/views/comments/new.html.erb:3
+Started GET "/posts/7" for 172.17.0.1 at 2023-04-08 15:46:39 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mAdmin Load (2.4ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:63:in `set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/_post.html.erb (Duration: 2.9ms | Allocations: 184)
+  [1m[36mComment Load (3.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 7]]
+  ↳ app/views/posts/show.html.erb:23
+  Rendered collection of comments/_comment.html.erb [3 times] (Duration: 6.0ms | Allocations: 207)
+  Rendered posts/show.html.erb within layouts/application (Duration: 82.4ms | Allocations: 3030)
+  Rendered layout layouts/application.html.erb (Duration: 147.0ms | Allocations: 9161)
+Completed 200 OK in 207ms (Views: 155.6ms | ActiveRecord: 6.7ms | Allocations: 12028)
+
+
+Started GET "/posts" for 172.17.0.1 at 2023-04-08 15:46:46 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#index as HTML
+  [1m[36mAdmin Load (1.3ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.haml within layouts/application
+  [1m[36mPost Load (1.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.haml:3
+  Rendered posts/index.html.haml within layouts/application (Duration: 31.1ms | Allocations: 2835)
+  Rendered layout layouts/application.html.erb (Duration: 78.5ms | Allocations: 8233)
+Completed 200 OK in 102ms (Views: 79.5ms | ActiveRecord: 3.1ms | Allocations: 10027)
+
+
+Started GET "/posts/new" for 172.17.0.1 at 2023-04-08 15:46:48 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#new as HTML
+  [1m[36mAdmin Load (1.0ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 61.2ms | Allocations: 5324)
+  Rendered posts/new.html.erb within layouts/application (Duration: 66.1ms | Allocations: 5633)
+  Rendered layout layouts/application.html.erb (Duration: 107.0ms | Allocations: 10947)
+Completed 200 OK in 131ms (Views: 110.5ms | ActiveRecord: 1.0ms | Allocations: 12813)
+
+
+Started POST "/posts" for 172.17.0.1 at 2023-04-08 15:46:50 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "post"=>{"title"=>"kblk", "body"=>"utvghj"}, "commit"=>"Create Post"}
+  [1m[36mAdmin Load (1.3ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (4.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mnr282001@tamu.edu"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:22:in `create'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:26:in `block in create'
+  [1m[36mPost Create (23.3ms)[0m  [1m[32mINSERT INTO "posts" ("title", "body", "user_id", "created_at", "updated_at", "admin_id", "admin_name") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "kblk"], ["body", "utvghj"], ["user_id", 1], ["created_at", "2023-04-08 15:46:50.970508"], ["updated_at", "2023-04-08 15:46:50.970508"], ["admin_id", nil], ["admin_name", "mnr282001@tamu.edu"]]
+  ↳ app/controllers/posts_controller.rb:26:in `block in create'
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:26:in `block in create'
+Redirected to http://localhost:3000/posts/8
+Completed 302 Found in 196ms (ActiveRecord: 81.4ms | Allocations: 10227)
+
+
+Started GET "/posts/8" for 172.17.0.1 at 2023-04-08 15:46:51 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mAdmin Load (1.7ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (1.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:63:in `set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/_post.html.erb (Duration: 0.3ms | Allocations: 25)
+  [1m[36mComment Load (1.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 8]]
+  ↳ app/views/posts/show.html.erb:23
+  Rendered collection of comments/_comment.html.erb [1 times] (Duration: 0.5ms | Allocations: 78)
+  Rendered posts/show.html.erb within layouts/application (Duration: 47.9ms | Allocations: 2017)
+  Rendered layout layouts/application.html.erb (Duration: 112.0ms | Allocations: 7295)
+Completed 200 OK in 142ms (Views: 115.5ms | ActiveRecord: 4.4ms | Allocations: 9482)
+
+
+Started POST "/posts/8/comments" for 172.17.0.1 at 2023-04-08 15:46:54 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by CommentsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "comment"=>{"body"=>"oijlkn"}, "commit"=>"Submit", "post_id"=>"8"}
+  [1m[36mAdmin Load (1.4ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (1.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:25:in `create'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/comments_controller.rb:29:in `block in create'
+  [1m[36mComment Create (2.1ms)[0m  [1m[32mINSERT INTO "comments" ("body", "post_id", "parent_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "oijlkn"], ["post_id", 8], ["parent_id", nil], ["created_at", "2023-04-08 15:46:54.314888"], ["updated_at", "2023-04-08 15:46:54.314888"]]
+  ↳ app/controllers/comments_controller.rb:29:in `block in create'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/comments_controller.rb:29:in `block in create'
+Redirected to http://localhost:3000/posts/8
+Completed 302 Found in 66ms (ActiveRecord: 7.0ms | Allocations: 4490)
+
+
+Started GET "/posts/8" for 172.17.0.1 at 2023-04-08 15:46:54 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mAdmin Load (0.9ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:63:in `set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/_post.html.erb (Duration: 0.3ms | Allocations: 21)
+  [1m[36mComment Load (0.9ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 8]]
+  ↳ app/views/posts/show.html.erb:23
+  Rendered collection of comments/_comment.html.erb [2 times] (Duration: 0.9ms | Allocations: 82)
+  Rendered posts/show.html.erb within layouts/application (Duration: 23.8ms | Allocations: 1891)
+  Rendered layout layouts/application.html.erb (Duration: 67.9ms | Allocations: 7064)
+Completed 200 OK in 93ms (Views: 70.0ms | ActiveRecord: 2.8ms | Allocations: 9150)
+
+
+Started POST "/posts/8/comments" for 172.17.0.1 at 2023-04-08 15:46:56 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by CommentsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "comment"=>{"body"=>"nob vuyi"}, "commit"=>"Submit", "post_id"=>"8"}
+  [1m[36mAdmin Load (1.4ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (1.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:25:in `create'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/comments_controller.rb:29:in `block in create'
+  [1m[36mComment Create (2.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "post_id", "parent_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "nob vuyi"], ["post_id", 8], ["parent_id", nil], ["created_at", "2023-04-08 15:46:56.888101"], ["updated_at", "2023-04-08 15:46:56.888101"]]
+  ↳ app/controllers/comments_controller.rb:29:in `block in create'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/comments_controller.rb:29:in `block in create'
+Redirected to http://localhost:3000/posts/8
+Completed 302 Found in 64ms (ActiveRecord: 6.8ms | Allocations: 4182)
+
+
+Started GET "/posts/8" for 172.17.0.1 at 2023-04-08 15:46:56 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mAdmin Load (4.0ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (2.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:63:in `set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/_post.html.erb (Duration: 0.3ms | Allocations: 21)
+  [1m[36mComment Load (1.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 8]]
+  ↳ app/views/posts/show.html.erb:23
+  Rendered collection of comments/_comment.html.erb [3 times] (Duration: 0.8ms | Allocations: 89)
+  Rendered posts/show.html.erb within layouts/application (Duration: 24.1ms | Allocations: 1912)
+  Rendered layout layouts/application.html.erb (Duration: 80.9ms | Allocations: 7085)
+Completed 200 OK in 136ms (Views: 88.9ms | ActiveRecord: 7.1ms | Allocations: 9182)
+
+
+Started GET "/posts" for 172.17.0.1 at 2023-04-08 15:47:49 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#index as HTML
+  [1m[36mAdmin Load (6.7ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.haml within layouts/application
+  [1m[36mPost Load (2.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.haml:3
+  Rendered posts/index.html.haml within layouts/application (Duration: 20.4ms | Allocations: 1068)
+  Rendered layout layouts/application.html.erb (Duration: 83.5ms | Allocations: 6470)
+Completed 200 OK in 151ms (Views: 86.4ms | ActiveRecord: 9.3ms | Allocations: 8079)
+
+
+Started GET "/posts/7" for 172.17.0.1 at 2023-04-08 15:47:51 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mAdmin Load (1.2ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (5.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:63:in `set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/_post.html.erb (Duration: 0.7ms | Allocations: 23)
+  [1m[36mComment Load (1.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 7]]
+  ↳ app/views/posts/show.html.erb:23
+  Rendered collection of comments/_comment.html.erb [3 times] (Duration: 0.9ms | Allocations: 92)
+  Rendered posts/show.html.erb within layouts/application (Duration: 44.1ms | Allocations: 2010)
+  Rendered layout layouts/application.html.erb (Duration: 87.1ms | Allocations: 7180)
+Completed 200 OK in 172ms (Views: 89.9ms | ActiveRecord: 8.3ms | Allocations: 9422)
+
+
+Started GET "/posts/8" for 172.17.0.1 at 2023-04-08 15:47:53 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mAdmin Load (1.1ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (1.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:63:in `set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/_post.html.erb (Duration: 0.3ms | Allocations: 21)
+  [1m[36mComment Load (1.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 8]]
+  ↳ app/views/posts/show.html.erb:23
+  Rendered collection of comments/_comment.html.erb [3 times] (Duration: 1.3ms | Allocations: 89)
+  Rendered posts/show.html.erb within layouts/application (Duration: 26.5ms | Allocations: 1912)
+  Rendered layout layouts/application.html.erb (Duration: 66.3ms | Allocations: 7081)
+Completed 200 OK in 93ms (Views: 67.7ms | ActiveRecord: 3.4ms | Allocations: 9165)
+
+
+Started GET "/posts/8" for 172.17.0.1 at 2023-04-08 15:51:30 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mAdmin Load (0.9ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (0.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:63:in `set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/_post.html.erb (Duration: 3.5ms | Allocations: 196)
+  [1m[36mComment Load (1.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 8]]
+  ↳ app/views/posts/show.html.erb:27
+  Rendered collection of comments/_comment.html.erb [3 times] (Duration: 3.7ms | Allocations: 251)
+  Rendered posts/show.html.erb within layouts/application (Duration: 132.5ms | Allocations: 8186)
+  Rendered layout layouts/application.html.erb (Duration: 186.1ms | Allocations: 14332)
+Completed 200 OK in 322ms (Views: 162.6ms | ActiveRecord: 74.0ms | Allocations: 24555)
+
+
+Started GET "/posts/8" for 172.17.0.1 at 2023-04-08 15:53:28 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mAdmin Load (2.8ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (1.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:63:in `set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/_post.html.erb (Duration: 5.9ms | Allocations: 184)
+  [1m[36mComment Load (1.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 8]]
+  ↳ app/views/posts/show.html.erb:27
+  Rendered collection of comments/_comment.html.erb [3 times] (Duration: 9.7ms | Allocations: 1454)
+  Rendered posts/show.html.erb within layouts/application (Duration: 63.9ms | Allocations: 4276)
+  Rendered layout layouts/application.html.erb (Duration: 74.6ms | Allocations: 4362)
+Completed 500 Internal Server Error in 149ms (ActiveRecord: 5.1ms | Allocations: 7118)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <% unless !comment.persisted? %>
+  <div class="card">
+    <div class="card-body">
+      <%= comment.body %=>
+      <%= comment.admin_name %=>
+    </div>
+  </div>
+<% end %>
+
+):
+1:    <% unless !comment.persisted? %>
+2:      <div class="card">
+3:        <div class="card-body">
+4:          <%= comment.body %=>
+5:          <%= comment.admin_name %=>
+6:        </div>
+7:      </div>
+8:    <% end %>
+  
+app/views/comments/_comment.html.erb:4: syntax error, unexpected '>'
+app/views/comments/_comment.html.erb:6: syntax error, unexpected '<'
+app/views/comments/_comment.html.erb:7: unknown regexp options - dv
+app/views/comments/_comment.html.erb:8: syntax error, unexpected '<'
+app/views/comments/_comment.html.erb:11: syntax error, unexpected end-of-input, expecting `end'
+app/views/comments/_comment.html.erb:4: syntax error, unexpected '>'
+app/views/comments/_comment.html.erb:6: syntax error, unexpected '<'
+app/views/comments/_comment.html.erb:7: unknown regexp options - dv
+app/views/comments/_comment.html.erb:8: syntax error, unexpected '<'
+app/views/comments/_comment.html.erb:11: syntax error, unexpected end-of-input, expecting `end'
+app/views/comments/_comment.html.erb:4: syntax error, unexpected '>'
+app/views/comments/_comment.html.erb:6: syntax error, unexpected '<'
+app/views/comments/_comment.html.erb:7: unknown regexp options - dv
+app/views/comments/_comment.html.erb:8: syntax error, unexpected '<'
+app/views/comments/_comment.html.erb:11: syntax error, unexpected end-of-input, expecting `end'
+app/views/comments/_comment.html.erb:4: syntax error, unexpected '>'
+app/views/comments/_comment.html.erb:6: syntax error, unexpected '<'
+app/views/comments/_comment.html.erb:7: unknown regexp options - dv
+app/views/comments/_comment.html.erb:8: syntax error, unexpected '<'
+app/views/comments/_comment.html.erb:11: syntax error, unexpected end-of-input, expecting `end'
+app/views/comments/_comment.html.erb:4: syntax error, unexpected '>'
+app/views/comments/_comment.html.erb:6: syntax error, unexpected '<'
+app/views/comments/_comment.html.erb:7: unknown regexp options - dv
+app/views/comments/_comment.html.erb:8: syntax error, unexpected '<'
+app/views/comments/_comment.html.erb:11: syntax error, unexpected end-of-input, expecting `end'
+app/views/comments/_comment.html.erb:4: syntax error, unexpected '>'
+app/views/comments/_comment.html.erb:6: syntax error, unexpected '<'
+app/views/comments/_comment.html.erb:7: unknown regexp options - dv
+app/views/comments/_comment.html.erb:8: syntax error, unexpected '<'
+app/views/comments/_comment.html.erb:11: syntax error, unexpected end-of-input, expecting `end'
+app/views/posts/show.html.erb:27
+Started GET "/posts/8" for 172.17.0.1 at 2023-04-08 15:53:49 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mAdmin Load (1.2ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (2.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:63:in `set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/_post.html.erb (Duration: 3.7ms | Allocations: 184)
+  [1m[36mComment Load (16.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 8]]
+  ↳ app/views/posts/show.html.erb:27
+  Rendered collection of comments/_comment.html.erb [3 times] (Duration: 62.7ms | Allocations: 5961)
+  Rendered posts/show.html.erb within layouts/application (Duration: 151.3ms | Allocations: 8787)
+  Rendered layout layouts/application.html.erb (Duration: 156.0ms | Allocations: 8872)
+Completed 500 Internal Server Error in 206ms (ActiveRecord: 19.4ms | Allocations: 11636)
+
+
+  
+ActionView::Template::Error (undefined method `admin_name' for #<Comment id: 3, body: "oijlkn", post_id: 8, parent_id: nil, created_at: "2023-04-08 15:46:54.314888000 +0000", updated_at: "2023-04-08 15:46:54.314888000 +0000">):
+    2:   <div class="card">
+    3:     <div class="card-body">
+    4:       <%= comment.body %>
+    5:       <%= comment.admin_name %>
+    6:     </div>
+    7:   </div>
+    8: <% end %>
+  
+app/views/comments/_comment.html.erb:5
+app/views/posts/show.html.erb:27
+Started GET "/posts/8" for 172.17.0.1 at 2023-04-08 15:54:56 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mAdmin Load (3.6ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (1.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:63:in `set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/_post.html.erb (Duration: 3.2ms | Allocations: 184)
+  [1m[36mComment Load (1.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 8]]
+  ↳ app/views/posts/show.html.erb:27
+  Rendered collection of comments/_comment.html.erb [3 times] (Duration: 72.7ms | Allocations: 5917)
+  Rendered posts/show.html.erb within layouts/application (Duration: 117.5ms | Allocations: 8743)
+  Rendered layout layouts/application.html.erb (Duration: 121.3ms | Allocations: 8828)
+Completed 500 Internal Server Error in 196ms (ActiveRecord: 5.9ms | Allocations: 11592)
+
+
+  
+ActionView::Template::Error (undefined method `admin_name' for #<Comment id: 3, body: "oijlkn", post_id: 8, parent_id: nil, created_at: "2023-04-08 15:46:54.314888000 +0000", updated_at: "2023-04-08 15:46:54.314888000 +0000">):
+    2:   <div class="card">
+    3:     <div class="card-body">
+    4:       <%= comment.created_at %>
+    5:       <%= comment.admin_name %>
+    6:     </div>
+    7:   </div>
+    8: <% end %>
+  
+app/views/comments/_comment.html.erb:5
+app/views/posts/show.html.erb:27
+Started GET "/posts/8" for 172.17.0.1 at 2023-04-08 15:55:16 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mAdmin Load (1.1ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (1.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:63:in `set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/_post.html.erb (Duration: 5.4ms | Allocations: 184)
+  [1m[36mComment Load (4.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 8]]
+  ↳ app/views/posts/show.html.erb:27
+  Rendered collection of comments/_comment.html.erb [3 times] (Duration: 7.8ms | Allocations: 269)
+  Rendered posts/show.html.erb within layouts/application (Duration: 67.1ms | Allocations: 3100)
+  Rendered layout layouts/application.html.erb (Duration: 126.3ms | Allocations: 9231)
+Completed 200 OK in 179ms (Views: 143.9ms | ActiveRecord: 7.2ms | Allocations: 12024)
+
+
+Started GET "/posts/8" for 172.17.0.1 at 2023-04-08 15:55:41 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mAdmin Load (2.3ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (1.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:63:in `set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/_post.html.erb (Duration: 7.6ms | Allocations: 184)
+  [1m[36mComment Load (1.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 8]]
+  ↳ app/views/posts/show.html.erb:27
+  Rendered collection of comments/_comment.html.erb [3 times] (Duration: 6.9ms | Allocations: 213)
+  Rendered posts/show.html.erb within layouts/application (Duration: 57.3ms | Allocations: 3037)
+  Rendered layout layouts/application.html.erb (Duration: 116.3ms | Allocations: 9074)
+Completed 200 OK in 207ms (Views: 136.2ms | ActiveRecord: 4.9ms | Allocations: 11856)
+
+
+Started GET "/posts/8" for 172.17.0.1 at 2023-04-08 15:56:03 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mAdmin Load (2.6ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (1.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:63:in `set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/_post.html.erb (Duration: 18.4ms | Allocations: 184)
+  [1m[36mComment Load (2.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 8]]
+  ↳ app/views/posts/show.html.erb:27
+  Rendered collection of comments/_comment.html.erb [3 times] (Duration: 5.8ms | Allocations: 207)
+  Rendered posts/show.html.erb within layouts/application (Duration: 93.1ms | Allocations: 3031)
+  Rendered layout layouts/application.html.erb (Duration: 154.6ms | Allocations: 9068)
+Completed 200 OK in 208ms (Views: 162.7ms | ActiveRecord: 6.4ms | Allocations: 11853)
+
+
+Started GET "/posts" for 172.17.0.1 at 2023-04-08 15:56:08 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#index as HTML
+  [1m[36mAdmin Load (1.5ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.haml within layouts/application
+  [1m[36mPost Load (2.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.haml:3
+  Rendered posts/index.html.haml within layouts/application (Duration: 31.1ms | Allocations: 2966)
+  Rendered layout layouts/application.html.erb (Duration: 78.6ms | Allocations: 8364)
+Completed 200 OK in 105ms (Views: 80.3ms | ActiveRecord: 4.2ms | Allocations: 10151)
+
+

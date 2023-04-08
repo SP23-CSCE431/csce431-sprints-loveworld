@@ -1,0 +1,27 @@
+<%= render @post %>
+
+<div>
+  <%= link_to "Edit this post", edit_post_path(@post) %> |
+  <%= link_to "Back to posts", posts_path %>
+
+  
+  <%= button_to "Destroy this post", @post, method: :delete %>
+  <div class="card my-1"> # place this card blow the post body.
+  <div class="card-body">
+    <p class="font-weight-bold">Comments</p>
+    <%= form_with(model: [@post, @post.comments.build]) do |f| %>
+      <div class="form-group">
+        <%= f.label 'New comment' %>
+        <%= f.text_area :body, class: 'form-control' %>
+        Published at
+ = time_ago_in_words(comment.created_at)
+ by 
+ = comment.admin_name
+      </div>
+      <%= f.submit 'Submit', class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>
+</div>
+
+<%= render @post.comments %>
