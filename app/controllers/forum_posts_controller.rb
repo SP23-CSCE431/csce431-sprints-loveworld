@@ -3,7 +3,8 @@
 class ForumPostsController < ApplicationController
     before_action :find_forum_post, only: [:show, :edit, :update, :destroy]
     def index
-    end
+        @forum_posts = ForumPost.all.order("created_at DESC")
+       end
 
     def new
      @forum_post = ForumPost.new
