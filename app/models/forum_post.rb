@@ -1,2 +1,3 @@
 class ForumPost < ApplicationRecord
-end
+    belongs_to :admin
+   end

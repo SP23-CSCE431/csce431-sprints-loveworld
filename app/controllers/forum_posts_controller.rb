@@ -6,19 +6,18 @@ class ForumPostsController < ApplicationController
         @forum_posts = ForumPost.all.order("created_at DESC")
        end
 
-    def new
-     @forum_post = ForumPost.new
-    end
-
-    def create
-     @forum_post = ForumPost.new(forum_post_params)
-
-     if @forum_post.save
-        redirect_to @forum_post
-       else
-        render 'new'
+       def new
+        @forum_post = current_admin.forum_posts.build
        end
-    end
+
+       def create
+        @forum_post = current_admin.forum_posts.build(post_params)
+      if @forum_post.save
+         redirect_to @forum_post
+        else
+         render 'new'
+        end
+       end
 
     def show
     end

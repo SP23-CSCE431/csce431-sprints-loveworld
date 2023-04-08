@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_08_124739) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_08_151447) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -48,6 +48,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_08_124739) do
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.integer "admin_id"
   end
 
   create_table "group_members", force: :cascade do |t|
@@ -72,6 +74,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_08_124739) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "admin_id"
+    t.string "admin_name"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
@@ -81,6 +85,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_08_124739) do
     t.bigint "post_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "admin_name"
     t.index ["post_id"], name: "index_replies_on_post_id"
     t.index ["user_id"], name: "index_replies_on_user_id"
   end
