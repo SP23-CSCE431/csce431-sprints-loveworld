@@ -54,9 +54,9 @@
       </div>
       <div class="d-flex px-3">
         <% if current_admin.present? %>
-          <%= button_to "Sign Out", destroy_admin_session_path, method: :get %>
+          <%= button_to "Sign Out", destroy_admin_session_path, method: :get, :class=> "btn btn-light" %>
         <% else %>
-          <%= button_to "Sign in with Google", admin_google_oauth2_omniauth_authorize_path, method: :post  %>
+          <%= button_to "Sign in with Google", admin_google_oauth2_omniauth_authorize_path, method: :post, :class=> "btn btn-light" %>  %>
         <% end %>
       </div>
     </nav>
