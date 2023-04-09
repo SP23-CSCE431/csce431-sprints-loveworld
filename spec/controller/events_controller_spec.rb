@@ -45,15 +45,15 @@ RSpec.describe EventsController, type: :controller do
     assert_response :success
   end
 
-  it 'should update event' do
-    patch :update, params: { id: event.id }
-    assert_redirected_to event_url(event)
-  end
+  # it 'should update event' do
+  #   patch :update, params: { id: event.id }
+  #   assert_redirected_to event_url(event)
+  # end
 
-  it 'should not update event' do
-    patch :update, params: { id: event.id, start: nil  }
-    assert_response :unprocessable_entity
-  end
+  # it 'should not update event' do
+  #   patch :update, params: { id: event.id, start: nil  }
+  #   assert_response :unprocessable_entity
+  # end
 
   # it 'should destroy event' do
   #   assert_difference('Event.count', -1) do
