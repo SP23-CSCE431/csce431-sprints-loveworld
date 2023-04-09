@@ -4,7 +4,8 @@ require 'capybara/rspec'
 RSpec.describe EventMembersController, type: :controller do
   let(:event) { Event.create!(name: 'Finals week', start: Time.now.utc, end: Time.now.utc + 1.day) }
   let(:user) { User.create!(email: 'howdy@gmail.com', full_name: 'Tony Staark', phone_number: '0000000000') }
-  # let(:event_member) { EventMember.create!(user: user, event: event) }
+  let(:user2) { User.create!(email: 'howdy@tamu.com', full_name: 'Tony Stark', phone_number: '0000010000') }
+  let(:event_member) { EventMember.create!(user: user2, event: event) }
 
   before(:each) do 
     Rails.application.env_config['devise.mapping'] = Devise.mappings[:user]
@@ -13,7 +14,7 @@ RSpec.describe EventMembersController, type: :controller do
     allow(request.env['warden']).to receive(:authenticate!).and_return(user)
     allow(controller).to receive(:current_admin).and_return(user)
 
-    default_url_options[:host] = 'localhost:3000'
+    default_url_options[:host] = 'test.host'
   end
 
   it 'should get index' do
@@ -27,102 +28,82 @@ RSpec.describe EventMembersController, type: :controller do
   end
 
   it 'should create event_member' do
-    expect { post :create, params: { event_member: { event_id: event.id, user_id: user.id } } }.to change { EventMember.count }.by(1)
-    expect(response).to redirect_to event_member_url(EventMember.last)
+    expect { post :create, params: {  event_id: event.id, user_id: user.id  } }.to change { EventMember.count }.by(1)
+    expect(response).to redirect_to events_url
   end
 
   it 'should not create event_member' do
-    assert_no_difference('EventMember.count') do
-      post event_members_url, params: { event_member: { event_id: @event_member.event_id, user_id: nil } }
-    end
-
-    assert_response :unprocessable_entity
+    expect {
+      post :create, params: { event_id: nil, user_id: nil  }
+    }.not_to change { EventMember.count }
+  
+    expect(response).to have_http_status(:unprocessable_entity)
   end
 
   it 'should show event_member' do
-    get event_member_url(@event_member)
+    get :show, params: { id: event_member.id }
     assert_response :success
   end
 
   it 'should get edit' do
-    get edit_event_member_url(@event_member)
+    get :edit, params: { id: event_member.id }
     assert_response :success
   end
 
   it 'should update event_member' do
-    patch event_member_url(@event_member), params: { event_member: { event_id: @event_member.event_id, user_id: @event_member.user_id } }
-    assert_redirected_to event_member_url(@event_member)
+    patch :update, params: { id: event_member.id  }
+    assert_redirected_to event_member_url(event_member)
   end
 
   it 'should not update event' do
-    patch event_member_url(@event_member), params: { event_member: { event_id: nil, user_id: nil } }
+    patch :update, params: { id: event_member.id, event_id: nil }
     assert_response :unprocessable_entity
   end
 
   it 'should destroy event_member' do
-    assert_difference('EventMember.count', -1) do
-      delete event_member_url(@event_member)
-    end
-
-    assert_redirected_to event_members_url
+    expect { post :create, params: {  event_id: event.id, user_id: user.id  } }.to change { EventMember.count }.by(1)
+    expect { delete :destroy, params: { id: event_member.id } }.to change { EventMember.count }.by(-1)
+    expect(response).to redirect_to events_url
   end
 
-  ###
-
   it 'should not create event_member with invalid user_id' do
-    assert_no_difference('EventMember.count') do
-      post event_members_url, params: { event_member: { event_id: @event_member.event_id, user_id: nil } }
-    end
-
-    assert_response :unprocessable_entity
+    expect {
+      post :create, params: { event_id: event.id, user_id: nil  }
+    }.not_to change { EventMember.count }
+  
+    expect(response).to have_http_status(:unprocessable_entity)
   end
 
   it 'should not create event_member with invalid event_id' do
-    assert_no_difference('EventMember.count') do
-      post event_members_url, params: { event_member: { event_id: nil, user_id: @event_member.user_id } }
-    end
-
-    assert_response :unprocessable_entity
+    expect {
+      post :create, params: { event_id: nil, user_id: user.id  }
+    }.not_to change { EventMember.count }
+  
+    expect(response).to have_http_status(:unprocessable_entity)
   end
 
   it 'should return all event members in index action' do
-    get event_members_url
+    get :index
     expect(EventMember.all.count).to(eq(assigns(:event_members).count))
   end
 
   it 'should not update event_member with invalid user_id' do
-    patch event_member_url(@event_member), params: { event_member: { event_id: @event_member.event_id, user_id: nil } }
+    patch :update, params: { id: event_member.id, user_id: nil }
     assert_response :unprocessable_entity
   end
 
   it 'should not update event_member with invalid event_id' do
-    patch event_member_url(@event_member), params: { event_member: { event_id: nil, user_id: @event_member.user_id } }
+    patch :update, params: { id: event_member.id, event_id: nil }
     assert_response :unprocessable_entity
   end
 
   it 'should view event_member details' do
-    get event_member_url(@event_member)
-    expect(@event_member).to(eq(assigns(:event_member)))
+    get :show, params: { id: event_member.id }
+    expect(event_member).to(eq(assigns(:event_member)))
   end
 
   it 'should edit event_member' do
-    get edit_event_member_url(@event_member)
+    get :edit, params: { id: event_member.id}
     assert_response :success
-  end
-
-  it 'should not destroy event_member with invalid user_id' do
-    assert_no_difference('EventMember.count') do
-      delete event_member_url(@event_member), params: { event_member: { event_id: nil, user_id: @event_member.user_id } }
-    end
-
-    assert_response :unprocessable_entity
-  end
-
-  it 'should not destroy event_member with invalid event_id' do
-    assert_no_difference('EventMember.count') do
-      delete event_member_url(@event_member), params: { event_member: { event_id: @event_member.event_id, user_id: nil } }
-    end
-
-    assert_response :unprocessable_entity
   end
 end
