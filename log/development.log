@@ -4808,3 +4808,452 @@ Processing by DashboardsController#show as HTML
 Completed 200 OK in 136ms (Views: 113.0ms | ActiveRecord: 0.7ms | Allocations: 9248)
 
 
+Started GET "/" for 172.17.0.1 at 2023-04-09 21:26:44 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by DashboardsController#show as HTML
+  [1m[36mAdmin Load (1.3ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:4:in `show'
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "brandon.longuet@tamu.edu"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:6:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering dashboards/show.html.erb within layouts/application
+  Rendered dashboards/show.html.erb within layouts/application (Duration: 11459.1ms | Allocations: 88191)
+  Rendered layout layouts/application.html.erb (Duration: 11507.7ms | Allocations: 91680)
+Completed 200 OK in 11664ms (Views: 11527.3ms | ActiveRecord: 16.1ms | Allocations: 108413)
+
+
+Started GET "/" for 172.17.0.1 at 2023-04-09 21:27:30 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by DashboardsController#show as HTML
+  [1m[36mAdmin Load (0.3ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:4:in `show'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "brandon.longuet@tamu.edu"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:6:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering dashboards/show.html.erb within layouts/application
+  Rendered dashboards/show.html.erb within layouts/application (Duration: 5848.1ms | Allocations: 35835)
+  Rendered layout layouts/application.html.erb (Duration: 5911.8ms | Allocations: 38407)
+Completed 200 OK in 5936ms (Views: 5913.0ms | ActiveRecord: 0.9ms | Allocations: 40442)
+
+
+Started GET "/" for 172.17.0.1 at 2023-04-09 21:28:22 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by DashboardsController#show as HTML
+  [1m[36mAdmin Load (0.6ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:4:in `show'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "brandon.longuet@tamu.edu"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:6:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering dashboards/show.html.erb within layouts/application
+  Rendered dashboards/show.html.erb within layouts/application (Duration: 5090.9ms | Allocations: 35848)
+  Rendered layout layouts/application.html.erb (Duration: 5138.0ms | Allocations: 38419)
+Completed 200 OK in 5171ms (Views: 5139.6ms | ActiveRecord: 1.1ms | Allocations: 40219)
+
+
+Started GET "/" for 172.17.0.1 at 2023-04-09 21:28:34 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by DashboardsController#show as HTML
+  [1m[36mAdmin Load (0.4ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:4:in `show'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "brandon.longuet@tamu.edu"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:6:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering dashboards/show.html.erb within layouts/application
+  Rendered dashboards/show.html.erb within layouts/application (Duration: 129.9ms | Allocations: 4931)
+  Rendered layout layouts/application.html.erb (Duration: 179.9ms | Allocations: 7502)
+Completed 200 OK in 204ms (Views: 181.5ms | ActiveRecord: 1.0ms | Allocations: 9311)
+
+
+Started GET "/" for 172.17.0.1 at 2023-04-09 21:29:47 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by DashboardsController#show as HTML
+  [1m[36mAdmin Load (0.6ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:4:in `show'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "brandon.longuet@tamu.edu"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:6:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering dashboards/show.html.erb within layouts/application
+  Rendered dashboards/show.html.erb within layouts/application (Duration: 5641.7ms | Allocations: 35844)
+  Rendered layout layouts/application.html.erb (Duration: 5699.4ms | Allocations: 38419)
+Completed 200 OK in 5729ms (Views: 5700.9ms | ActiveRecord: 1.0ms | Allocations: 40206)
+
+
+Started GET "/" for 172.17.0.1 at 2023-04-09 21:30:52 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by DashboardsController#show as HTML
+  [1m[36mAdmin Load (0.5ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:4:in `show'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "brandon.longuet@tamu.edu"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:6:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering dashboards/show.html.erb within layouts/application
+  Rendered dashboards/show.html.erb within layouts/application (Duration: 5145.6ms | Allocations: 35833)
+  Rendered layout layouts/application.html.erb (Duration: 5188.0ms | Allocations: 38408)
+Completed 200 OK in 5217ms (Views: 5190.7ms | ActiveRecord: 1.1ms | Allocations: 40222)
+
+
+Started GET "/" for 172.17.0.1 at 2023-04-09 21:31:06 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by DashboardsController#show as HTML
+  [1m[36mAdmin Load (0.4ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:4:in `show'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "brandon.longuet@tamu.edu"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:6:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering dashboards/show.html.erb within layouts/application
+  Rendered dashboards/show.html.erb within layouts/application (Duration: 109.1ms | Allocations: 4928)
+  Rendered layout layouts/application.html.erb (Duration: 158.2ms | Allocations: 7499)
+Completed 200 OK in 188ms (Views: 159.6ms | ActiveRecord: 0.9ms | Allocations: 9311)
+
+
+Started GET "/" for 172.17.0.1 at 2023-04-09 21:34:13 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by DashboardsController#show as HTML
+  [1m[36mAdmin Load (0.3ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:4:in `show'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "brandon.longuet@tamu.edu"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:6:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering dashboards/show.html.erb within layouts/application
+  Rendered dashboards/show.html.erb within layouts/application (Duration: 5200.1ms | Allocations: 36285)
+  Rendered layout layouts/application.html.erb (Duration: 5269.4ms | Allocations: 38855)
+Completed 200 OK in 5300ms (Views: 5270.9ms | ActiveRecord: 0.8ms | Allocations: 40657)
+
+
+Started GET "/" for 172.17.0.1 at 2023-04-09 21:34:23 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by DashboardsController#show as HTML
+  [1m[36mAdmin Load (0.3ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:4:in `show'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "brandon.longuet@tamu.edu"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:6:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering dashboards/show.html.erb within layouts/application
+  Rendered dashboards/show.html.erb within layouts/application (Duration: 5194.4ms | Allocations: 36283)
+  Rendered layout layouts/application.html.erb (Duration: 5246.2ms | Allocations: 38858)
+Completed 200 OK in 5274ms (Views: 5247.9ms | ActiveRecord: 0.7ms | Allocations: 40654)
+
+
+Started GET "/" for 172.17.0.1 at 2023-04-09 21:34:53 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by DashboardsController#show as HTML
+  [1m[36mAdmin Load (0.4ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:4:in `show'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "brandon.longuet@tamu.edu"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:6:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering dashboards/show.html.erb within layouts/application
+  Rendered dashboards/show.html.erb within layouts/application (Duration: 5411.7ms | Allocations: 36286)
+  Rendered layout layouts/application.html.erb (Duration: 5458.7ms | Allocations: 38862)
+Completed 200 OK in 5490ms (Views: 5460.5ms | ActiveRecord: 1.0ms | Allocations: 40646)
+
+
+Started GET "/" for 172.17.0.1 at 2023-04-09 21:36:57 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by DashboardsController#show as HTML
+  [1m[36mAdmin Load (0.3ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:4:in `show'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "brandon.longuet@tamu.edu"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:6:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering dashboards/show.html.erb within layouts/application
+  Rendered dashboards/show.html.erb within layouts/application (Duration: 5301.5ms | Allocations: 36282)
+  Rendered layout layouts/application.html.erb (Duration: 5350.9ms | Allocations: 38852)
+Completed 200 OK in 5378ms (Views: 5353.0ms | ActiveRecord: 0.7ms | Allocations: 40672)
+
+
+Started GET "/" for 172.17.0.1 at 2023-04-09 21:37:20 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by DashboardsController#show as HTML
+  [1m[36mAdmin Load (0.5ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:4:in `show'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "brandon.longuet@tamu.edu"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:6:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering dashboards/show.html.erb within layouts/application
+  Rendered dashboards/show.html.erb within layouts/application (Duration: 5257.4ms | Allocations: 36284)
+  Rendered layout layouts/application.html.erb (Duration: 5303.7ms | Allocations: 38859)
+Completed 200 OK in 5338ms (Views: 5305.8ms | ActiveRecord: 1.0ms | Allocations: 40649)
+
+
+Started GET "/" for 172.17.0.1 at 2023-04-09 21:37:51 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by DashboardsController#show as HTML
+  [1m[36mAdmin Load (0.3ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:4:in `show'
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "brandon.longuet@tamu.edu"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:6:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering dashboards/show.html.erb within layouts/application
+  Rendered dashboards/show.html.erb within layouts/application (Duration: 5179.1ms | Allocations: 36284)
+  Rendered layout layouts/application.html.erb (Duration: 5224.7ms | Allocations: 38859)
+Completed 200 OK in 5258ms (Views: 5225.9ms | ActiveRecord: 1.5ms | Allocations: 40658)
+
+
+Started GET "/" for 172.17.0.1 at 2023-04-09 21:38:18 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by DashboardsController#show as HTML
+  [1m[36mAdmin Load (0.4ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:4:in `show'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "brandon.longuet@tamu.edu"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:6:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering dashboards/show.html.erb within layouts/application
+  Rendered dashboards/show.html.erb within layouts/application (Duration: 101.4ms | Allocations: 4927)
+  Rendered layout layouts/application.html.erb (Duration: 149.6ms | Allocations: 7497)
+Completed 200 OK in 180ms (Views: 151.0ms | ActiveRecord: 1.0ms | Allocations: 9290)
+
+
+Started GET "/" for 172.17.0.1 at 2023-04-09 21:38:44 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by DashboardsController#show as HTML
+  [1m[36mAdmin Load (0.3ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:4:in `show'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "brandon.longuet@tamu.edu"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:6:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering dashboards/show.html.erb within layouts/application
+  Rendered dashboards/show.html.erb within layouts/application (Duration: 5091.5ms | Allocations: 36278)
+  Rendered layout layouts/application.html.erb (Duration: 5137.0ms | Allocations: 38848)
+Completed 200 OK in 5161ms (Views: 5138.3ms | ActiveRecord: 0.7ms | Allocations: 40669)
+
+
+Started GET "/" for 172.17.0.1 at 2023-04-09 21:38:58 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by DashboardsController#show as HTML
+  [1m[36mAdmin Load (0.4ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:4:in `show'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "brandon.longuet@tamu.edu"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:6:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering dashboards/show.html.erb within layouts/application
+  Rendered dashboards/show.html.erb within layouts/application (Duration: 78.7ms | Allocations: 4887)
+  Rendered layout layouts/application.html.erb (Duration: 127.6ms | Allocations: 7457)
+Completed 200 OK in 155ms (Views: 129.0ms | ActiveRecord: 0.8ms | Allocations: 9253)
+
+
+Started GET "/" for 172.17.0.1 at 2023-04-09 21:40:33 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by DashboardsController#show as HTML
+  [1m[36mAdmin Load (0.3ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:4:in `show'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "brandon.longuet@tamu.edu"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:6:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering dashboards/show.html.erb within layouts/application
+  Rendered dashboards/show.html.erb within layouts/application (Duration: 5270.0ms | Allocations: 36284)
+  Rendered layout layouts/application.html.erb (Duration: 5335.6ms | Allocations: 38859)
+Completed 200 OK in 5363ms (Views: 5337.6ms | ActiveRecord: 1.0ms | Allocations: 40649)
+
+
+Started GET "/" for 172.17.0.1 at 2023-04-09 21:40:58 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by DashboardsController#show as HTML
+  [1m[36mAdmin Load (0.3ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:4:in `show'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "brandon.longuet@tamu.edu"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:6:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering dashboards/show.html.erb within layouts/application
+  Rendered dashboards/show.html.erb within layouts/application (Duration: 5073.9ms | Allocations: 36281)
+  Rendered layout layouts/application.html.erb (Duration: 5131.8ms | Allocations: 38856)
+Completed 200 OK in 5177ms (Views: 5133.5ms | ActiveRecord: 0.9ms | Allocations: 40643)
+
+
+Started GET "/" for 172.17.0.1 at 2023-04-09 21:42:55 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by DashboardsController#show as HTML
+  [1m[36mAdmin Load (0.4ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:4:in `show'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "brandon.longuet@tamu.edu"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:6:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering dashboards/show.html.erb within layouts/application
+  Rendered dashboards/show.html.erb within layouts/application (Duration: 5053.7ms | Allocations: 36286)
+  Rendered layout layouts/application.html.erb (Duration: 5101.1ms | Allocations: 38861)
+Completed 200 OK in 5140ms (Views: 5102.7ms | ActiveRecord: 0.9ms | Allocations: 40642)
+
+
+Started GET "/" for 172.17.0.1 at 2023-04-09 21:43:31 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by DashboardsController#show as HTML
+  [1m[36mAdmin Load (0.4ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:4:in `show'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "brandon.longuet@tamu.edu"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:6:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering dashboards/show.html.erb within layouts/application
+  Rendered dashboards/show.html.erb within layouts/application (Duration: 5111.1ms | Allocations: 36278)
+  Rendered layout layouts/application.html.erb (Duration: 5162.2ms | Allocations: 38853)
+Completed 200 OK in 5189ms (Views: 5163.4ms | ActiveRecord: 0.9ms | Allocations: 40631)
+
+
+Started GET "/" for 172.17.0.1 at 2023-04-09 21:43:48 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by DashboardsController#show as HTML
+  [1m[36mAdmin Load (0.3ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:4:in `show'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "brandon.longuet@tamu.edu"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:6:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering dashboards/show.html.erb within layouts/application
+  Rendered dashboards/show.html.erb within layouts/application (Duration: 5051.9ms | Allocations: 36287)
+  Rendered layout layouts/application.html.erb (Duration: 5100.5ms | Allocations: 38862)
+Completed 200 OK in 5130ms (Views: 5102.1ms | ActiveRecord: 0.7ms | Allocations: 40640)
+
+
+Started GET "/" for 172.17.0.1 at 2023-04-09 21:44:11 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by DashboardsController#show as HTML
+  [1m[36mAdmin Load (0.3ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:4:in `show'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "brandon.longuet@tamu.edu"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:6:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering dashboards/show.html.erb within layouts/application
+  Rendered dashboards/show.html.erb within layouts/application (Duration: 5103.2ms | Allocations: 36290)
+  Rendered layout layouts/application.html.erb (Duration: 5154.5ms | Allocations: 38865)
+Completed 200 OK in 5189ms (Views: 5156.2ms | ActiveRecord: 0.8ms | Allocations: 40664)
+
+
+Started GET "/" for 172.17.0.1 at 2023-04-09 21:44:22 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by DashboardsController#show as HTML
+  [1m[36mAdmin Load (0.3ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:4:in `show'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "brandon.longuet@tamu.edu"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:6:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering dashboards/show.html.erb within layouts/application
+  Rendered dashboards/show.html.erb within layouts/application (Duration: 5255.4ms | Allocations: 36285)
+  Rendered layout layouts/application.html.erb (Duration: 5305.5ms | Allocations: 38860)
+Completed 200 OK in 5337ms (Views: 5306.9ms | ActiveRecord: 0.7ms | Allocations: 40650)
+
+
+Started GET "/" for 172.17.0.1 at 2023-04-09 21:44:44 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by DashboardsController#show as HTML
+  [1m[36mAdmin Load (0.5ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:4:in `show'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "brandon.longuet@tamu.edu"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:6:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering dashboards/show.html.erb within layouts/application
+  Rendered dashboards/show.html.erb within layouts/application (Duration: 5170.9ms | Allocations: 36287)
+  Rendered layout layouts/application.html.erb (Duration: 5219.5ms | Allocations: 38862)
+Completed 200 OK in 5250ms (Views: 5221.1ms | ActiveRecord: 1.0ms | Allocations: 40655)
+
+
+Started GET "/" for 172.17.0.1 at 2023-04-09 21:45:21 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by DashboardsController#show as HTML
+  [1m[36mAdmin Load (0.5ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:4:in `show'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "brandon.longuet@tamu.edu"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:6:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering dashboards/show.html.erb within layouts/application
+  Rendered dashboards/show.html.erb within layouts/application (Duration: 5230.8ms | Allocations: 36278)
+  Rendered layout layouts/application.html.erb (Duration: 5279.7ms | Allocations: 38848)
+Completed 200 OK in 5312ms (Views: 5281.0ms | ActiveRecord: 0.9ms | Allocations: 40635)
+
+
+Started GET "/" for 172.17.0.1 at 2023-04-09 21:45:49 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by DashboardsController#show as HTML
+  [1m[36mAdmin Load (0.2ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:4:in `show'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "brandon.longuet@tamu.edu"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:6:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering dashboards/show.html.erb within layouts/application
+  Rendered dashboards/show.html.erb within layouts/application (Duration: 5010.2ms | Allocations: 36278)
+  Rendered layout layouts/application.html.erb (Duration: 5048.5ms | Allocations: 38848)
+Completed 200 OK in 5074ms (Views: 5050.0ms | ActiveRecord: 0.8ms | Allocations: 40644)
+
+
+Started GET "/" for 172.17.0.1 at 2023-04-09 21:46:07 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by DashboardsController#show as HTML
+  [1m[36mAdmin Load (0.2ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:4:in `show'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "brandon.longuet@tamu.edu"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:6:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering dashboards/show.html.erb within layouts/application
+  Rendered dashboards/show.html.erb within layouts/application (Duration: 5035.3ms | Allocations: 36284)
+  Rendered layout layouts/application.html.erb (Duration: 5081.6ms | Allocations: 38859)
+Completed 200 OK in 5111ms (Views: 5083.0ms | ActiveRecord: 0.8ms | Allocations: 40649)
+
+
+Started GET "/" for 172.17.0.1 at 2023-04-09 21:46:49 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by DashboardsController#show as HTML
+  [1m[36mAdmin Load (0.4ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:4:in `show'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "brandon.longuet@tamu.edu"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:6:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering dashboards/show.html.erb within layouts/application
+  Rendered dashboards/show.html.erb within layouts/application (Duration: 5078.4ms | Allocations: 36281)
+  Rendered layout layouts/application.html.erb (Duration: 5127.8ms | Allocations: 38856)
+Completed 200 OK in 5154ms (Views: 5129.8ms | ActiveRecord: 0.7ms | Allocations: 40655)
+
+
+Started GET "/" for 172.17.0.1 at 2023-04-09 21:48:48 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by DashboardsController#show as HTML
+  [1m[36mAdmin Load (0.3ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:4:in `show'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "brandon.longuet@tamu.edu"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:6:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering dashboards/show.html.erb within layouts/application
+  Rendered dashboards/show.html.erb within layouts/application (Duration: 5241.2ms | Allocations: 36355)
+  Rendered layout layouts/application.html.erb (Duration: 5292.4ms | Allocations: 38925)
+Completed 200 OK in 5317ms (Views: 5294.0ms | ActiveRecord: 0.7ms | Allocations: 40715)
+
+
+Started GET "/" for 172.17.0.1 at 2023-04-09 21:49:12 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by DashboardsController#show as HTML
+  [1m[36mAdmin Load (0.7ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:4:in `show'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "brandon.longuet@tamu.edu"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:6:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering dashboards/show.html.erb within layouts/application
+  Rendered dashboards/show.html.erb within layouts/application (Duration: 5131.5ms | Allocations: 36282)
+  Rendered layout layouts/application.html.erb (Duration: 5178.6ms | Allocations: 38852)
+Completed 200 OK in 5219ms (Views: 5180.3ms | ActiveRecord: 1.4ms | Allocations: 40645)
+
+
+Started GET "/" for 172.17.0.1 at 2023-04-09 21:50:12 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by DashboardsController#show as HTML
+  [1m[36mAdmin Load (0.3ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:4:in `show'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "brandon.longuet@tamu.edu"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:6:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering dashboards/show.html.erb within layouts/application
+  Rendered dashboards/show.html.erb within layouts/application (Duration: 5410.5ms | Allocations: 36273)
+  Rendered layout layouts/application.html.erb (Duration: 5455.1ms | Allocations: 38843)
+Completed 200 OK in 5481ms (Views: 5457.0ms | ActiveRecord: 0.9ms | Allocations: 40618)
+
+
+Started GET "/" for 172.17.0.1 at 2023-04-09 21:53:19 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by DashboardsController#show as HTML
+  [1m[36mAdmin Load (0.4ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:4:in `show'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "brandon.longuet@tamu.edu"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:6:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering dashboards/show.html.erb within layouts/application
+  Rendered dashboards/show.html.erb within layouts/application (Duration: 5339.0ms | Allocations: 36284)
+  Rendered layout layouts/application.html.erb (Duration: 5381.9ms | Allocations: 38859)
+Completed 200 OK in 5414ms (Views: 5383.8ms | ActiveRecord: 0.9ms | Allocations: 40637)
+
+
