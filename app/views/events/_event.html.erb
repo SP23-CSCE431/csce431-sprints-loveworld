@@ -20,10 +20,10 @@
   </div>
 
   <div class="action-col">
-    <% if @user_event_array.include? event.id %>
-      <%= button_to "Leave", { :controller => :event_members, :id => event.event_members.ids.first, :action => 'destroy' }, :method => :delete %>
+    <% if @user_event_array.map(&:event_id).include? event.id %>
+      <%= button_to "Leave", { :controller => :event_members, :id => EventMember.where('event_id' => event.id, 'user_id' => @current_id).first.id, :action => 'destroy' }, :method => :delete %>
     <% else %>
-      <%= button_to "Join", event_members_path(:event_id => event.id, :user_id => @current_id.id), method: 'post' %>
+      <%= button_to "Join", event_members_path(:event_id => event.id, :user_id => @current_id), method: 'post' %>
     <% end %>
   </div>
 </div>
