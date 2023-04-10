@@ -3,9 +3,9 @@ class GroupsController < ApplicationController
 
   # GET /groups or /groups.json
   def index
-    @current_id = User.where('email' => current_admin.email).first
+    @current_id = User.where('email' => current_admin.email).first.id
     @groups = Group.all
-    @user_group_array = Group.select('id').joins(:group_members).where('group_members.user_id' => @current_id.id).to_a.map(&:id)
+    @user_group_array = GroupMember.where('user_id' => @current_id).to_a
   end
 
   # GET /groups/1 or /groups/1.json
