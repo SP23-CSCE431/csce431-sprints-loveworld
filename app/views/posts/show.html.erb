@@ -1,27 +1,38 @@
-<%= render @post %>
 
-<div>
+<%= stylesheet_link_tag 'posts' %>
+
+<div class="comment-1 ">
+  <div class="row h1 left-margin">
+    <%= @post.title %>
+    
+  </div>
+  <div class = "row h5 left-margin">
+  by 
+    <%= @post.admin_name %>
+  </div>
+  <div class="row h4 negative-top-margin left-margin">
+    <%= @post.body%>
+  </div>
+  
+</div>
+
+<div class = "comment-1">
+
   <%= link_to "Edit this post", edit_post_path(@post) %> |
   <%= link_to "Back to posts", posts_path %>
+  <%= button_to "Destroy this post", @post, method: :delete, :class => "btn btn-light" %>
 
-  
-  <%= button_to "Destroy this post", @post, method: :delete %>
-  <div class="card my-1"> # place this card blow the post body.
-  <div class="card-body">
-    <p class="font-weight-bold">Comments</p>
-    <%= form_with(model: [@post, @post.comments.build]) do |f| %>
-      <div class="form-group">
-        <%= f.label 'New comment' %>
-        <%= f.text_area :body, class: 'form-control' %>
-        Published at
- = time_ago_in_words(comment.created_at)
- by 
- = comment.admin_name
-      </div>
-      <%= f.submit 'Submit', class: 'btn btn-primary' %>
-    <% end %>
+  <div class="card my-1">
+    <div class="card-body comment-2">
+      <p class="font-weight-bold h2">Comments</p>
+      <%= form_with(model: [@post, @post.comments.build]) do |f| %>
+        <div class="form-group">
+          <%= f.label 'New comment' %>
+          <%= f.text_area :body, class: 'form-control comment-1' %>
+        </div>
+        <%= f.submit 'Submit', class: 'btn btn-primary' %>
+      <% end %>
+    </div>
   </div>
 </div>
-</div>
-
 <%= render @post.comments %>
