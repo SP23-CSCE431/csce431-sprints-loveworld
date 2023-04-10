@@ -1,12 +1,22 @@
-<h1>Posts</h1>
+<%= stylesheet_link_tag 'posts' %>
+<div class="main" >
+  <div class="content">
+    <div class="group-table">
+      <div class="groups">
+        <div class="table-header row">
+          <div class="col">Title</div>
+          <div class="col">User</div>
+          <div class="action-col">Show</div>
+        </div>
+        <% @posts.each do |post| %>
+          <%= render post %>
+        <% end %>
+      </div>
+    </div>
+    
+  </div>
+  <div class="new-group">
+      <%= button_to "New post", new_post_path, method: "get", :class => "btn btn-light" %>
 
-<div id="posts">
-  <% @posts.each do |post| %>
-    <%= render post %>
-    <p>
-      <%= link_to "Show this post", post %>
-    </p>
-  <% end %>
+    </div>
 </div>
-
-<%= link_to "New post", new_post_path %>

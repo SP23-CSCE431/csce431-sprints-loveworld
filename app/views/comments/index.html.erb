@@ -1,0 +1,35 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Comments</h1>
+
+<div id="comments">
+  <% @comments.each do |comment| %>
+    <%= render comment %>
+    <p>
+      <%= link_to "Show this comment", comment %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New comment", new_comment_path %>
+
+<%= stylesheet_link_tag 'groups' %>
+
+<div class="main" >
+  <div class="content">
+    <div class="group-table">
+      <div class="groups">
+        <div class="table-header row">
+          <div class="col">Comments</div>
+        </div>
+        <% @groups.each do |group| %>
+          <%= render group %>
+        <% end %>
+      </div>
+    </div>
+    
+  </div>
+  <div class="new-group">
+      <%= button_to "New comment", new_comment_path, method: "get", :class => "btn btn-light" %>
+    </div>
+</div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_02_183742) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_08_152150) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -19,6 +19,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_02_183742) do
     t.string "full_name"
     t.string "uid"
     t.string "avatar_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.text "body"
+    t.integer "post_id"
+    t.integer "parent_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -43,6 +51,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_02_183742) do
     t.string "description"
   end
 
+  create_table "forum_posts", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.integer "admin_id"
+  end
+
   create_table "group_members", force: :cascade do |t|
     t.bigint "group_id", null: false
     t.bigint "user_id", null: false
@@ -65,6 +82,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_02_183742) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "admin_id"
+    t.string "admin_name"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
@@ -74,6 +93,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_02_183742) do
     t.bigint "post_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "admin_name"
     t.index ["post_id"], name: "index_replies_on_post_id"
     t.index ["user_id"], name: "index_replies_on_user_id"
   end
