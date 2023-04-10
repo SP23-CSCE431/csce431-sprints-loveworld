@@ -4,8 +4,13 @@ Rails.application.routes.draw do
   resources :events
   resources :groups
   resources :users
-  resources :posts
+  resources :posts do
+    resources :comments
+  end
   resources :replies
+
+  resources :forum_posts
+
 
   root to: 'dashboards#show'
   devise_for :admins, controllers: { omniauth_callbacks: 'admins/omniauth_callbacks' }
@@ -14,3 +19,4 @@ Rails.application.routes.draw do
     get 'admins/sign_out', to: 'admins/sessions#destroy', as: :destroy_admin_session
   end
 end
+

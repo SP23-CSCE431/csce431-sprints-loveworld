@@ -1,17 +1,17 @@
-<div id="<%= dom_id post %>">
-  <p>
-    <strong>Title:</strong>
+<%= stylesheet_link_tag 'posts' %>
+<div class="table-row row">
+  <div class="col">
     <%= post.title %>
-  </p>
+  </div>
+  <div class="col">
+    <%= post.admin_name%>
+  </div>
+  <div class="action-col">
+   <%= button_to "Show",  {:controller => :posts, :action => 'show', :id => post.id }, method: "get", :class => "btn btn-light" %>
+  </div>
 
-  <p>
-    <strong>Body:</strong>
-    <%= post.body %>
-  </p>
 
-  <p>
-    <strong>User:</strong>
-    <%= post.user_id %>
-  </p>
+
+ 
 
 </div>

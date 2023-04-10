@@ -4,4 +4,6 @@ class Admin < ApplicationRecord
   def self.from_google(email:, full_name:, uid:, avatar_url:)
     create_with(uid:, full_name:, avatar_url:).find_or_create_by!(email:)
   end
+
+  has_many :forum_posts
 end
