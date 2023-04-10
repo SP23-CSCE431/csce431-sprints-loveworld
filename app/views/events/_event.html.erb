@@ -21,9 +21,9 @@
 
   <div class="action-col">
     <% if @user_event_array.map(&:event_id).include? event.id %>
-      <%= button_to "Leave", { :controller => :event_members, :id => EventMember.where('event_id' => event.id, 'user_id' => @current_id).first.id, :action => 'destroy' }, :method => :delete %>
+      <%= button_to "Leave", { :controller => :event_members, :id => EventMember.where('event_id' => event.id, 'user_id' => @current_id).first.id, :action => 'destroy' }, :method => :delete, :class=> "btn btn-light" %>
     <% else %>
-      <%= button_to "Join", event_members_path(:event_id => event.id, :user_id => @current_id.id), method: 'post', :class=> "btn btn-light" %>
+      <%= button_to "Join", event_members_path(:event_id => event.id, :user_id => @current_id), method: 'post', :class=> "btn btn-light" %>
     <% end %>
   </div>
 </div>
