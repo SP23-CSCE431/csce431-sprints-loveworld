@@ -1,46 +1,46 @@
 require 'rails_helper'
 require 'capybara/rspec'
 
-RSpec.describe GroupsController, type: :controller do
+RSpec.describe(GroupsController, type: :controller) do
   let(:group) { Group.create!(name: 'Finals week', description: 'Finals') }
   let(:user) { User.create!(email: 'howdy@tamu.edu', full_name: 'Tony Staark', phone_number: '0000000000') }
 
-  before(:each) do 
+  before do
     Rails.application.env_config['devise.mapping'] = Devise.mappings[:user]
     Rails.application.env_config['omniauth.auth'] = OmniAuth.config.mock_auth[:google_oauth2]
-  
-    allow(request.env['warden']).to receive(:authenticate!).and_return(user)
-    allow(controller).to receive(:current_admin).and_return(user)
+
+    allow(request.env['warden']).to(receive(:authenticate!).and_return(user))
+    allow(controller).to(receive(:current_admin).and_return(user))
 
     default_url_options[:host] = 'test.host'
   end
 
-  it 'should get index' do
+  it 'gets index' do
     get :index
-    expect(response).to render_template(:index)
+    expect(response).to(render_template(:index))
   end
 
-  it 'should get new' do
+  it 'gets new' do
     get :new
-    expect(response).to render_template(:new)
+    expect(response).to(render_template(:new))
   end
 
-  it 'should create group' do
-    expect { post :create, params: { group: { name: 'test group', description: 'test description' } } }.to change { Group.count }.by(1)
-    expect(response).to redirect_to groups_url
+  it 'creates group' do
+    expect { post(:create, params: { group: { name: 'test group', description: 'test description' } }) }.to(change(Group, :count).by(1))
+    expect(response).to(redirect_to(group_url(Group.all.last)))
   end
 
-  it 'should not create group' do
-    expect { post :create, params: { group: {name: 'test group', description: nil } } }.not_to change { Group.count }
-    expect(response).to have_http_status(:unprocessable_entity)
+  it 'does not create group' do
+    expect { post(:create, params: { group: { name: 'test group', description: nil } }) }.not_to(change(Group, :count))
+    expect(response).to(have_http_status(:unprocessable_entity))
   end
 
-  it 'should show group' do
+  it 'shows group' do
     get :show, params: { id: group.id }
     assert_response :success
   end
 
-  it 'should get edit' do
+  it 'gets edit' do
     get :edit, params: { id: group.id }
     assert_response :success
   end
