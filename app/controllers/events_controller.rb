@@ -8,9 +8,9 @@ class EventsController < ApplicationController
 
   # GET /events or /events.json
   def index
-    @current_id = User.where('email' => current_admin.email).first
+    @current_id = User.where('email' => current_admin.email).first.id
     @events = Event.all
-    @user_event_array = Event.select('id').joins(:event_members).where('event_members.user_id' => @current_id.id).to_a.map(&:id)
+    @user_event_array = EventMember.where('user_id' => @current_id).to_a
     @calendar_url = ENV.fetch('GOOGLE_CALENDAR_URL', nil)
   end
 

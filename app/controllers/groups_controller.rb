@@ -3,17 +3,15 @@ class GroupsController < ApplicationController
 
   # GET /groups or /groups.json
   def index
-    @current_id = User.where('email' => current_admin.email).first
+    @current_id = User.where('email' => current_admin.email).first.id
     @groups = Group.all
-    @user_group_array = Group.select('id').joins(:group_members).where('group_members.user_id' => @current_id.id).to_a.map(&:id)
+    @user_group_array = GroupMember.where('user_id' => @current_id).to_a
   end
 
   # GET /groups/1 or /groups/1.json
   def show
     # on showing group, get user names that belong to that group, and make global variable to be used in html
     @users = User.select('full_name').joins(:group_members).where('group_members.group_id' => params[:id])
-    @current_id = User.where('email' => current_admin.email).first
-    @user_group_array = Group.select('id').joins(:group_members).where('group_members.user_id' => @current_id.id).to_a.map(&:id)
   end
 
   # GET /groups/new
