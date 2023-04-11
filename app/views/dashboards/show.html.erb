@@ -1,2 +1,45 @@
-<h1>You're logged in! Welcome to the Admin Dashboard!</h1>
-<%= link_to "Sign Out", destroy_admin_session_path %>
+<!-- This is to link the stylesheet to this view. -->
+<%= stylesheet_link_tag 'homepage' %>
+
+<div class="body">
+    <!-- This is for the top section to have the background photo -->
+    <div class="section1">
+        <% if current_admin.present? %>
+            <h1 class="p-3"> Welcome <%= current_admin.full_name %>!</h1>
+        <% end %>
+    </div>
+    
+    <!-- This is for the botton section to have the background color -->
+    <div class="section2">
+        <div class="box sub-box">
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
+                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit 
+                esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in 
+                culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+        </div>
+        <div class="box sub-box">
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
+                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit 
+                esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in 
+                culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+        </div>
+    </div>
+    
+    <!-- This is for the links at the botton of the screen -->
+    <div class="outsideLinks">
+        <%= link_to "https://www.instagram.com/loveworldtamu/" do %>
+            <%= image_tag "instgramLogo.png", alt: "Image Description", size: "50x50" %>
+        <% end %>
+    </div>
+    
+    <!-- This is where the version will be place -->
+    <div class="version">
+        <p class="version-font">Made using Ruby on Rails</p>
+    </div>
+</div>

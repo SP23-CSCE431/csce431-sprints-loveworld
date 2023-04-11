@@ -43,6 +43,10 @@ gem 'yaml_db'
 
 gem 'rexml'
 
+gem 'bootstrap'
+gem 'jquery-rails'
+gem 'turbolinks'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', require: false
 
@@ -54,6 +58,7 @@ gem 'bootsnap', require: false
 
 # Google OAuth gems
 gem 'devise'
+gem 'google-api-client', require: 'google/apis/calendar_v3'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-rails_csrf_protection'

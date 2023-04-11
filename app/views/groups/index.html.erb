@@ -1,20 +1,23 @@
-<p style="color: green"><%= notice %></p>
+<%= stylesheet_link_tag 'groups' %>
 
-<h1>Groups</h1>
-
-<div id="groups">
-  <% @groups.each do |group| %>
-    <%= render group %>
-    <p>
-      <%= link_to "Show this group", group %>
-
-      <% if @user_group_array.include? group.id %>
-        <%= button_to "Leave Group", { :controller => :group_members, :id => group.group_members.ids.first, :action => 'destroy' }, :method => :delete %>
-      <% else %>
-       <%= button_to "Join Group", group_members_path(:group_id => group.id, :user_id => @current_id.id), method: 'post' %>
-      <% end %>
-    </p>
-  <% end %>
+<div class="main" >
+  <div class="content">
+    <div class="group-table">
+      <div class="groups">
+        <div class="table-header row">
+          <div class="col">Name</div>
+          <div class="col">Description</div>
+          <div class="action-col">Show</div>
+          <div class="action-col">Action</div>
+        </div>
+        <% @groups.each do |group| %>
+          <%= render group %>
+        <% end %>
+      </div>
+    </div>
+    
+  </div>
+  <div class="new-group">
+      <%= button_to "New group", new_group_path, method: "get" %>
+    </div>
 </div>
-
-<%= link_to "New group", new_group_path %>

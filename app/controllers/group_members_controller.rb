@@ -24,7 +24,7 @@ class GroupMembersController < ApplicationController
     respond_to do |format|
       if @group_member.save
         # dont redirect, just flash a notice
-        format.html { redirect_to(groups_url, notice: 'Group member was successfully added.') }
+        format.html { redirect_to(groups_url, info: 'Group member was successfully added.') }
         format.json { render(:show, status: :created, location: @group_member) }
       else
         format.html { render(:new, status: :unprocessable_entity) }
@@ -37,7 +37,7 @@ class GroupMembersController < ApplicationController
   def update
     respond_to do |format|
       if @group_member.update(group_member_params)
-        format.html { redirect_to(group_member_url(@group_member), notice: 'Group member was successfully updated.') }
+        format.html { redirect_to(group_member_url(@group_member), info: 'Group member was successfully updated.') }
         format.json { render(:show, status: :ok, location: @group_member) }
       else
         format.html { render(:edit, status: :unprocessable_entity) }
@@ -51,7 +51,7 @@ class GroupMembersController < ApplicationController
     @group_member.destroy!
 
     respond_to do |format|
-      format.html { redirect_to(groups_url, notice: 'Group member was successfully destroyed.') }
+      format.html { redirect_to(groups_url, info: 'Group member was successfully destroyed.') }
       format.json { head(:no_content) }
     end
   end
