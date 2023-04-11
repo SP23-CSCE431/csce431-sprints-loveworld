@@ -13679,3 +13679,211 @@ Completed 200 OK in 5414ms (Views: 5383.8ms | ActiveRecord: 0.9ms | Allocations:
 >>>>>>> ff9f022d4c46b994aa08b69330a329a187117933
 
 
+Started GET "/" for 172.17.0.1 at 2023-04-11 00:19:54 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Pluck (11.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by DashboardsController#show as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering dashboards/show.html.erb within layouts/application
+Started GET "/" for 172.17.0.1 at 2023-04-11 00:22:01 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by DashboardsController#show as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering dashboards/show.html.erb within layouts/application
+Started GET "/" for 172.17.0.1 at 2023-04-11 00:22:14 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by DashboardsController#show as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering dashboards/show.html.erb within layouts/application
+  Rendered dashboards/show.html.erb within layouts/application (Duration: 54980.0ms | Allocations: 74213)
+  Rendered layout layouts/application.html.erb (Duration: 55027.8ms | Allocations: 74324)
+Completed 500 Internal Server Error in 55042ms (ActiveRecord: 0.0ms | Allocations: 74865)
+
+
+  
+ActionView::Template::Error (Asset `homepage.css` was not declared to be precompiled in production.
+Declare links to your assets in `app/assets/config/manifest.js`.
+
+  //= link homepage.css
+
+and restart your server):
+    1: <!-- This is to link the stylesheet to this view. -->
+    2: <%= stylesheet_link_tag 'homepage' %>
+    3: 
+    4: <div class="body">
+    5:     <!-- This is for the top section to have the background photo -->
+  
+app/views/dashboards/show.html.erb:2
+  [1m[35m (4.0ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6941818436121115260)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (13.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to DropForumPosts (20230411002532)
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (36.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "forum_posts" CASCADE[0m
+  [1m[35m (14.7ms)[0m  [1m[35mDROP TABLE IF EXISTS "replies" CASCADE[0m
+  [1m[36mActiveRecord::SchemaMigration Create (9.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230411002532"]]
+  [1m[36mTRANSACTION (8.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (5.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(6941818436121115260)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (7.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 172.17.0.1 at 2023-04-11 00:31:14 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Pluck (6.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by DashboardsController#show as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering dashboards/show.html.erb within layouts/application
+  Rendered dashboards/show.html.erb within layouts/application (Duration: 1321.0ms | Allocations: 51332)
+  Rendered layout layouts/application.html.erb (Duration: 1324.0ms | Allocations: 51442)
+Completed 500 Internal Server Error in 1443ms (ActiveRecord: 0.0ms | Allocations: 54804)
+
+
+  
+ActionView::Template::Error (Asset `homepage.css` was not declared to be precompiled in production.
+Declare links to your assets in `app/assets/config/manifest.js`.
+
+  //= link homepage.css
+
+and restart your server):
+    1: <!-- This is to link the stylesheet to this view. -->
+    2: <%= stylesheet_link_tag 'homepage' %>
+    3: 
+    4: <div class="body">
+    5:     <!-- This is for the top section to have the background photo -->
+  
+app/views/dashboards/show.html.erb:2
+Started GET "/" for 172.17.0.1 at 2023-04-11 00:32:53 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by DashboardsController#show as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering dashboards/show.html.erb within layouts/application
+  Rendered dashboards/show.html.erb within layouts/application (Duration: 66482.1ms | Allocations: 76677)
+  Rendered layout layouts/application.html.erb (Duration: 66538.5ms | Allocations: 80318)
+Completed 200 OK in 66560ms (Views: 66547.3ms | ActiveRecord: 0.0ms | Allocations: 80771)
+
+
+Started POST "/admins/auth/google_oauth2" for 172.17.0.1 at 2023-04-11 00:34:31 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Started GET "/" for 172.17.0.1 at 2023-04-11 00:34:42 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by DashboardsController#show as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering dashboards/show.html.erb within layouts/application
+  Rendered dashboards/show.html.erb within layouts/application (Duration: 61.9ms | Allocations: 5047)
+  Rendered layout layouts/application.html.erb (Duration: 96.5ms | Allocations: 7789)
+Completed 200 OK in 106ms (Views: 101.4ms | ActiveRecord: 0.0ms | Allocations: 8193)
+
+
+Started POST "/admins/auth/google_oauth2" for 172.17.0.1 at 2023-04-11 00:34:45 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Started GET "/admins/auth/google_oauth2/callback?state=c1835e1e259dbb252badba5faa04dec99506524cd986bade&code=4%2F0AVHEtk5Vi7_VRIkH71jMRvkJCc549VYwfMBzSqjZ0Cy9zMES8pj39XL1v0IghvsMvHDCDw&scope=email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+openid&authuser=0&prompt=consent" for 172.17.0.1 at 2023-04-11 00:34:48 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Admins::OmniauthCallbacksController#google_oauth2 as HTML
+  Parameters: {"state"=>"c1835e1e259dbb252badba5faa04dec99506524cd986bade", "code"=>"4/0AVHEtk5Vi7_VRIkH71jMRvkJCc549VYwfMBzSqjZ0Cy9zMES8pj39XL1v0IghvsMvHDCDw", "scope"=>"email https://www.googleapis.com/auth/userinfo.email openid", "authuser"=>"0", "prompt"=>"consent"}
+  [1m[36mAdmin Load (8.1ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."email" = $1 LIMIT $2[0m  [["email", "mnr282001@gmail.com"], ["LIMIT", 1]]
+  ↳ app/models/admin.rb:5:in `from_google'
+Redirected to http://localhost:3000/
+Completed 302 Found in 214ms (ActiveRecord: 62.4ms | Allocations: 9213)
+
+
+Started GET "/" for 172.17.0.1 at 2023-04-11 00:34:50 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by DashboardsController#show as HTML
+  [1m[36mAdmin Load (2.2ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:4:in `show'
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mnr282001@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:6:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering dashboards/show.html.erb within layouts/application
+  Rendered dashboards/show.html.erb within layouts/application (Duration: 56.0ms | Allocations: 5056)
+  Rendered layout layouts/application.html.erb (Duration: 84.5ms | Allocations: 7705)
+Completed 200 OK in 212ms (Views: 88.8ms | ActiveRecord: 29.8ms | Allocations: 14763)
+
+
+Started GET "/posts" for 172.17.0.1 at 2023-04-11 00:34:52 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#index as HTML
+  [1m[36mAdmin Load (1.8ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (3.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:11
+  Rendered posts/_post.html.erb (Duration: 16.1ms | Allocations: 1913)
+  Rendered posts/_post.html.erb (Duration: 4.1ms | Allocations: 566)
+  Rendered posts/index.html.erb within layouts/application (Duration: 123.2ms | Allocations: 8787)
+  Rendered layout layouts/application.html.erb (Duration: 175.3ms | Allocations: 13914)
+Completed 200 OK in 239ms (Views: 157.8ms | ActiveRecord: 27.8ms | Allocations: 17621)
+
+
+Started GET "/posts/7" for 172.17.0.1 at 2023-04-11 00:34:55 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mAdmin Load (1.9ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPost Load (1.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:63:in `set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (2.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 7]]
+  ↳ app/views/posts/show.html.erb:38
+  Rendered collection of comments/_comment.html.erb [3 times] (Duration: 5.4ms | Allocations: 273)
+  Rendered posts/show.html.erb within layouts/application (Duration: 183.6ms | Allocations: 11409)
+  Rendered layout layouts/application.html.erb (Duration: 234.0ms | Allocations: 16507)
+Completed 200 OK in 276ms (Views: 215.2ms | ActiveRecord: 26.5ms | Allocations: 19535)
+
+
+Started GET "/" for 172.17.0.1 at 2023-04-11 00:35:02 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by DashboardsController#show as HTML
+  [1m[36mAdmin Load (2.0ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:4:in `show'
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mnr282001@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:6:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering dashboards/show.html.erb within layouts/application
+  Rendered dashboards/show.html.erb within layouts/application (Duration: 53.4ms | Allocations: 4921)
+  Rendered layout layouts/application.html.erb (Duration: 81.5ms | Allocations: 7528)
+Completed 200 OK in 117ms (Views: 85.5ms | ActiveRecord: 3.9ms | Allocations: 9451)
+
+
+Started GET "/users" for 172.17.0.1 at 2023-04-11 00:35:12 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by UsersController#index as HTML
+  [1m[36mAdmin Load (1.9ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:13
+  Rendered users/_user.html.erb (Duration: 6.3ms | Allocations: 391)
+  Rendered users/index.html.erb within layouts/application (Duration: 70.3ms | Allocations: 6070)
+  Rendered layout layouts/application.html.erb (Duration: 98.9ms | Allocations: 8766)
+Completed 200 OK in 133ms (Views: 106.6ms | ActiveRecord: 3.6ms | Allocations: 11168)
+
+
+Started GET "/events" for 172.17.0.1 at 2023-04-11 00:35:29 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by EventsController#index as HTML
+  [1m[36mAdmin Load (3.4ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mnr282001@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:11:in `index'
+  [1m[36mEvent Load (5.8ms)[0m  [1m[34mSELECT "events"."id" FROM "events" INNER JOIN "event_members" ON "event_members"."event_id" = "events"."id" WHERE "event_members"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/events_controller.rb:13:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (1.9ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:15
+  Rendered events/index.html.erb within layouts/application (Duration: 62.7ms | Allocations: 5365)
+  Rendered layout layouts/application.html.erb (Duration: 91.9ms | Allocations: 8062)
+Completed 200 OK in 267ms (Views: 100.0ms | ActiveRecord: 49.1ms | Allocations: 16292)
+
+
+Started GET "/events/new" for 172.17.0.1 at 2023-04-11 00:35:45 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by EventsController#new as HTML
+  [1m[36mAdmin Load (1.8ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/_form.html.erb (Duration: 125.9ms | Allocations: 6655)
+  Rendered events/new.html.erb within layouts/application (Duration: 177.9ms | Allocations: 11112)
+  Rendered layout layouts/application.html.erb (Duration: 241.5ms | Allocations: 13831)
+Completed 200 OK in 316ms (Views: 245.9ms | ActiveRecord: 1.8ms | Allocations: 19293)
+
+
