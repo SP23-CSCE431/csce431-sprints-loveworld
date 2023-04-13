@@ -23,10 +23,10 @@
           </div>
 
           <div class="col-2">
-              <%= @event.start.in_time_zone('Central Time (US & Canada)').strftime("%m/%d/%Y %H:%M CST")  %>
+              <%= @event.start.in_time_zone('Central Time (US & Canada)').strftime("%m/%d/%Y %I:%M CST")  %>
           </div>
           <div class="col-2">
-            <%= @event.end.in_time_zone('Central Time (US & Canada)').strftime("%m/%d/%Y %H:%M CST")  %>
+            <%= @event.end.in_time_zone('Central Time (US & Canada)').strftime("%m/%d/%Y %I:%M CST")  %>
           </div>
         </div>
       </div>
