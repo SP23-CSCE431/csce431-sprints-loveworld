@@ -112,5 +112,5 @@ Rails.application.configure do
   }'
 
   # admin info
-  ENV['ADMIN_EMAILS']="rmccauley01@tamu.edu"
+  ENV['ADMIN_EMAILS']="nperk11@gmail.com"
 end
