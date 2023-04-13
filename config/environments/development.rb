@@ -72,6 +72,7 @@ Rails.application.configure do
 
   ENV['GOOGLE_CALENDAR_ID'] = 'c_843965819d8bfc68be5ba377260987b536d3818d4d2aa640d712414607f1c5c8@group.calendar.google.com'
   ENV['GOOGLE_CALENDAR_URL'] = 'https://calendar.google.com/calendar/embed?src=c_843965819d8bfc68be5ba377260987b536d3818d4d2aa640d712414607f1c5c8%40group.calendar.google.com&ctz=America%2FChicago'
+  
   ENV['GOOGLE_SERVICE_ACCOUNT_JSON'] = '{
     "type": "service_account",
     "project_id": "blissful-star-380717",
