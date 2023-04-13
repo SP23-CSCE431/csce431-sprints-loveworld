@@ -71,9 +71,10 @@ Rails.application.configure do
   # config.action_view.annotate_rendered_view_with_filenames = true
   ENV['GOOGLE_OAUTH_CLIENT_ID'] = '783903801837-jkpimg3cddph2kikc6ip4uuhcue56e2l.apps.googleusercontent.com'
   ENV['GOOGLE_OAUTH_CLIENT_SECRET'] = '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'
-  ENV['GOOGLE_CALENDAR_ID'] = 'c_6fa3a48d19f0d7d599da305fe3e3b26ca3ed3102a85a870552b0f4dbf80c0c07@group.calendar.google.com'
-  ENV['GOOGLE_CALENDAR_URL'] = 'https://calendar.google.com/calendar/embed?src=c_6fa3a48d19f0d7d599da305fe3e3b26ca3ed3102a85a870552b0f4dbf80c0c07%40group.calendar.google.com&ctz=America%2FChicago'
-
+  
+  ENV['GOOGLE_CALENDAR_ID'] = 'c_843965819d8bfc68be5ba377260987b536d3818d4d2aa640d712414607f1c5c8@group.calendar.google.com'
+  ENV['GOOGLE_CALENDAR_URL'] = 'https://calendar.google.com/calendar/embed?src=c_843965819d8bfc68be5ba377260987b536d3818d4d2aa640d712414607f1c5c8%40group.calendar.google.com&ctz=America%2FChicago'
+  
   ENV['GOOGLE_SERVICE_ACCOUNT_JSON'] = '{
     "type": "service_account",
     "project_id": "blissful-star-380717",
