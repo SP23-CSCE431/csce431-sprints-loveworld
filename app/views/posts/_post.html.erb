@@ -1,17 +1,13 @@
-<%= stylesheet_link_tag 'posts' %>
 <div class="table-row row">
-  <div class="col">
+  <div class="col fill">
     <%= post.title %>
   </div>
+
   <div class="col">
     <%= post.admin_name%>
   </div>
+  
   <div class="action-col">
    <%= button_to "Show",  {:controller => :posts, :action => 'show', :id => post.id }, method: "get", :class => "btn btn-light" %>
   </div>
-
-
-
- 
-
 </div>
