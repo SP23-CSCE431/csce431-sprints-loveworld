@@ -7,10 +7,10 @@
   <div class="col">
     <div class="time-col col">
       <div class="row">
-        <%= event.start.in_time_zone('Central Time (US & Canada)').strftime("%m/%d/%Y %H:%M CST")  %>
+        <%= event.start.in_time_zone('Central Time (US & Canada)').strftime("%m/%d/%Y %I:%M CST")  %>
       </div>
       <div class="row">
-        <%= event.end.in_time_zone('Central Time (US & Canada)').strftime("%m/%d/%Y %H:%M CST")  %>
+        <%= event.end.in_time_zone('Central Time (US & Canada)').strftime("%m/%d/%Y %I:%M CST")  %>
       </div>
     </div>
   </div>

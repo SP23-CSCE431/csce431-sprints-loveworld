@@ -150,9 +150,8 @@ class EventsController < ApplicationController
         return
       end
     rescue StandardError => _e
-      flash[:error] = 'Error occurred. Contact admin for details.'
-      redirect_to(event_url)
-      return
+      # we dont error out here or return, we want to delete the event on our database if we can.
+      flash[:error] = 'Potentially failed to delete google event from calendar. ----------------'
     end
 
     @event.destroy!
