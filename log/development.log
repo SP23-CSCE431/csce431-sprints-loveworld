@@ -13887,3 +13887,185 @@ Processing by EventsController#new as HTML
 Completed 200 OK in 316ms (Views: 245.9ms | ActiveRecord: 1.8ms | Allocations: 19293)
 
 
+Started GET "/" for 172.17.0.1 at 2023-04-19 14:40:01 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Pluck (12.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by DashboardsController#show as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering dashboards/show.html.erb within layouts/application
+  Rendered dashboards/show.html.erb within layouts/application (Duration: 825.0ms | Allocations: 37885)
+  Rendered layout layouts/application.html.erb (Duration: 865.2ms | Allocations: 41602)
+Completed 200 OK in 997ms (Views: 882.7ms | ActiveRecord: 0.0ms | Allocations: 45057)
+
+
+Started POST "/admins/auth/google_oauth2" for 172.17.0.1 at 2023-04-19 14:40:04 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Started GET "/admins/auth/google_oauth2/callback?state=a1b243279dca74dae1b5670db2f84369eb4d9e6a0688f3f5&code=4%2F0AVHEtk6gnVIUWciiKj2ge14J34cMrtR5PhAMU6ljKSIaU79nsx3K7CYuIRn4PWsZPpxoEw&scope=email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+openid&authuser=0&hd=tamu.edu&prompt=consent" for 172.17.0.1 at 2023-04-19 14:40:08 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Admins::OmniauthCallbacksController#google_oauth2 as HTML
+  Parameters: {"state"=>"a1b243279dca74dae1b5670db2f84369eb4d9e6a0688f3f5", "code"=>"4/0AVHEtk6gnVIUWciiKj2ge14J34cMrtR5PhAMU6ljKSIaU79nsx3K7CYuIRn4PWsZPpxoEw", "scope"=>"email https://www.googleapis.com/auth/userinfo.email openid", "authuser"=>"0", "hd"=>"tamu.edu", "prompt"=>"consent"}
+  [1m[36mAdmin Load (9.7ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."email" = $1 LIMIT $2[0m  [["email", "mnr282001@tamu.edu"], ["LIMIT", 1]]
+  ↳ app/models/admin.rb:5:in `from_google'
+Redirected to http://localhost:3000/
+Completed 302 Found in 189ms (ActiveRecord: 68.9ms | Allocations: 9202)
+
+
+Started GET "/" for 172.17.0.1 at 2023-04-19 14:40:12 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by DashboardsController#show as HTML
+  [1m[36mAdmin Load (1.8ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:4:in `show'
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mnr282001@tamu.edu"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:6:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering dashboards/show.html.erb within layouts/application
+  Rendered dashboards/show.html.erb within layouts/application (Duration: 48.6ms | Allocations: 5051)
+  Rendered layout layouts/application.html.erb (Duration: 71.4ms | Allocations: 7700)
+Completed 200 OK in 169ms (Views: 74.5ms | ActiveRecord: 21.1ms | Allocations: 14758)
+
+
+Started GET "/posts" for 172.17.0.1 at 2023-04-19 14:40:14 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#index as HTML
+  [1m[36mAdmin Load (1.6ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (2.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:11
+  Rendered posts/_post.html.erb (Duration: 10.7ms | Allocations: 1920)
+  Rendered posts/_post.html.erb (Duration: 2.5ms | Allocations: 566)
+  Rendered posts/index.html.erb within layouts/application (Duration: 281.8ms | Allocations: 8842)
+  Rendered layout layouts/application.html.erb (Duration: 320.2ms | Allocations: 14061)
+Completed 200 OK in 537ms (Views: 305.3ms | ActiveRecord: 48.4ms | Allocations: 17778)
+
+
+Started GET "/posts/new" for 172.17.0.1 at 2023-04-19 14:40:16 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#new as HTML
+  [1m[36mAdmin Load (4.0ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 25.6ms | Allocations: 2007)
+  Rendered posts/new.html.erb within layouts/application (Duration: 32.6ms | Allocations: 2303)
+  Rendered layout layouts/application.html.erb (Duration: 78.8ms | Allocations: 7640)
+Completed 200 OK in 116ms (Views: 84.4ms | ActiveRecord: 4.0ms | Allocations: 9573)
+
+
+Started GET "/posts" for 172.17.0.1 at 2023-04-19 14:41:43 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#index as HTML
+  [1m[36mAdmin Load (16.0ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (4.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:11
+  Rendered posts/_post.html.erb (Duration: 11.0ms | Allocations: 784)
+  Rendered posts/_post.html.erb (Duration: 2.7ms | Allocations: 566)
+  Rendered posts/index.html.erb within layouts/application (Duration: 53.4ms | Allocations: 3567)
+  Rendered layout layouts/application.html.erb (Duration: 108.4ms | Allocations: 9317)
+Completed 200 OK in 190ms (Views: 119.9ms | ActiveRecord: 20.1ms | Allocations: 11740)
+
+
+Started GET "/posts/new" for 172.17.0.1 at 2023-04-19 14:41:45 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#new as HTML
+  [1m[36mAdmin Load (1.9ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 11.6ms | Allocations: 1274)
+  Rendered posts/_form.html.erb (Duration: 8.8ms | Allocations: 838)
+  Rendered posts/new.html.erb within layouts/application (Duration: 76.0ms | Allocations: 6702)
+  Rendered layout layouts/application.html.erb (Duration: 110.7ms | Allocations: 9308)
+Completed 200 OK in 139ms (Views: 114.5ms | ActiveRecord: 1.9ms | Allocations: 11100)
+
+
+Started GET "/posts/new" for 172.17.0.1 at 2023-04-19 14:42:01 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#new as HTML
+  [1m[36mAdmin Load (6.0ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 14.8ms | Allocations: 1330)
+  Rendered posts/new.html.erb within layouts/application (Duration: 40.9ms | Allocations: 2661)
+  Rendered layout layouts/application.html.erb (Duration: 91.9ms | Allocations: 8476)
+Completed 200 OK in 172ms (Views: 103.4ms | ActiveRecord: 6.0ms | Allocations: 10644)
+
+
+Started GET "/posts" for 172.17.0.1 at 2023-04-19 14:42:11 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#index as HTML
+  [1m[36mAdmin Load (2.1ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (2.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:11
+  Rendered posts/_post.html.erb (Duration: 5.8ms | Allocations: 756)
+  Rendered posts/_post.html.erb (Duration: 3.2ms | Allocations: 566)
+  Rendered posts/index.html.erb within layouts/application (Duration: 38.5ms | Allocations: 3240)
+  Rendered layout layouts/application.html.erb (Duration: 100.7ms | Allocations: 8226)
+Completed 200 OK in 135ms (Views: 103.6ms | ActiveRecord: 4.1ms | Allocations: 10097)
+
+
+Started GET "/posts/7" for 172.17.0.1 at 2023-04-19 14:42:13 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mAdmin Load (1.7ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (1.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:63:in `set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (2.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 7]]
+  ↳ app/views/posts/show.html.erb:38
+  Rendered collection of comments/_comment.html.erb [3 times] (Duration: 4.5ms | Allocations: 274)
+  Rendered posts/show.html.erb within layouts/application (Duration: 195.6ms | Allocations: 14268)
+  Rendered layout layouts/application.html.erb (Duration: 235.3ms | Allocations: 19360)
+Completed 200 OK in 277ms (Views: 219.2ms | ActiveRecord: 23.0ms | Allocations: 22321)
+
+
+Started GET "/posts/7/edit" for 172.17.0.1 at 2023-04-19 14:42:15 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mAdmin Load (3.9ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (5.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:63:in `set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 10.3ms | Allocations: 958)
+  Rendered posts/edit.html.erb within layouts/application (Duration: 19.2ms | Allocations: 1231)
+  Rendered layout layouts/application.html.erb (Duration: 61.3ms | Allocations: 6432)
+Completed 200 OK in 112ms (Views: 64.9ms | ActiveRecord: 9.4ms | Allocations: 8684)
+
+
+Started GET "/posts/7/edit" for 172.17.0.1 at 2023-04-19 14:43:05 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mAdmin Load (4.5ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (3.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:63:in `set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 15.1ms | Allocations: 1444)
+  Rendered posts/_form.html.erb (Duration: 5.6ms | Allocations: 911)
+  Rendered posts/edit.html.erb within layouts/application (Duration: 52.0ms | Allocations: 3898)
+  Rendered layout layouts/application.html.erb (Duration: 111.5ms | Allocations: 9625)
+Completed 200 OK in 183ms (Views: 127.6ms | ActiveRecord: 7.6ms | Allocations: 12287)
+
+
+Started GET "/posts/7/edit" for 172.17.0.1 at 2023-04-19 14:43:15 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mAdmin Load (1.2ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."id" = $1 ORDER BY "admins"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (2.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:63:in `set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 15.3ms | Allocations: 1416)
+  Rendered posts/edit.html.erb within layouts/application (Duration: 36.7ms | Allocations: 2802)
+  Rendered layout layouts/application.html.erb (Duration: 104.6ms | Allocations: 8529)
+Completed 200 OK in 149ms (Views: 115.4ms | ActiveRecord: 3.6ms | Allocations: 11376)
+
+
